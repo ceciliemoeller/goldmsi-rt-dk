@@ -1,0 +1,27 @@
+/*
+ * CSS for Cilles jspsych experiments.
+ *
+ */
+
+body {
+    background-color:grey;
+    color: whitesmoke;
+}
+ p, div {
+     color: whitesmoke;
+ }
+
+ .instr-img {
+    display: inline-block; 
+    margin-right: 30px;
+ }
+ .jspsych-content-wrapper{
+     margin:0 auto;
+     max-width: 900px;
+ }
+ .gap-above{
+     margin-top: 40px;
+ }
+ .largegap-above{
+     margin-top:60px;
+ }
