@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple visual reaction time</title>
+    <script src="jspsych-6.1.0/jspsych.js"></script>
+    <script src="jspsych-6.1.0/plugins/jspsych-html-keyboard-response.js"></script>
+    <script src="jspsych-6.1.0/plugins/jspsych-image-keyboard-response.js"></script>
+    <link href="jspsych-6.1.0/css/jspsych.css" rel="stylesheet" type="text/css"></link>
+    <link href="css/RT_DK.css" rel="stylesheet" type="text/css"></link>
+  </head>
+  <body></body>
+  <script>
+
+    /* create timeline */
+    var timeline = [];
+
+    /* define welcome message trial */
+    var welcome = {
+      type: "html-keyboard-response",
+      stimulus: "<p>Her kommer en test af din visuelle reaktionstid. </p>" +
+      "<p>Tryk på en tast for at læse instruktionen.</p>"
+    };
+    timeline.push(welcome);
+    
+
+
+    /* define instructions trial */
+    var instructions = {
+      type: "html-keyboard-response",
+      stimulus: "<p>I den følgende opgave vil du se en hvid kasse på skærmen.</p>" +
+          "<p> Når du ser et <strong>kryds</strong> i kassen, " +
+          "skal du trykke på <strong>mellemrumstasten,</strong> så hurtigt som du kan.</p>" +
+          "<p>Du skal gøre det mange gange i træk, og det er lidt forskelligt " + 
+          "hvor lang tid der går</p>" +
+          "<p>mellem at hvert kryds vises på skærmen.</p>" +
+          "<div style='width: 900px;'>"+
+            "<div class='instr-img'>" + 
+              "<img src='img/blankbox.png'></img>" +
+              "<p class='small'><strong>Vent</strong></p>" + 
+            "</div>" +
+            "<div class='instr-img'>" + 
+              "<img src='img/cross.png'></img>" +
+              "<p class='small'><strong>Tryk</strong></p>" +
+            "</div>" +
+          "</div>" +
+          "<p>Tryk på en tast for at fortsætte.</p>",
+      post_trial_gap: 1000
+    };
+    timeline.push(instructions);
+
+    /* test trials */
+/*  var test_stimuli = 
+      { stimulus: "img/cross.png", data: {test_part: 'test', correct_response: 'space'}};
+    var fixation_stimuli = 
+      { stimulus: "img/blankbox.png", data: {test_part: 'fixation', correct_response: 'null'}};
+ */
+
+
+    /* declare variables*/
+
+    var wait = {
+    type: 'image-keyboard-response',
+    stimulus: 'img/blankbox.png', data: {test_part: 'wait', correct_response: 'null'},
+    choices: ['space'],
+    trial_duration: function(){
+        return jsPsych.randomization.sampleWithoutReplacement([1000, 1250, 1500, 1750, 2000, 2250, 2500, 2750, 3000], 1)[0];
+        },
+    response_ends_trial: false
+    }
+
+   /* var fixation = {
+      type: "image-keyboard-response",
+      stimulus: jsPsych.timelineVariable('stimulus'),
+      /*choices: jsPsych.NO_KEYS, */
+     /* choices: ['space'],
+      trial_duration: function(){
+        return jsPsych.randomization.sampleWithoutReplacement([1000, 1250, 1500, 1750, 2000, 2250, 2500, 2750, 3000], 1)[0];
+      },
+      response_ends_trial: false,
+      data: jsPsych.timelineVariable('data'),
+      on_finish: function(data){
+          data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
+      }
+    }
+    */
+    var trial = {
+    type: 'image-keyboard-response',
+    stimulus: 'img/cross.png', data: {test_part: 'trial', correct_response: 'space'},
+    choices: ['space']
+    };
+
+    /* show the trial*/
+    var test = {
+      type: "image-keyboard-response",
+      stimulus: jsPsych.timelineVariable('trial'),
+      choices: ['space'],
+      response_ends_trial: true,
+      data: {test_part: 'trial', correct_response: 'space'},
+      data: jsPsych.timelineVariable('data'),
+      on_finish: function(data){
+          data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
+      }
+    }
+    
+    
+    /* var test = {
+      type: "image-keyboard-response",
+      stimulus: jsPsych.timelineVariable('stimulus'),
+      choices: ['space'],
+      response_ends_trial: false,
+      data: jsPsych.timelineVariable('data'),
+      on_finish: function(data){
+          data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
+      }
+    } */
+
+    
+
+    var test_procedure = {
+      timeline: [wait, trial],
+      /*timeline_variables: [trial],*/
+     /* randomize_order: false,*/
+      repetitions: 3
+    }
+
+    timeline.push(test_procedure);
+
+    /* define debrief */
+
+    var debrief_block = {
+      type: "html-keyboard-response",
+      stimulus: function() {
+
+        var trials = jsPsych.data.get().filter({test_part: 'trial'});
+        var correct_trials = trials.filter({correct: true});
+        var accuracy = Math.round(correct_trials.count() / trials.count() * 100);
+        var rt = Math.round(correct_trials.select('rt').mean());
+
+        return "<p>Du svarede korrekt  "+accuracy+"% af gangene.</p>"+
+        "<p>Din gennemsnitlige reaktionstid var"+rt+"ms.</p>"+
+        "<p>Tryk på en tast for at afslutte den visuelle reaktionstidstest. Tak!</p>";
+
+      }
+    };
+    timeline.push(debrief_block);
+
+
+     /* start the experiment */
+     jsPsych.init({
+      timeline: timeline,
+      on_finish: function() {
+        jsPsych.data.displayData();
+      }
+    });
+  </script>
+  </html>

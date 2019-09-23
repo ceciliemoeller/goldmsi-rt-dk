@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <title>Visual choise reaction time</title>
+    <script src="jspsych-6.1.0/jspsych.js"></script>
+    <script src="js/utils.js"></script>    
+    <script src="jspsych-6.1.0/plugins/jspsych-html-keyboard-response.js"></script>
+    <script src="jspsych-6.1.0/plugins/jspsych-image-keyboard-response.js"></script>
+    <script src="js/welcome.js"></script>
+    <script src="js/cv_real.js"></script>
+    <script src="js/cv_training.js"></script>
+   
+    <link href="jspsych-6.1.0/css/jspsych.css" rel="stylesheet" type="text/css"></link>
+    <link href="css/RT_DK.css" rel="stylesheet" type="text/css"></link>
+  </head>
+  <body></body>
+  <script>
+
+      // an array of paths to images that need to be manually pre-loaded
+    var images = ['img/cRT_fix.png', 'img/cRT1.png', 'img/cRT2.png', 'img/cRT3.png', 'img/cRT4.png'];
+    
+
+     /* start the experiment */
+     jsPsych.init({
+      timeline: timeline,
+      preload_images: images,
+      show_preload_progress_bar: false, // hide preload progress bar
+      on_finish: function() {
+        jsPsych.data.displayData();
+      }
+    });
+  </script>
+  </html>
