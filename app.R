@@ -44,8 +44,9 @@ if (FALSE) {
 }
 
 make_test(
-  elt = list(
+  elts = list(
     elt_jspsych,
+    elt_save_results_to_disk(complete = TRUE),
     final_page("You finished the test.")
   ), 
   opt = demo_options(display = display_options(
