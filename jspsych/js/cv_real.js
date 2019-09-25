@@ -39,16 +39,18 @@ var start_real = {
         "     <img src='img/reminder.png'></img>" +
 
         "<p>Er du klar? Opgaven handler om fart!</p>" +
-        "<p class='gap-above'><strong><i>Tryk på en tast for at starte</strong></i></p>",
-    post_trial_gap: 100
+        "<p class='gap-above'><strong><i>Tryk på mellemrumstasten for at starte</strong></i></p>",
+        choices: ['space']
 };
 timeline_cv.push(start_real);
 
 var test_procedure = {
     timeline: [fixation, test],
-    timeline_variables: test_stimuli,
-    randomize_order: true,
-    repetitions: 8
+    sample: {
+        type: 'fixed-repetitions',
+        size: 3, // 3 repetitions of each trial, 12 total trials, order is randomized.
+    },
+    timeline_variables: test_stimuli    
 };
 
 timeline_cv.push(test_procedure);
@@ -92,8 +94,9 @@ var debrief_block = {
             "<p><strong> " + rt + " ms </strong></p>" +
             "<p>Du trykkede for tidligt " + too_early + " gange </p>" +
             "</div>" +
-            "<p class='gap-above'><strong><i>Tryk på en tast for at afslutte denne reaktionstids-test</strong></i></p>";
+            "<p class='gap-above'><strong><i>Tryk på mellemrumstasten for at afslutte denne reaktionstids-test</strong></i></p>";
     },
+    choices: ['space'],
     on_finish: function (data) {
         // get data
         var trials = jsPsych.data.get().filter({ test_part: 'test' });

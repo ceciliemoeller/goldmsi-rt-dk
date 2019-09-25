@@ -50,7 +50,7 @@ var test_stimuli = [
     timeline: [fixation, test, resp],
     timeline_variables: test_stimuli,
     randomize_order: true,
-    repetitions: 20
+    repetitions: 4
   }
 
   timeline_sa.push(test_procedure);

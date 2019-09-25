@@ -11,8 +11,8 @@ var instructions = {
     "<p><div style='font-size:80px;''>+</div></p>" +
     "<p class='largegap-above'</p" +
     "<p> Du får lov til at prøve det nogle gange først.</p>" +
-    "<p class='gap-above'> <strong><i>Kig på krydset i midten og tryk på en tast for at starte træningsrunden.</strong></i></p>",
-  post_trial_gap: 100
+    "<p class='gap-above'> <strong><i>Kig på krydset i midten og tryk på en mellemrumstasten for at starte træningsrunden.</strong></i></p>",
+    choices: ['space'],
 };
 timeline_sa.push(instructions);
 
@@ -55,8 +55,7 @@ var training = {
 var training_procedure = {
   timeline: [training_fixation, training, training_resp],
   timeline_variables: training_stimuli,
-  randomize_order: true,
-  repetitions: 10
+  repetitions: 3
 }
 
 timeline_sa.push(training_procedure);
@@ -100,17 +99,16 @@ var training_debrief_block = {
     // calculate reaction time
     var tr_rt = Math.round(correct_trials.select('rt').mean());
 
-    //count incorrect trials (too slow (>1000 ms) and too fast (0-150 ms))
+    //count incorrect trials (too slow (>1000 ms) and too fast (0-100 ms))
     var no_inc = incorrect_trials.count();
 
     return "<p>Din gennemsnitlige reaktionstid her i træningsrunden var </p>" +
       "<p><strong> " + tr_rt + " ms </strong></p>" +
       "<p>Du trykkede for tidligt " + too_early + " gange </p>" +
       "</div>" +
-      "<p class='gap-above'><strong><i>Tryk på en tast for at fortsætte</strong></i></p>";
+      "<p class='gap-above'><strong><i>Tryk på mellemrumstasten for at fortsætte</strong></i></p>";
   },
-    trial_duration: 5000,
-    response_ends_trial: false,
+  choices: ['space'],
 
   on_finish: function (data, too_early, too_slow) {
     // get data
@@ -135,7 +133,7 @@ var training_debrief_block = {
     var tr_accuracy = Math.round(tr_correct_trials.count() / tr_trials.count() * 100);
     var tr_falsealarm = Math.round(tr_false_alarms.count() / tr_fixations.count() * 100);
 
-    data.summary = { RT: tr_rt, ACC_pct: tr_accuracy, Too_Early: tr_too_early, Too_Slow: tr_too_slow };
+    data.summary = { RT: tr_rt, ACC_pct: tr_accuracy, Too_Early: tr_too_early, Too_Slow: tr_too_slow, Too_fast: tr_too_fast };
   }
 };
 timeline_sa.push(training_debrief_block);

@@ -4,8 +4,8 @@ var instructions_1 = {
     type: "html-keyboard-response",
     stimulus: "<p><div style='font-size:25px;''><strong>Visuel kompleks reaktionstids-test </strong></div></p>" +
         "<p>I den følgende opgave skal du bruge fire fingre. </p>" +
-        "<p> <img src='img/choicetask.png'></img>"
-    // post_trial_gap: 100
+        "<p> <img src='img/choicetask.png'></img>",
+        choices: ['space']
 };
 
 
@@ -23,8 +23,8 @@ var instructions_2 = {
         "<img src='img/reminder.png'></img>" +
         "</div>" +
         "<p> Du får lov til at prøve det nogle gange først.</p>" +
-        "<p class='gap-above'> <strong><i>Tryk på en tast for at starte træningsrunden.</strong></i></p>",
-    // post_trial_gap: 100
+        "<p class='gap-above'> <strong><i>Tryk på mellemrumstasten for at starte træningsrunden.</strong></i></p>",
+        choices: ['space']
 };
 timeline_cv.push(instructions_1);
 timeline_cv.push(instructions_2);
@@ -62,10 +62,11 @@ var training = {
 
 var training_procedure = {
     timeline: [training_fixation, training],
-    timeline_variables: training_stimuli,
-    randomize_order: true,
-    repetitions: 4
-
+    sample: {
+        type: 'fixed-repetitions',
+        size: 3, // 3 repetitions of each trial, 12 total trials, order is randomized.
+    },
+    timeline_variables: training_stimuli
 }
 
 timeline_cv.push(training_procedure);

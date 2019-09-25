@@ -17,7 +17,8 @@ var timeline_sv = [];
             "<p class='small'><strong>Tryk!</strong></p>" +
           "</div>" +
                  "<p> Du får lov til at prøve det nogle gange først.</p>"+
-        "<p class='gap-above'> <strong><i>Tryk på en tast for at starte træningsrunden.</strong></i></p>",
+        "<p class='gap-above'> <strong><i>Tryk på mellemrumstasten for at starte træningsrunden.</strong></i></p>",
+    choices: ['space'],
     post_trial_gap: 100
   };
   
@@ -56,8 +57,7 @@ var timeline_sv = [];
   var test_procedure = {
     timeline: [fixation, test],
     timeline_variables: test_stimuli,
-    randomize_order: true,
-    repetitions: 10
+    repetitions: 3
   };
 
   timeline_sv.push(test_procedure);
@@ -102,10 +102,9 @@ var timeline_sv = [];
       "<p><strong> "+rt+" ms </strong></p>"+
       "<p>Du trykkede for tidligt "+too_early+" gange </p>" + 
       "</div>" + 
-      "<p class='gap-above'><strong><i>Tryk på en tast for at fortsætte</strong></i></p>";
+      "<p class='gap-above'><strong><i>Tryk på mellemrumstasten for at fortsætte</strong></i></p>";
     },
-    
-    choices: ['space'],
+      choices: ['space'],
 
     on_finish: function(data){
       // get data
