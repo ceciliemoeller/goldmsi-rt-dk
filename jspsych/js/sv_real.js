@@ -32,13 +32,13 @@ var test = {
 
 var start_real = {
   type: "html-keyboard-response",
-  stimulus: "<p> Nu kommer den <strong>rigtige test af din reaktionstid</strong>.</p> " +
-    "<p> Når du ser krydset, skal du trykke så hurtigt som du kan. </p>" +
+  stimulus: "<p><strong>Nu kommer den rigtige test af din reaktionstid</strong>.</p> " +
+    "<p>Når du ser krydset, skal du trykke så hurtigt som du kan. </p>" +
     "<div class='instr-img'>" +
-    "     <img src='img/cross.png'></img>" +
-
-    "<p>Er du klar? Opgaven handler om fart!</p>" +
-    "<p class='gap-above'><strong><i>Tryk på mellemrumstasten for at starte</strong></i></p>",
+    "<div class='largegap-above'>" +
+    "<img src='img/cross.png'></img>" +
+    "<p class='largegap-above'>Er du klar? Opgaven handler om fart!</p>" +
+    "<p class='smallgap-above'><strong><i>Tryk på mellemrumstasten for at starte</strong></i></p>",
     choices: ['space'],
     post_trial_gap: 100
 };
@@ -47,7 +47,7 @@ timeline_sv.push(start_real);
 var test_procedure = {
   timeline: [fixation, test],
   timeline_variables: test_stimuli,
-  repetitions: 4
+  repetitions: 2
 };
 
 timeline_sv.push(test_procedure);

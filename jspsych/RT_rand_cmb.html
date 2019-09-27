@@ -23,8 +23,9 @@
   <script>
 
 
-// https://www.jspsych.org/tutorials/rt-task/#part-1-creating-a-blank-experiment
-/* define sub experiments. Her skal jeg hente koden ind fra de 3 filer*/
+// Create an array of the sub-experiments simple auditory, simple visual and choice RT 
+// and randomize presentation order
+
 var sub_experiments = [timeline_sv, timeline_cv, timeline_sa];
 
 var shuffledArray = jsPsych.randomization.repeat(sub_experiments, 1);

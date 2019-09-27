@@ -47,7 +47,7 @@ make_test(
   elts = list(
     elt_jspsych,
     elt_save_results_to_disk(complete = TRUE),
-    final_page("You finished the test.")
+    final_page("Du har nu klaret de tre reaktionstidstests!\\Your final scores are plotted below, with reference to the general population")
   ), 
   opt = demo_options(display = display_options(
     full_screen = TRUE,

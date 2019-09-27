@@ -2,9 +2,12 @@ var timeline_cv = [];
 /* define instructions trial */
 var instructions_1 = {
     type: "html-keyboard-response",
-    stimulus: "<p><div style='font-size:25px;''><strong>Visuel kompleks reaktionstids-test </strong></div></p>" +
-        "<p>I den følgende opgave skal du bruge fire fingre. </p>" +
-        "<p> <img src='img/choicetask.png'></img>",
+    stimulus: "<p><div style='font-size:25px;'><strong>Visuel kompleks reaktionstids-test </strong></div></p>" +
+        "<p class='gap-above'>I den følgende opgave skal du bruge fire fingre. </p>" +
+        "<p>Placer dem nu som vist på billedet her. </p>" +
+            "<p> <img src='img/choicetask.png'></img>" +
+        "<p class='gap-above'> <strong><i>Tryk på mellemrumstasten for at læse instruktionen</strong></i></p>",
+    
         choices: ['space']
 };
 
@@ -12,18 +15,20 @@ var instructions_1 = {
 var instructions_2 = {
     type: "html-keyboard-response",
     stimulus: "<p>Du vil se fire hvide kasser på skærmen.</p>" +
-        "<div style='width: 900px;'>" +
+        // "<div style='width: 900px;'>" +
         "<div class='instr-img'>" +
         "<img src='img/cRT_fix.png'></img>" +
-        "<p class='small'><strong>Vent!</strong></p>" +
+        
+        "<p class='smallgap-above'class='small'><strong>Vent!</strong></p>" +
         "</div>" +
-        "<p> Hver gang du ser et kryds i én af kasserne, " +
-        "skal du trykke på den tilhørende tastatur-tast (som forklaret nedenfor) så hurtigt som du kan.</p>" +
+        "<p class='gap-above'>Hver gang du ser et kryds i én af kasserne, " +
+        "skal du trykke på den </p>" +
+        "<p>tilhørende tastatur-tast så hurtigt som du kan:</p>" +
         "<div class='instr-img'>" +
         "<img src='img/reminder.png'></img>" +
         "</div>" +
-        "<p> Du får lov til at prøve det nogle gange først.</p>" +
-        "<p class='gap-above'> <strong><i>Tryk på mellemrumstasten for at starte træningsrunden.</strong></i></p>",
+        "<p class='gap-above'> Du får lov til at prøve det nogle gange først.</p>" +
+        "<p class='smallgap-above'> <strong><i>Tryk på mellemrumstasten for at starte træningsrunden.</strong></i></p>",
         choices: ['space']
 };
 timeline_cv.push(instructions_1);
@@ -64,7 +69,7 @@ var training_procedure = {
     timeline: [training_fixation, training],
     sample: {
         type: 'fixed-repetitions',
-        size: 3, // 3 repetitions of each trial, 12 total trials, order is randomized.
+        size: 2, // 2 repetitions of each trial, 8 total trials, order is randomized.
     },
     timeline_variables: training_stimuli
 }
@@ -120,8 +125,7 @@ var training_debrief_block = {
             "</div>" +
             "<p class='gap-above'><strong><i>Tryk på en tast for at fortsætte</strong></i></p>";
     },
-    trial_duration: 5000,
-    response_ends_trial: false,
+    choices: ['space'],
 
     on_finish: function (data, too_early, too_slow) {
         // get data

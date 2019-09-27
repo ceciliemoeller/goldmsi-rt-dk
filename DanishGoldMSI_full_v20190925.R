@@ -11,7 +11,7 @@
 library(psychTestR)
 library(tidyverse)
 library(shiny)
-setwd("C:/Users/nch/Desktop/pmcharrison-psychTestR-bcc0e86")    # Specify where to save output files
+setwd("C:/Users/au213911/Documents/jsPsych")  # Specify where to save output files
 config <- test_options(title="Dansk Gold-MSI",
              admin_password="g0ldms1",
              researcher_email="Ni3lsChrHansen@gmail.com",
