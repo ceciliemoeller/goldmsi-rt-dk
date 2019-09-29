@@ -35,13 +35,14 @@ var test_stimuli = [
 
   var start_real = {
     type: "html-keyboard-response",
-    stimulus: "<p> Nu kommer den <strong>rigtige test af din auditive reaktionstid</strong>.</p> " +
+    stimulus: "<p><strong>Nu kommer den rigtige test af din auditive reaktionstid</strong>.</p> " +
           "<p> Når du hører lyden, skal du trykke så hurtigt som du kan. </p>" +
           "<p class='largegap-above'</p" +
           "<p><div style='font-size:80px;''>+</div></p>" +
           "<p class='largegap-above'</p" +
         "<p>Er du klar? Opgaven handler om fart!</p>" + 
-        "<p class='gap-above'><strong><i>Tryk på en tast for at starte</strong></i></p>",
+        "<p class='gap-above'><strong><i>Tryk på mellemrumstasten for at starte</strong></i></p>",
+    choices: ['space'],
     post_trial_gap: 100
   };
   timeline_sa.push(start_real);
@@ -50,7 +51,7 @@ var test_stimuli = [
     timeline: [fixation, test, resp],
     timeline_variables: test_stimuli,
     randomize_order: true,
-    repetitions: 4
+    repetitions: 2
   }
 
   timeline_sa.push(test_procedure);
@@ -101,8 +102,10 @@ var test_stimuli = [
              "<p><strong> "+rt+" ms </strong></p>"+
              "<p>Du trykkede for tidligt "+too_early+" gange </p>" + 
              "</div>" + 
-             "<p class='gap-above'><strong><i>Tryk på en tast for at afslutte den auditive reaktionstids-test</strong></i></p>";
+             "<p class='gap-above'><strong><i>Tryk på mellemrumstasten for at afslutte den auditive reaktionstids-test</strong></i></p>";
     },
+    choices: ['space'],
+
     on_finish: function(data, too_early, too_slow){
       // get data
       var trials = jsPsych.data.get().filter({test_part: 'test'});

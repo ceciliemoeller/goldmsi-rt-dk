@@ -11,7 +11,7 @@ var instructions = {
     "<p><div style='font-size:80px;''>+</div></p>" +
     "<p class='largegap-above'</p" +
     "<p> Du får lov til at prøve det nogle gange først.</p>" +
-    "<p class='gap-above'> <strong><i>Kig på krydset i midten og tryk på en mellemrumstasten for at starte træningsrunden.</strong></i></p>",
+    "<p class='gap-above'> <strong><i>Kig på krydset i midten og tryk på mellemrumstasten for at starte træningsrunden.</strong></i></p>",
     choices: ['space'],
 };
 timeline_sa.push(instructions);
@@ -55,7 +55,7 @@ var training = {
 var training_procedure = {
   timeline: [training_fixation, training, training_resp],
   timeline_variables: training_stimuli,
-  repetitions: 3
+  repetitions: 2
 }
 
 timeline_sa.push(training_procedure);
@@ -108,7 +108,7 @@ var training_debrief_block = {
       "</div>" +
       "<p class='gap-above'><strong><i>Tryk på mellemrumstasten for at fortsætte</strong></i></p>";
   },
-  choices: ['space'],
+     choices: ['space'],
 
   on_finish: function (data, too_early, too_slow) {
     // get data

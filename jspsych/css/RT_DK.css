@@ -19,6 +19,9 @@ body {
      margin:0 auto;
      max-width: 900px;
  }
+ .smallgap-above{
+    margin-top: 20px;
+}
  .gap-above{
      margin-top: 40px;
  }

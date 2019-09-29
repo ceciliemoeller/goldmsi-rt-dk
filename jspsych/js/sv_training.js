@@ -4,14 +4,14 @@ var timeline_sv = [];
  var instructions = {
     type: "html-keyboard-response",
     stimulus: "<p><div style='font-size:25px;''><strong>Visuel simpel reaktionstid </strong></div></p>" +
-    "<pclass='gap-above'>I den følgende opgave vil du se en hvid kasse på skærmen.</p>" +          
-        "<div style='width: 900px;'>"+
+    "<pclass='largegap-above'>I den følgende opgave vil du se en hvid kasse på skærmen.</p>" +          
+        // "<div style='width: 900px;'>"+
           "<div class='instr-img'>" + 
             "<img src='img/blankbox.png'></img>" +
             "<p class='small'><strong>Vent!</strong></p>" + 
           "</div>" +
-          "<p> Hver gang du ser et <strong>kryds</strong> i kassen, " +
-          "skal du trykke på <strong>mellemrumstasten,</strong> så hurtigt som du kan.</p>" +
+          "<p class='gap-above'>Hver gang du ser et <strong>kryds</strong> i kassen,</p>" +
+          "<p>skal du trykke på <strong>mellemrumstasten,</strong> så hurtigt som du kan.</p>" +
           "<div class='instr-img'>" + 
             "<img src='img/cross.png'></img>" +
             "<p class='small'><strong>Tryk!</strong></p>" +
@@ -57,7 +57,7 @@ var timeline_sv = [];
   var test_procedure = {
     timeline: [fixation, test],
     timeline_variables: test_stimuli,
-    repetitions: 3
+    repetitions: 2
   };
 
   timeline_sv.push(test_procedure);
