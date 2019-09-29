@@ -126,7 +126,7 @@ demographics <- c(
     save_answer = T,
     button_text = "Næste",
     validate = function(answer, ...) {
-       if (!check.numeric(answer,only.integer=T))
+       if (answer==""|!check.numeric(answer,only.integer=T))
          "Skriv venligst din alder i tal (uden komma og ord som 'år' eller 'måneder')."
        else TRUE
      },
@@ -151,7 +151,7 @@ demographics <- c(
     button_text = "Næste",
     validate = function(answer, ...) {
       if (answer=="")
-        "Skriv venligst din nationalitet.)."
+        "Skriv venligst din nationalitet."
       else TRUE
     },
     on_complete = function(answer, state, ...) {
@@ -166,7 +166,7 @@ demographics <- c(
     button_text = "Næste",
     validate = function(answer, ...) {
       if (answer=="")
-        "Skriv venligst, hvor du bor.)."
+        "Skriv venligst, hvor du bor."
       else TRUE
     },
     on_complete = function(answer, state, ...) {
@@ -181,7 +181,7 @@ demographics <- c(
     button_text = "Næste",
     validate = function(answer, ...) {
       if (answer=="")
-        "Besvar venligst spørgsmålet.)."
+        "Besvar venligst spørgsmålet."
       else TRUE
     },
     on_complete = function(answer, state, ...) {
@@ -216,9 +216,6 @@ demographics <- c(
                 "Mellemlang videregående uddannelse (3-4 år)",
                 "Lang videregående uddannelse (min. 5 år)",
                 "Stadig under uddannelse"),
-    #validate = function(answer, state, ...) {
-    #  if (answer!="Stadig under uddannelse") skip_n_pages(state,1)
-    #},
     on_complete = function(answer, state, ...) {
       set_global(key = "education_completed", value = answer, state = state)
       if (answer!="Stadig under uddannelse") skip_n_pages(state,1)
@@ -297,6 +294,11 @@ show_items <- c(
 instrument <- text_input_page(
   label = "instrument", 
   prompt = "Det instrument (inklusive sangstemmen) som jeg er bedst til at spille på er:", 
+  validate = function(answer, ...) {
+    if (answer=="")
+      "Besvar venligst spørgsmålet."
+    else TRUE
+  },
   on_complete = function(answer, state, ...) {
     set_global(key = "instrument", value = answer, state = state)
     
@@ -313,8 +315,8 @@ instrument <- text_input_page(
 # EMAIL
 email <- text_input_page(
   label = "email",
-  prompt = div(p("Hvis vi må kontakte dig med henblik på evt. deltagelse i fremtidig forskning, har vi brug for din emailadresse. Ved deltager du også i lodtrækningen om et gavekort på kr. 500"),
-               p("Hvad er din e-mail-adresse?")),
+  prompt = div(p("Hvis vi må kontakte dig med henblik på evt. deltagelse i fremtidig forskning, har vi brug for din emailadresse. Hermed deltager du også i lodtrækningen om et gavekort på kr. 500"),
+               p("(Frivilligt:) Hvad er din e-mail-adresse?")),
   save_answer = T,
   button_text = "Næste",
   # validate = function(answer, ...) {
