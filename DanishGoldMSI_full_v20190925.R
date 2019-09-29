@@ -77,29 +77,45 @@ keys <- vector(mode="character")
 for (k in 1:length(qText)) keys <- c(keys,paste0("GMSI_Q",k))
 
 # Randomize stimuli inidvidually for each participant
-qs <- sample(c(1:length(qText)),length(qText))      # This should be done in the participant session below and not in the server session
+#qs <- sample(c(1:length(qText)),length(qText))      # This should be done in the participant session below and not in the server session
 
 
 #####################
 # DEFINE EXPERIMENT #
 #####################
 
+# Randomiser of question order
+randomiser <- code_block(function(state, ...) {
+  item_order <- sample(x=1:length(qText), size = length(qText), replace = F)
+  save_result(place = state, label = "item_order", value = item_order)
+  set_global(key = "item_order", value = item_order, state = state)
+})
+
+
+# Function for generating GMSI item
+item <- function(id, prompt) {
+  NAFC_page(
+    label = paste0("GMSI_Q",id),
+    prompt = qText[id],                    # prompt = qText[qs[1]],
+    choices = qResp[id],                   # choices = qResp[[qs[1]]],  
+    on_complete = function(state, ...) {
+      set_local("item_pos", 
+                1L + get_local("item_pos", state),
+                state)
+    })
+}
+
+
 #####################
 # INTRO QUESTIONS   #
 #####################
 
+
+
 experiment <- list(
   
   # Intro page
-  one_button_page(
-    body="Velkommen til vores test!",
-    on_complete=function(state, ...) {
-      set_global(key = "order", value = qs, state = state)
-    }),
-  
-  ## WORKS, BUT THEN qs CANNOT BE RETRIEVED BELOW (state is missing!?):
-  ## Randomize stimuli separately for each participant 
-  #code_block(function(state, ...) { set_global(key = "qs", value = sample(c(1:length(qText)),length(qText)), state = state) }),
+  one_button_page(body = "Velkommen til vores test!"),
   
   # Begin module
   begin_module("demographics"),
