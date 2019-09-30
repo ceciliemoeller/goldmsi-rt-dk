@@ -43,8 +43,8 @@ qText <- c("Jeg bruger meget af min fritid på musik-relaterede aktiviteter.",
            "Jeg har svært ved at genkende en sang, når den spilles på en anden måde eller af en anden kunstner end den jeg kender.",
            "Jeg har aldrig fået ros for mine talenter som udøvende musiker.",
            "Jeg læser ofte om eller søger på internettet efter ting, der handler om musik.",
-           "Jeg udvælger meget ofte bestemt musik for at motivere eller stimulere mig.",
-           "Jeg er ikke i stand til at synge en over- eller under-stemme når nogen synger en velkendt melodi.",
+           "Jeg udvælger ofte en bestemt type musik, når jeg skal motiveres eller stimuleres til noget.",
+           "Jeg er ikke i stand til at synge en over- eller understemme når nogen synger en velkendt melodi.",
            "Jeg kan høre, når folk synger eller spiller ude af takt.",
            "Jeg er i stand til at identificere, hvad der er særligt ved et bestemt stykke musik.",
            "Jeg er helt fint i stand til at tale om de følelser et musikstykke vækker i mig.",
@@ -118,18 +118,33 @@ consent <- one_button_page(body = div(h3("SAMTYKKEERKLÆRING"),
 # DEMOGRAPHICS
 demographics <- c(
   
-  # AGE
+  # ZIP CODE
   text_input_page(
-    label = "age",
-    prompt = div(p("Først vil vi lige bede om lidt baggrundsinfo:"),
+    label = "zip_code",
+    prompt = div(p("Først vil vi lige bede om lidt baggrundsinfo. Vi bruger denne information til at sikre, at vi modtager besvarelser fra et bredt udsnit af den danske befolkning."),
                  p("Hvad er din alder (i år)?")),
     save_answer = T,
     button_text = "Næste",
     validate = function(answer, ...) {
-       if (answer==""|!check.numeric(answer,only.integer=T))
-         "Skriv venligst din alder i tal (uden komma og ord som 'år' eller 'måneder')."
+       if (answer==""|!check.numeric(answer,only.integer=T)|nchar(answer)!=4)
+         "Skriv venligst din 4-cifrede postkode i hele tal uden andre tegn."
        else TRUE
      },
+    on_complete = function(answer, state, ...) {
+      set_global(key = "zip_code", value = answer, state = state)
+    }),
+  
+  # AGE
+  text_input_page(
+    label = "age",
+    prompt = "Hvad er din alder (i år)?",
+    save_answer = T,
+    button_text = "Næste",
+    validate = function(answer, ...) {
+      if (answer==""|!check.numeric(answer,only.integer=T))
+        "Skriv venligst din alder i et helt tal uden ord som 'år', 'måneder', kommaer eller andre specialtegn."
+      else TRUE
+    },
     on_complete = function(answer, state, ...) {
       set_global(key = "age", value = answer, state = state)
     }),
@@ -245,6 +260,21 @@ demographics <- c(
                 "Klassisk"),
     on_complete = function(answer, state, ...) {
       set_global(key = "genre", value = answer, state = state)
+    }),
+  
+    #GAMING HABITS
+  text_input_page(
+    label = "gaming",
+    prompt = "Hvor mange timer om måneden bruger du typisk på at spille action-spil på computer? Medregn kun spil, som kræver, at du er reagerer hurtigt. Angiv et helt tal her:",
+    save_answer = T,
+    button_text = "Næste",
+    validate = function(answer, ...) {
+      if (answer==""|!check.numeric(answer,only.integer=T))
+        "Skriv venligst et helt tal for, hvor mange timer du spiller action-spil om måneden - uden ord som 'timer', 'minutter', kommaer eller andre specialtegn."
+      else TRUE
+    },
+    on_complete = function(answer, state, ...) {
+      set_global(key = "gaming", value = answer, state = state)
     })
 )
 
@@ -313,10 +343,9 @@ instrument <- text_input_page(
   })
 
 # EMAIL
-email <- text_input_page(
-  label = "email",
-  prompt = div(p("Hvis vi må kontakte dig med henblik på evt. deltagelse i fremtidig forskning, har vi brug for din emailadresse. Hermed deltager du også i lodtrækningen om et gavekort på kr. 500"),
-               p("(Frivilligt:) Hvad er din e-mail-adresse?")),
+email <- c(text_input_page(
+  label = "email_futureres",
+  prompt = "(Frivilligt:) Indtast din e-mail-adresse her, hvis vi må kontakte dig med henblik på evt. deltagelse i fremtidig forskning:",
   save_answer = T,
   button_text = "Næste",
   # validate = function(answer, ...) {
@@ -325,8 +354,23 @@ email <- text_input_page(
   #   else TRUE
   # },
   on_complete = function(answer, state, ...) {
-    set_global(key = "email", value = answer, state = state)
-  })
+    set_global(key = "email_futureres", value = answer, state = state)
+  }),
+  
+  text_input_page(
+    label = "email_prize",
+    prompt = "(Frivilligt:) Indtast din e-mail-adresse her, hvis du vil deltage i lodtrækningen om et gavekort på kr. 500,-:",
+    save_answer = T,
+    button_text = "Næste",
+    # validate = function(answer, ...) {
+    #   if (!grepl(".*@.*\\.",answer))
+    #     "Skriv venligst en gyldig e-mail-adresse."
+    #   else TRUE
+    # },
+    on_complete = function(answer, state, ...) {
+      set_global(key = "email_prize", value = answer, state = state)
+    }))
+  
 
 # SAVE GMSI DATA
 save_GMSI <- code_block(function(state, ...) {
