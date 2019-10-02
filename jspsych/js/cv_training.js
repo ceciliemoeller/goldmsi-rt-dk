@@ -5,10 +5,11 @@ var instructions_1 = {
     stimulus: "<p><div style='font-size:25px;'><strong>Visuel kompleks reaktionstids-test </strong></div></p>" +
         "<p class='gap-above'>I den følgende opgave skal du bruge fire fingre. </p>" +
         "<p>Placer dem nu som vist på billedet her. </p>" +
-            "<p> <img src='img/choicetask.png'></img>" +
+        "<p> <img src='img/choicetask.png'></img>" +
         "<p class='gap-above'> <strong><i>Tryk på mellemrumstasten for at læse instruktionen</strong></i></p>",
-    
-        choices: ['space']
+
+    choices: ['space'],
+    data: { cond: 'vis_ch', test_part: 'instructions' },
 };
 
 
@@ -18,7 +19,7 @@ var instructions_2 = {
         // "<div style='width: 900px;'>" +
         "<div class='instr-img'>" +
         "<img src='img/cRT_fix.png'></img>" +
-        
+
         "<p class='smallgap-above'class='small'><strong>Vent!</strong></p>" +
         "</div>" +
         "<p class='gap-above'>Hver gang du ser et kryds i én af kasserne, " +
@@ -29,17 +30,18 @@ var instructions_2 = {
         "</div>" +
         "<p class='gap-above'> Du får lov til at prøve det nogle gange først.</p>" +
         "<p class='smallgap-above'> <strong><i>Tryk på mellemrumstasten for at starte træningsrunden.</strong></i></p>",
-        choices: ['space']
+    choices: ['space'],
+    data: { cond: 'vis_ch', test_part: 'instructions' },
 };
 timeline_cv.push(instructions_1);
 timeline_cv.push(instructions_2);
 
 /* training trials */
 var training_stimuli = [
-    { stimulus: "img/cRT1.png", data: { test_part: 'test', correct_response: 'z' } },
-    { stimulus: "img/cRT2.png", data: { test_part: 'test', correct_response: 'x' } },
-    { stimulus: "img/cRT3.png", data: { test_part: 'test', correct_response: ',' } },
-    { stimulus: "img/cRT4.png", data: { test_part: 'test', correct_response: '.' } }
+    { stimulus: "img/cRT1.png", data: { cond: 'vis_ch', test_part: 'training_test', correct_response: 'z' } },
+    { stimulus: "img/cRT2.png", data: { cond: 'vis_ch', test_part: 'training_test', correct_response: 'x' } },
+    { stimulus: "img/cRT3.png", data: { cond: 'vis_ch', test_part: 'training_test', correct_response: ',' } },
+    { stimulus: "img/cRT4.png", data: { cond: 'vis_ch', test_part: 'training_test', correct_response: '.' } }
 ];
 
 var training_fixation = {
@@ -49,12 +51,15 @@ var training_fixation = {
     trial_duration: function () {
         return jsPsych.randomization.sampleWithoutReplacement([1000, 1250, 1500, 1750, 2000, 2250, 2500], 1)[0];
     },
-    data: { test_part: 'training_fixation', correct_response: 'null' },
+    data: { cond: 'vis_ch', test_part: 'training_fixation', correct_response: 'null' },
+    on_finish: function (data) {
+        data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
+    },
     response_ends_trial: false
 };
 
 
-var training = {
+var training_test = {
     type: "image-keyboard-response",
     stimulus: jsPsych.timelineVariable('stimulus'),
     choices: ['z', 'x', ',', '.'],
@@ -64,9 +69,23 @@ var training = {
         data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response) && data.rt > 100
     }
 };
+// // Fix i morgen:
+// https://www.jspsych.org/overview/trial/#dynamic-parameters:
+// var feedback = {
+//     type: 'html-keyboard-response',
+//     stimulus: function(){
+//       var last_trial_correct = jsPsych.data.get().last(1).values()[0].correct;
+//       if(last_trial_correct){
+//         return "<p>Correct!</p>";
+//       } else {
+//         return "<p>Wrong.</p>"
+//       }
+//     }
+//   }
+// ... og add feedback var to timeine below
 
 var training_procedure = {
-    timeline: [training_fixation, training],
+    timeline: [training_fixation, training_test],
     sample: {
         type: 'fixed-repetitions',
         size: 2, // 2 repetitions of each trial, 8 total trials, order is randomized.
@@ -82,75 +101,70 @@ var training_debrief_block = {
     type: "html-keyboard-response",
     stimulus: function () {
 
-        var tr_trials = jsPsych.data.get().filter({ test_part: 'training_test' });
-        var tr_fixations = jsPsych.data.get().filter({ test_part: 'training_fixation' });
+        var trials = jsPsych.data.get().filter({ test_part: 'training_test' });
+        var fixations = jsPsych.data.get().filter({ test_part: 'training_fixation' });
 
-        var correct_trials = tr_trials.filter({ correct: true });
-        var incorrect_trials = tr_trials.filter({ correct: false })
-        var false_alarms = tr_fixations.filter({ key_press: 32 });
+        var correct_trials = trials.filter({ correct: true });
 
-
-        // count the number of trials with a response time smaller than 100 ms (considered false anticipatory responses).
-        var too_fast = jsPsych.data.get().filterCustom(
-            function (tr_trials) {
-                return (tr_trials.test_part == "training_test") && (tr_trials.key_press === 32) && (tr_trials.rt < 100);
+        // exclude trials with response time smaller than 100 ms (considered false anticipatory responses)
+        var correct_real = jsPsych.data.get().filterCustom(
+            function (trial) {
+                return (trial.test_part == "training_test") && (trial.correct == true) && (trial.rt > 100);
             }
-        ).count()
+        )
 
-        // count the number of trials denoted "incorrect" because of response times larger than duration of trial (currently 1000ms).
+        // calculate reaction time (to correct trials excluding anticipatory responses (<100 ms))
+        var rt_real = Math.round(correct_real.select('rt').mean());
 
-        var too_slow = jsPsych.data.get().filterCustom(
-            function (incorrect_trials) {
-                return (incorrect_trials.test_part == "training_test") && (incorrect_trials.rt === null);
-            }
-        ).count()
+        var incorrect_trials = trials.filter({ correct: false })
+        var false_alarms = fixations.filter({ key_press: 32 });
 
-        var too_early = Math.round(too_fast + false_alarms.count());
-
+        // calculate proportion of false alarms (responses to fixations only, i.e. excl. 0-100ms test-responses)
+        var falsealarm_pct = Math.round(false_alarms.count() / fixations.count() * 100);
         // calculate accuracy (% correct responses)
-        var tr_accuracy = Math.round(correct_trials.count() / tr_trials.count() * 100);
+        var accuracy = Math.round(correct_real.count() / trials.count() * 100);
 
-        // calculate proportion of false alarms (responses to fixations)
-        var tr_falsealarm = Math.round(false_alarms.count() / tr_fixations.count() * 100);
 
-        // calculate reaction time
-        var tr_rt = Math.round(correct_trials.select('rt').mean());
+        return "<p>Du svarede rigtigt " + accuracy + " % af gangene </p>" +
+            "<p>og din gennemsnitlige reaktionstid her i træningsrunden var </p>" +
+            "<p><strong> " + rt_real + "ms </strong></p>" +
 
-        //count incorrect trials (too slow (>1000 ms) and too fast (0-150 ms))
-        var no_inc = incorrect_trials.count();
-
-        return "<p>Din gennemsnitlige reaktionstid her i træningsrunden var </p>" +
-            "<p><strong> " + tr_rt + " ms </strong></p>" +
-            "<p>Du trykkede for tidligt " + too_early + " gange </p>" +
+            "<p>Du trykkede for tidligt " + falsealarm_pct + " % af gangene </p>" +
             "</div>" +
-            "<p class='gap-above'><strong><i>Tryk på en tast for at fortsætte</strong></i></p>";
+            "<p class='gap-above'><strong><i>Tryk på mellemrumstasten for at fortsætte</strong></i></p>";
     },
     choices: ['space'],
+    data: { cond: 'vis_ch', test_part: 'feedback_training' },
 
-    on_finish: function (data, too_early, too_slow) {
+    on_finish: function (data) {
         // get data
-        var tr_trials = jsPsych.data.get().filter({ test_part: 'training_test' });
-        var tr_fixations = jsPsych.data.get().filter({ test_part: 'training_fixation' });
-
-
-        var tr_correct_trials = tr_trials.filter({ correct: true });
-        var tr_false_alarms = tr_fixations.filter({ key_press: 32 });
-        var tr_too_fast = jsPsych.data.get().filterCustom(
-            function (tr_trials) {
-                return (tr_trials.test_part == "training_test") && (tr_trials.key_press === 32) && (tr_trials.rt < 100);
+        var trials = jsPsych.data.get().filter({ test_part: 'training_test' });
+        var fixations = jsPsych.data.get().filter({ test_part: 'training_fixation' });
+        var false_alarms = fixations.filter({ correct: false });
+        // exclude trials with response time smaller than 100 ms (considered false anticipatory responses)
+        var correct_real = jsPsych.data.get().filterCustom(
+            function (trial) {
+                return (trial.test_part == "training_test") && (trial.correct == true) && (trial.rt > 100);
             }
-        ).count()
-        var tr_too_slow = jsPsych.data.get().filterCustom(
-            function (incorrect_trials) {
-                return (incorrect_trials.test_part == "training_test") && (incorrect_trials.rt === null);
-            }
-        ).count()
-        var tr_rt = Math.round(tr_correct_trials.select('rt').mean());
-        var tr_too_early = Math.round(tr_too_fast + tr_false_alarms.count());
-        var tr_accuracy = Math.round(tr_correct_trials.count() / tr_trials.count() * 100);
-        var tr_falsealarm = Math.round(tr_false_alarms.count() / tr_fixations.count() * 100);
+        )
+        var mistakes = trials.filter({ correct: false });
 
-        data.summary = { RT: tr_rt, ACC_pct: tr_accuracy, Too_Early: tr_too_early, Too_Slow: tr_too_slow };
+        // select trials with a response time smaller than 100 ms (considered false anticipatory responses).
+        var too_fast = jsPsych.data.get().filterCustom(
+            function (trial) {
+                return (trial.test_part == "training_test") && (trial.key_press === 32) && (trial.rt < 100);
+            }
+        )
+
+        // calculate summary values to display in data
+        var rt_real = Math.round(correct_real.select('rt').mean());
+        var toofast = Math.round(too_fast.count() / trials.count() * 100);
+        var falsealarm = Math.round(false_alarms.count() / fixations.count() * 100);
+        var count_mistakes = mistakes.count();
+        var accuracy = Math.round(correct_real.count() / trials.count() * 100);
+
+        data.summary = { rt_real: rt_real, ant_resp_pct: toofast, fa_pct: falsealarm, mistakes: count_mistakes, ACC: accuracy };
     }
 };
+
 timeline_cv.push(training_debrief_block);

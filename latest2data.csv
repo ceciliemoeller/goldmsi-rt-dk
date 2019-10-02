@@ -1,0 +1,41 @@
+"","rt","stimulus","key_press","cond","test_part","trial_type","trial_index","time_elapsed","internal_node_id","correct_response","correct","summary.RT","summary.ACC_pct","summary.Too_Early","summary.Too_Slow","summary.Too_fast"
+"1", 667.3,"<p><div style='font-size:25px;''><strong>Auditiv reaktionstid </strong></div></p><p class='gap-above'</p<p>I den følgende opgave skal du lytte godt efter.</p><p>  Hver gang du hører en <strong>bip-lyd</strong>, skal du trykke på <strong>mellemrumstasten,</strong> så hurtigt som du kan.</p><p class='largegap-above'</p<p><div style='font-size:80px;''>+</div></p><p class='largegap-above'</p<p> Du får lov til at prøve det nogle gange først.</p><p class='gap-above'> <strong><i>Kig på krydset i midten og tryk på mellemrumstasten for at starte træningsrunden.</strong></i></p>",32,"aud_s","instructions","html-keyboard-response", 0,  673,"0.0-0.0",NA,NA,NA,NA,NA,NA,NA
+"2",NA,"<div style=""font-size:80px;"">+</div>",NA,"aud_s","training_fixation","html-keyboard-response", 1, 2375,"0.0-1.0-0.0","null",TRUE,NA,NA,NA,NA,NA
+"3", 240.0,"sounds/452sine.mp3",32,"aud_s","training_test","audio-keyboard-response", 2, 2617,"0.0-1.0-1.0","space",TRUE,NA,NA,NA,NA,NA
+"4",NA," ",NA,NA,NA,"html-keyboard-response", 3, 2669,"0.0-1.0-2.0",NA,NA,NA,NA,NA,NA,NA
+"5",  98.3,"<div style=""font-size:80px;"">+</div>",32,"aud_s","training_fixation","html-keyboard-response", 4, 3619,"0.0-1.0-0.1","null",FALSE,NA,NA,NA,NA,NA
+"6",  91.0,"sounds/452sine.mp3",32,"aud_s","training_test","audio-keyboard-response", 5, 3712,"0.0-1.0-1.1","space",TRUE,NA,NA,NA,NA,NA
+"7",NA," ",NA,NA,NA,"html-keyboard-response", 6, 3763,"0.0-1.0-2.1",NA,NA,NA,NA,NA,NA,NA
+"8", 125.4,"<div style=""font-size:80px;"">+</div>",32,"aud_s","training_fixation","html-keyboard-response", 7, 4963,"0.0-1.0-0.2","null",FALSE,NA,NA,NA,NA,NA
+"9",  91.0,"sounds/452sine.mp3",32,"aud_s","training_test","audio-keyboard-response", 8, 5048,"0.0-1.0-1.2","space",TRUE,NA,NA,NA,NA,NA
+"10",NA," ",NA,NA,NA,"html-keyboard-response", 9, 5099,"0.0-1.0-2.2",NA,NA,NA,NA,NA,NA,NA
+"11", 139.7,"<div style=""font-size:80px;"">+</div>",32,"aud_s","training_fixation","html-keyboard-response",10, 6301,"0.0-1.0-0.3","null",FALSE,NA,NA,NA,NA,NA
+"12", 120.0,"sounds/452sine.mp3",32,"aud_s","training_test","audio-keyboard-response",11, 6425,"0.0-1.0-1.3","space",TRUE,NA,NA,NA,NA,NA
+"13",NA," ",NA,NA,NA,"html-keyboard-response",12, 6478,"0.0-1.0-2.3",NA,NA,NA,NA,NA,NA,NA
+"14", 112.7,"<div style=""font-size:80px;"">+</div>",32,"aud_s","training_fixation","html-keyboard-response",13, 8679,"0.0-1.0-0.4","null",FALSE,NA,NA,NA,NA,NA
+"15",  91.0,"sounds/452sine.mp3",32,"aud_s","training_test","audio-keyboard-response",14, 8768,"0.0-1.0-1.4","space",TRUE,NA,NA,NA,NA,NA
+"16",NA," ",NA,NA,NA,"html-keyboard-response",15, 8818,"0.0-1.0-2.4",NA,NA,NA,NA,NA,NA,NA
+"17", 141.7,"<div style=""font-size:80px;"">+</div>",32,"aud_s","training_fixation","html-keyboard-response",16,11271,"0.0-1.0-0.5","null",FALSE,NA,NA,NA,NA,NA
+"18",  61.0,"sounds/452sine.mp3",32,"aud_s","training_test","audio-keyboard-response",17,11328,"0.0-1.0-1.5","space",TRUE,NA,NA,NA,NA,NA
+"19",NA," ",NA,NA,NA,"html-keyboard-response",18,11380,"0.0-1.0-2.5",NA,NA,NA,NA,NA,NA,NA
+"20", 130.2,"<div style=""font-size:80px;"">+</div>",32,"aud_s","training_fixation","html-keyboard-response",19,13582,"0.0-1.0-0.6","null",FALSE,NA,NA,NA,NA,NA
+"21", 480.0,"sounds/452sine.mp3",32,"aud_s","training_test","audio-keyboard-response",20,14064,"0.0-1.0-1.6","space",TRUE,NA,NA,NA,NA,NA
+"22",NA," ",NA,NA,NA,"html-keyboard-response",21,14116,"0.0-1.0-2.6",NA,NA,NA,NA,NA,NA,NA
+"23",NA,"<div style=""font-size:80px;"">+</div>",NA,"aud_s","training_fixation","html-keyboard-response",22,15817,"0.0-1.0-0.7","null",TRUE,NA,NA,NA,NA,NA
+"24",NA,"sounds/452sine.mp3",NA,"aud_s","training_test","audio-keyboard-response",23,16819,"0.0-1.0-1.7","space",FALSE,NA,NA,NA,NA,NA
+"25",NA," ",NA,NA,NA,"html-keyboard-response",24,16871,"0.0-1.0-2.7",NA,NA,NA,NA,NA,NA,NA
+"26",NA,"<div style=""font-size:80px;"">+</div>",NA,"aud_s","training_fixation","html-keyboard-response",25,18323,"0.0-1.0-0.8","null",TRUE,NA,NA,NA,NA,NA
+"27",NA,"sounds/452sine.mp3",NA,"aud_s","training_test","audio-keyboard-response",26,19325,"0.0-1.0-1.8","space",FALSE,NA,NA,NA,NA,NA
+"28",NA," ",NA,NA,NA,"html-keyboard-response",27,19375,"0.0-1.0-2.8",NA,NA,NA,NA,NA,NA,NA
+"29",NA,"<div style=""font-size:80px;"">+</div>",NA,"aud_s","training_fixation","html-keyboard-response",28,21826,"0.0-1.0-0.9","null",TRUE,NA,NA,NA,NA,NA
+"30",NA,"sounds/452sine.mp3",NA,"aud_s","training_test","audio-keyboard-response",29,22829,"0.0-1.0-1.9","space",FALSE,NA,NA,NA,NA,NA
+"31",NA," ",NA,NA,NA,"html-keyboard-response",30,22881,"0.0-1.0-2.9",NA,NA,NA,NA,NA,NA,NA
+"32",1862.6,"<p>Din gennemsnitlige reaktionstid her i træningsrunden var </p><p><strong> 168 ms </strong></p><p>Du trykkede for tidligt 60 % af gangene </p></div><p class='gap-above'><strong><i>Tryk på mellemrumstasten for at fortsætte</strong></i></p>",32,"aud_s","feedback_training","html-keyboard-response",31,24744,"0.0-2.0",NA,NA,168, 70, 10,  3,  4
+"33", 534.3,"<p><strong>Nu kommer den rigtige test af din auditive reaktionstid</strong>.</p> <p> Når du hører lyden, skal du trykke så hurtigt som du kan. </p><p class='largegap-above'</p<p><div style='font-size:80px;''>+</div></p><p class='largegap-above'</p<p>Er du klar? Opgaven handler om fart!</p><p class='gap-above'><strong><i>Tryk på mellemrumstasten for at starte</strong></i></p>",32,"aud_s","instructions","html-keyboard-response",32,25281,"0.0-3.0",NA,NA,NA,NA,NA,NA,NA
+"34", 481.5,"<div style=""font-size:80px;"">+</div>",32,"aud_s","fixation","html-keyboard-response",33,27082,"0.0-4.0-0.0","null",FALSE,NA,NA,NA,NA,NA
+"35", 131.0,"sounds/452sine.mp3",32,"aud_s","test","audio-keyboard-response",34,27215,"0.0-4.0-1.0","space",TRUE,NA,NA,NA,NA,NA
+"36",NA," ",NA,NA,NA,"html-keyboard-response",35,27267,"0.0-4.0-2.0",NA,NA,NA,NA,NA,NA,NA
+"37", 235.5,"<div style=""font-size:80px;"">+</div>",32,"aud_s","fixation","html-keyboard-response",36,29720,"0.0-4.0-0.1","null",FALSE,NA,NA,NA,NA,NA
+"38", 291.0,"sounds/452sine.mp3",32,"aud_s","test","audio-keyboard-response",37,30015,"0.0-4.0-1.1","space",TRUE,NA,NA,NA,NA,NA
+"39",NA," ",NA,NA,NA,"html-keyboard-response",38,30067,"0.0-4.0-2.1",NA,NA,NA,NA,NA,NA,NA
+"40",1941.9,"<p>Din gennemsnitlige reaktionstid var </p><p><strong> 211 ms </strong></p><p>Du trykkede for tidligt 2 gange </p></div><p class='gap-above'><strong><i>Tryk på mellemrumstasten for at afslutte den auditive reaktionstids-test</strong></i></p>",32,"aud_s","feedback_real","html-keyboard-response",39,32010,"0.0-5.0",NA,NA,211,100,  2,  0,NA

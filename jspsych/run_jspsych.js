@@ -35,10 +35,6 @@ for (var i = 0; i < arrayLength; i++) {
 
 // }
 
-// timeline.push(instructions);
-//   timeline.push(test_procedure);
-//   timeline.push(debrief_block);
-
 var images = ['img/cross.png','img/blankbox.png','img/cRT_fix.png', 'img/cRT1.png', 'img/cRT2.png', 'img/cRT3.png', 'img/cRT4.png'];
 var audio = ['sounds/452sine.mp3'];
 

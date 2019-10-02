@@ -122,7 +122,7 @@ demographics <- c(
   text_input_page(
     label = "zip_code",
     prompt = div(p("Først vil vi lige bede om lidt baggrundsinfo. Vi bruger denne information til at sikre, at vi modtager besvarelser fra et bredt udsnit af den danske befolkning."),
-                 p("Hvad er din alder (i år)?")),
+                 p("Hvad er dit postnummer?")),
     save_answer = T,
     button_text = "Næste",
     validate = function(answer, ...) {
@@ -265,7 +265,7 @@ demographics <- c(
     #GAMING HABITS
   text_input_page(
     label = "gaming",
-    prompt = "Hvor mange timer om måneden bruger du typisk på at spille action-spil på computer? Medregn kun spil, som kræver, at du er reagerer hurtigt. Angiv et helt tal her:",
+    prompt = "Hvor mange timer om måneden bruger du typisk på at spille action-spil på computer? Medregn kun spil, som kræver, at du reagerer hurtigt. Angiv et helt tal her:",
     save_answer = T,
     button_text = "Næste",
     validate = function(answer, ...) {

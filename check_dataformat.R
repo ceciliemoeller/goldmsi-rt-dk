@@ -1,0 +1,5 @@
+latest <- readRDS("~/jsPsych/output/results/id=8&p_id=7bdfd908a80fd2f208d4bc97353347d4ee0e2b53d6dfd4bc005e8d58aaa59ea7&save_id=1&pilot=false&complete=true.rds")
+write.csv(fromJSON(latest$results$jspsych), "latestdata.csv")
+library(readr)
+latestdata <- read_csv("~/jsPsych/latestdata.csv")
+View(latestdata)
