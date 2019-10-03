@@ -38,6 +38,7 @@ var start_real = {
     type: "html-keyboard-response",
     stimulus: "<p><strong>Nu kommer den rigtige test af din reaktionstid</strong>.</p> " +
         "<p>Når du ser krydset, skal du trykke på den tilhørende tast så hurtigt som du kan. </p>" +
+        "<p>Du får ikke at vide, om du laver fejl. </p>" +
         "<p class='gap-above'> Husk: </p>" +
         "<div class='instr-img'>" +
         "     <img src='img/reminder.png'></img>" +

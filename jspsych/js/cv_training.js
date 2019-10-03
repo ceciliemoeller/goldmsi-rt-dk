@@ -84,8 +84,52 @@ var training_test = {
 //   }
 // ... og add feedback var to timeine below
 
+var feedback_inc = {
+    type: 'html-keyboard-response',
+    stimulus: function(){
+      return "<p><div style='font-size:40px;'><strong>FORKERT TAST </strong></div></p>" +
+      "<p class='largegap-above'><div class='instr-img'>" +
+      "<img src='img/reminder.png'></img>" +
+      "<p class='smallgap-above'> <strong><i>Tryk på en tast for at fortsætte træningsrunden...</strong></i></p>" 
+     }
+  }
+
+  var feedback_slow = {
+    type: 'html-keyboard-response',
+    stimulus: function(){
+      return "<p><div style='font-size:40px;'><strong>FOR LANGSOMT </strong></div></p>" +
+      "<p><div style='font-size:25 px;'><strong>Husk, det handler om fart! </strong></div></p>" +
+      "<p class='largegap-above'><div class='instr-img'>" +
+      "<img src='img/reminder.png'></img>" +
+      "<p class='gap-above'> <strong><i>Tryk på en tast for at fortsætte træningsrunden...</strong></i></p>" 
+     }
+  }
+
+
+
+var if_node_inc = {
+    timeline: [feedback_inc],
+    conditional_function: function(){
+        // get the data from the previous trial,
+        // and shout if it was incorrect
+        var result = ((jsPsych).data.get().last(1).values()[0].correct === false) && 
+          ((jsPsych).data.get().last(1).values()[0].key_press != null);
+        return result;
+    }
+}
+
+var if_node_slow = {
+    timeline: [feedback_slow],
+    conditional_function: function(){
+        // get the data from the previous trial,
+        // and shout if there was no response
+        return jsPsych.data.get().last(1).values()[0].key_press === null;
+    }
+}
+
+
 var training_procedure = {
-    timeline: [training_fixation, training_test],
+    timeline: [training_fixation, training_test, if_node_inc, if_node_slow],
     sample: {
         type: 'fixed-repetitions',
         size: 2, // 2 repetitions of each trial, 8 total trials, order is randomized.

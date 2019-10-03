@@ -1,0 +1,72 @@
+"","rt","stimulus","key_press","trial_type","trial_index","time_elapsed","internal_node_id","cond","test_part","correct_response","correct","summary.rt_real","summary.ant_resp_pct","summary.fa_pct","summary.miss_pct","summary.mistakes","summary.ACC"
+"1", 530.7,"<p><div style='font-size:40px;''><strong>Reaktionstid </strong></div></p><p class='gap-above'> Her skal du gennemføre tre forskellige tests af din reaktionstid. </p><p class='gap-above'><strong><i>Tryk på en tast for at læse instruktionen til den første.</strong></i></p>", 32,"html-keyboard-response", 0,  538,"0.0-0.0",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"2", 453.8,"<p><div style='font-size:25px;''><strong>Auditiv reaktionstid </strong></div></p><p class='gap-above'</p<p>I den følgende opgave skal du lytte godt efter.</p><p>  Hver gang du hører en <strong>bip-lyd</strong>, skal du trykke på <strong>mellemrumstasten,</strong> så hurtigt som du kan.</p><p class='largegap-above'</p<p><div style='font-size:80px;''>+</div></p><p class='largegap-above'</p<p> Du får lov til at prøve det nogle gange først.</p><p class='gap-above'> <strong><i>Kig på krydset i midten og tryk på mellemrumstasten for at starte træningsrunden.</strong></i></p>", 32,"html-keyboard-response", 1,  993,"0.0-1.0","aud_s","instructions",NA,NA,NA,NA,NA,NA,NA,NA
+"3", 198.3,"<div style=""font-size:80px;"">+</div>", 32,"html-keyboard-response", 2, 2695,"0.0-2.0-0.0","aud_s","training_fixation","null",FALSE,NA,NA,NA,NA,NA,NA
+"4",   0.0,"sounds/452sine.mp3", 32,"audio-keyboard-response", 3, 2697,"0.0-2.0-1.0","aud_s","training_test","space",TRUE,NA,NA,NA,NA,NA,NA
+"5",NA," ",NA,"html-keyboard-response", 4, 2750,"0.0-2.0-2.0",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"6", 146.1,"<div style=""font-size:80px;"">+</div>", 32,"html-keyboard-response", 5, 5201,"0.0-2.0-0.1","aud_s","training_fixation","null",FALSE,NA,NA,NA,NA,NA,NA
+"7", 309.0,"sounds/452sine.mp3", 32,"audio-keyboard-response", 6, 5512,"0.0-2.0-1.1","aud_s","training_test","space",TRUE,NA,NA,NA,NA,NA,NA
+"8",NA," ",NA,"html-keyboard-response", 7, 5563,"0.0-2.0-2.1",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"9",NA,"<div style=""font-size:80px;"">+</div>",NA,"html-keyboard-response", 8, 7765,"0.0-2.0-0.2","aud_s","training_fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"10", 248.0,"sounds/452sine.mp3", 32,"audio-keyboard-response", 9, 8017,"0.0-2.0-1.2","aud_s","training_test","space",TRUE,NA,NA,NA,NA,NA,NA
+"11",NA," ",NA,"html-keyboard-response",10, 8068,"0.0-2.0-2.2",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"12", 627.5,"<p>Din gennemsnitlige reaktionstid her i træningsrunden var </p><p><strong> 279ms </strong></p><p>Du trykkede for tidligt 67 % af gangene </p></div><p class='gap-above'><strong><i>Tryk på mellemrumstasten for at fortsætte</strong></i></p>", 32,"html-keyboard-response",11, 8697,"0.0-3.0","aud_s","feedback_training",NA,NA,279, 33, 67,  0,NA,NA
+"13", 454.6,"<p><strong>Nu kommer den rigtige test af din auditive reaktionstid</strong>.</p> <p> Når du hører lyden, skal du trykke så hurtigt som du kan. </p><p class='largegap-above'</p<p><div style='font-size:80px;''>+</div></p><p class='largegap-above'</p<p>Er du klar? Opgaven handler om fart!</p><p class='gap-above'><strong><i>Tryk på mellemrumstasten for at starte</strong></i></p>", 32,"html-keyboard-response",12, 9153,"0.0-4.0","aud_s","instructions",NA,NA,NA,NA,NA,NA,NA,NA
+"14", 403.2,"<div style=""font-size:80px;"">+</div>", 32,"html-keyboard-response",13,10205,"0.0-5.0-0.0","aud_s","fixation","null",FALSE,NA,NA,NA,NA,NA,NA
+"15", 248.0,"sounds/452sine.mp3", 32,"audio-keyboard-response",14,10456,"0.0-5.0-1.0","aud_s","test","space",TRUE,NA,NA,NA,NA,NA,NA
+"16",NA," ",NA,"html-keyboard-response",15,10507,"0.0-5.0-2.0",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"17",1693.4,"<div style=""font-size:80px;"">+</div>", 32,"html-keyboard-response",16,12208,"0.0-5.0-0.1","aud_s","fixation","null",FALSE,NA,NA,NA,NA,NA,NA
+"18", 421.0,"sounds/452sine.mp3", 32,"audio-keyboard-response",17,12633,"0.0-5.0-1.1","aud_s","test","space",TRUE,NA,NA,NA,NA,NA,NA
+"19",NA," ",NA,"html-keyboard-response",18,12684,"0.0-5.0-2.1",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"20", 915.7,"<p>Din gennemsnitlige reaktionstid var </p><p><strong> 335 ms </strong></p><p>Du trykkede for tidligt 100 % af gangene </p></div><p class='gap-above'><strong><i>Tryk på mellemrumstasten for at afslutte den auditive reaktionstids-test</strong></i></p>", 32,"html-keyboard-response",19,13601,"0.0-6.0","aud_s","feedback_real",NA,NA,335,  0,100,  0,NA,NA
+"21", 534.4,"<p><div style='font-size:25px;''><strong>Visuel simpel reaktionstid </strong></div></p><pclass='largegap-above'>I den følgende opgave vil du se en hvid kasse på skærmen.</p><div class='instr-img'><img src='img/blankbox.png'></img><p class='small'><strong>Vent!</strong></p></div><p class='gap-above'>Hver gang du ser et <strong>kryds</strong> i kassen,</p><p>skal du trykke på <strong>mellemrumstasten,</strong> så hurtigt som du kan.</p><div class='instr-img'><img src='img/cross.png'></img><p class='small'><strong>Tryk!</strong></p></div><p> Du får lov til at prøve det nogle gange først.</p><p class='gap-above'> <strong><i>Tryk på mellemrumstasten for at starte træningsrunden.</strong></i></p>", 32,"html-keyboard-response",20,14137,"0.0-7.0","vis_s","instructions",NA,NA,NA,NA,NA,NA,NA,NA
+"22", 396.9,"img/blankbox.png", 32,"image-keyboard-response",21,16408,"0.0-8.0-0.0","vis_s","training_fixation","null",FALSE,NA,NA,NA,NA,NA,NA
+"23", 351.9,"img/cross.png", 32,"image-keyboard-response",22,16761,"0.0-8.0-1.0","vis_s","training_test","space",TRUE,NA,NA,NA,NA,NA,NA
+"24",NA,"img/blankbox.png",NA,"image-keyboard-response",23,17763,"0.0-8.0-0.1","vis_s","training_fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"25", 269.4,"img/cross.png", 32,"image-keyboard-response",24,18033,"0.0-8.0-1.1","vis_s","training_test","space",TRUE,NA,NA,NA,NA,NA,NA
+"26",NA,"img/blankbox.png",NA,"image-keyboard-response",25,19036,"0.0-8.0-0.2","vis_s","training_fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"27", 251.8,"img/cross.png", 32,"image-keyboard-response",26,19288,"0.0-8.0-1.2","vis_s","training_test","space",TRUE,NA,NA,NA,NA,NA,NA
+"28",1055.6,"<p>Din gennemsnitlige reaktionstid her i træningsrunden var </p><p><strong> 286ms </strong></p><p>Du trykkede for tidligt 50 % af gangene </p></div><p class='gap-above'><strong><i>Tryk på mellemrumstasten for at fortsætte</strong></i></p>", 32,"html-keyboard-response",27,20344,"0.0-9.0","aud_s","feedback_training",NA,NA,286, 17, 50,  0,NA,NA
+"29", 398.3,"<p><strong>Nu kommer den rigtige test af din reaktionstid</strong>.</p> <p>Når du ser krydset, skal du trykke så hurtigt som du kan. </p><div class='instr-img'><div class='largegap-above'><img src='img/cross.png'></img><p class='largegap-above'>Er du klar? Opgaven handler om fart!</p><p class='smallgap-above'><strong><i>Tryk på mellemrumstasten for at starte</strong></i></p>", 32,"html-keyboard-response",28,20744,"0.0-10.0","vis_s","instructions",NA,NA,NA,NA,NA,NA,NA,NA
+"30",1663.3,"img/blankbox.png", 32,"image-keyboard-response",29,22746,"0.0-11.0-0.0","vis_s","fixation","null",FALSE,NA,NA,NA,NA,NA,NA
+"31", 286.0,"img/cross.png", 32,"image-keyboard-response",30,23033,"0.0-11.0-1.0","vis_s","test","space",TRUE,NA,NA,NA,NA,NA,NA
+"32",NA,"img/blankbox.png",NA,"image-keyboard-response",31,24784,"0.0-11.0-0.1","vis_s","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"33", 328.4,"img/cross.png", 32,"image-keyboard-response",32,25114,"0.0-11.0-1.1","vis_s","test","space",TRUE,NA,NA,NA,NA,NA,NA
+"34", 614.4,"<p>Din gennemsnitlige reaktionstid var </p><p><strong> 321 ms </strong></p><p>Du trykkede for tidligt 75 % af gangene </p></div><p class='gap-above'><strong><i>Tryk på mellemrumstasten for at afslutte den auditive reaktionstids-test</strong></i></p>", 32,"html-keyboard-response",33,25729,"0.0-12.0","aud_s","feedback_real",NA,NA,321,  0, 75,  0,NA,NA
+"35", 862.8,"<p><div style='font-size:25px;'><strong>Visuel kompleks reaktionstids-test </strong></div></p><p class='gap-above'>I den følgende opgave skal du bruge fire fingre. </p><p>Placer dem nu som vist på billedet her. </p><p> <img src='img/choicetask.png'></img><p class='gap-above'> <strong><i>Tryk på mellemrumstasten for at læse instruktionen</strong></i></p>", 32,"html-keyboard-response",34,26593,"0.0-13.0","vis_ch","instructions",NA,NA,NA,NA,NA,NA,NA,NA
+"36", 583.2,"<p>Du vil se fire hvide kasser på skærmen.</p><div class='instr-img'><img src='img/cRT_fix.png'></img><p class='smallgap-above'class='small'><strong>Vent!</strong></p></div><p class='gap-above'>Hver gang du ser et kryds i én af kasserne, skal du trykke på den </p><p>tilhørende tastatur-tast så hurtigt som du kan:</p><div class='instr-img'><img src='img/reminder.png'></img></div><p class='gap-above'> Du får lov til at prøve det nogle gange først.</p><p class='smallgap-above'> <strong><i>Tryk på mellemrumstasten for at starte træningsrunden.</strong></i></p>", 32,"html-keyboard-response",35,27177,"0.0-14.0","vis_ch","instructions",NA,NA,NA,NA,NA,NA,NA,NA
+"37",NA,"img/cRT_fix.png",NA,"image-keyboard-response",36,29428,"0.0-15.0-0.0","vis_ch","training_fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"38", 300.0,"img/cRT3.png",188,"image-keyboard-response",37,29730,"0.0-15.0-1.0","vis_ch","training_test",",",TRUE,NA,NA,NA,NA,NA,NA
+"39",NA,"img/cRT_fix.png",NA,"image-keyboard-response",38,30732,"0.0-15.0-0.1","vis_ch","training_fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"40", 348.2,"img/cRT2.png", 88,"image-keyboard-response",39,31081,"0.0-15.0-1.1","vis_ch","training_test","x",TRUE,NA,NA,NA,NA,NA,NA
+"41",NA,"img/cRT_fix.png",NA,"image-keyboard-response",40,32583,"0.0-15.0-0.2","vis_ch","training_fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"42", 320.8,"img/cRT1.png", 90,"image-keyboard-response",41,32905,"0.0-15.0-1.2","vis_ch","training_test","z",TRUE,NA,NA,NA,NA,NA,NA
+"43",NA,"img/cRT_fix.png",NA,"image-keyboard-response",42,34906,"0.0-15.0-0.3","vis_ch","training_fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"44", 485.7,"img/cRT4.png",190,"image-keyboard-response",43,35393,"0.0-15.0-1.3","vis_ch","training_test",".",TRUE,NA,NA,NA,NA,NA,NA
+"45",NA,"img/cRT_fix.png",NA,"image-keyboard-response",44,37645,"0.0-15.0-0.4","vis_ch","training_fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"46", 377.6,"img/cRT1.png", 90,"image-keyboard-response",45,38024,"0.0-15.0-1.4","vis_ch","training_test","z",TRUE,NA,NA,NA,NA,NA,NA
+"47",NA,"img/cRT_fix.png",NA,"image-keyboard-response",46,39776,"0.0-15.0-0.5","vis_ch","training_fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"48", 319.3,"img/cRT3.png",188,"image-keyboard-response",47,40097,"0.0-15.0-1.5","vis_ch","training_test",",",TRUE,NA,NA,NA,NA,NA,NA
+"49",NA,"img/cRT_fix.png",NA,"image-keyboard-response",48,41848,"0.0-15.0-0.6","vis_ch","training_fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"50", 327.9,"img/cRT4.png",190,"image-keyboard-response",49,42177,"0.0-15.0-1.6","vis_ch","training_test",".",TRUE,NA,NA,NA,NA,NA,NA
+"51",NA,"img/cRT_fix.png",NA,"image-keyboard-response",50,44680,"0.0-15.0-0.7","vis_ch","training_fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"52", 336.1,"img/cRT2.png", 90,"image-keyboard-response",51,45016,"0.0-15.0-1.7","vis_ch","training_test","x",FALSE,NA,NA,NA,NA,NA,NA
+"53", 959.0,"<p>Du svarede rigtigt 86 % af gangene </p><p>og din gennemsnitlige reaktionstid her i træningsrunden var </p><p><strong> 326ms </strong></p><p>Du trykkede for tidligt 21 % af gangene </p></div><p class='gap-above'><strong><i>Tryk på mellemrumstasten for at fortsætte</strong></i></p>", 32,"html-keyboard-response",52,45977,"0.0-16.0","vis_ch","feedback_training",NA,NA,326,  7, 21,NA,  1, 86
+"54", 558.1,"<p><strong>Nu kommer den rigtige test af din reaktionstid</strong>.</p> <p>Når du ser krydset, skal du trykke på den tilhørende tast så hurtigt som du kan. </p><p class='gap-above'> Husk: </p><div class='instr-img'>     <img src='img/reminder.png'></img><p class='largegap-above'>Er du klar? Opgaven handler om fart!</p><p class='smallgap-above'><strong><i>Tryk på mellemrumstasten for at starte</strong></i></p>", 32,"html-keyboard-response",53,46536,"0.0-17.0","vis_ch","instructions",NA,NA,NA,NA,NA,NA,NA,NA
+"55",NA,"img/cRT_fix.png",NA,"image-keyboard-response",54,48288,"0.0-18.0-0.0","vis_ch","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"56", 335.5,"img/cRT4.png",188,"image-keyboard-response",55,48624,"0.0-18.0-1.0","vis_ch","test",".",FALSE,NA,NA,NA,NA,NA,NA
+"57", 119.5,"img/cRT_fix.png",190,"image-keyboard-response",56,49626,"0.0-18.0-0.1","vis_ch","fixation","null",FALSE,NA,NA,NA,NA,NA,NA
+"58", 341.4,"img/cRT3.png",188,"image-keyboard-response",57,49968,"0.0-18.0-1.1","vis_ch","test",",",TRUE,NA,NA,NA,NA,NA,NA
+"59",NA,"img/cRT_fix.png",NA,"image-keyboard-response",58,52219,"0.0-18.0-0.2","vis_ch","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"60", 338.8,"img/cRT1.png", 88,"image-keyboard-response",59,52561,"0.0-18.0-1.2","vis_ch","test","z",FALSE,NA,NA,NA,NA,NA,NA
+"61",NA,"img/cRT_fix.png",NA,"image-keyboard-response",60,54812,"0.0-18.0-0.3","vis_ch","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"62",  76.3,"img/cRT2.png",188,"image-keyboard-response",61,54889,"0.0-18.0-1.3","vis_ch","test","x",FALSE,NA,NA,NA,NA,NA,NA
+"63",NA,"img/cRT_fix.png",NA,"image-keyboard-response",62,57140,"0.0-18.0-0.4","vis_ch","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"64", 244.3,"img/cRT3.png",188,"image-keyboard-response",63,57385,"0.0-18.0-1.4","vis_ch","test",",",TRUE,NA,NA,NA,NA,NA,NA
+"65",NA,"img/cRT_fix.png",NA,"image-keyboard-response",64,59386,"0.0-18.0-0.5","vis_ch","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"66", 389.2,"img/cRT4.png",190,"image-keyboard-response",65,59776,"0.0-18.0-1.5","vis_ch","test",".",TRUE,NA,NA,NA,NA,NA,NA
+"67",NA,"img/cRT_fix.png",NA,"image-keyboard-response",66,61529,"0.0-18.0-0.6","vis_ch","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"68", 318.8,"img/cRT1.png", 88,"image-keyboard-response",67,61848,"0.0-18.0-1.6","vis_ch","test","z",FALSE,NA,NA,NA,NA,NA,NA
+"69",NA,"img/cRT_fix.png",NA,"image-keyboard-response",68,64350,"0.0-18.0-0.7","vis_ch","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"70", 434.4,"img/cRT2.png", 88,"image-keyboard-response",69,64785,"0.0-18.0-1.7","vis_ch","test","x",TRUE,NA,NA,NA,NA,NA,NA
+"71",1773.8,"<p>Du svarede rigtigt 67 % af gangene </p><p>og din gennemsnitlige reaktionstid var </p><p><strong> 337ms </strong></p><p>Du trykkede for tidligt 25 % af gangene </p></div><p class='gap-above'><strong><i>Tryk på mellemrumstasten for at afslutte denne reaktionstids-test</strong></i></p>", 32,"html-keyboard-response",70,66561,"0.0-19.0","vis_ch","feedback_real",NA,NA,337,  0, 33,NA,  4, 67

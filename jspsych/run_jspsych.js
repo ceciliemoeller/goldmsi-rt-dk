@@ -40,7 +40,7 @@ var audio = ['sounds/452sine.mp3'];
 
 function run_jspsych() {
   jsPsych.init({
-    timeline: timeline,
+    timeline: timeline_cv,
     display_element: 'js_psych',
     preload_images: images,
     preload_audio: audio,
