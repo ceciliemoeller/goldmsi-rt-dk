@@ -44,7 +44,7 @@ var start_real = {
         "     <img src='img/reminder.png'></img>" +
 
         "<p class='largegap-above'>Er du klar? Opgaven handler om fart!</p>" +
-        "<p class='smallgap-above'><strong><i>Tryk på mellemrumstasten for at starte</strong></i></p>",
+        "<p class='smallgap-above'><strong><i>Tryk på mellemrumstasten for at starte.</strong></i></p>",
         choices: ['space'],
         data: {cond: 'vis_ch', test_part: 'instructions'},
 };
@@ -54,7 +54,7 @@ var test_procedure = {
     timeline: [fixation, test],
     sample: {
         type: 'fixed-repetitions',
-        size: 2, // 2 repetitions of each trial, 8 total trials, order is randomized.
+        size: 10, // 10 repetitions of each trial, 40 total trials, order is randomized.
     },
     timeline_variables: test_stimuli    
 };

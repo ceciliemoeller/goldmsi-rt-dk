@@ -60,7 +60,7 @@ var timeline_sv = [];
   var training_procedure = {
     timeline: [training_fixation, training_test],
     timeline_variables: training_stimuli,
-    repetitions: 3
+    repetitions: 8
   };
 
   timeline_sv.push(training_procedure);
@@ -89,10 +89,10 @@ var training_debrief_block = {
       "<p><strong> " + rt_real + "ms </strong></p>" +
       "<p>Du trykkede for tidligt " + falsealarm_pct + " % af gangene </p>" +
       "</div>" +
-      "<p class='gap-above'><strong><i>Tryk på mellemrumstasten for at fortsætte</strong></i></p>";
+      "<p class='gap-above'><strong><i>Tryk på mellemrumstasten for at fortsætte.</strong></i></p>";
   },
   choices: ['space'],
-  data: { cond: 'aud_s', test_part: 'feedback_training' },
+  data: { cond: 'vis_s', test_part: 'feedback_training' },
 
   on_finish: function (data) {
     // get data
@@ -106,6 +106,7 @@ var training_debrief_block = {
       }
     )
     var misses = trials.filter({ correct: false });
+    
     // select trials with a response time smaller than 100 ms (considered false anticipatory responses).
     var too_fast = jsPsych.data.get().filterCustom(
       function (trial) {

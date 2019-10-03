@@ -1,0 +1,253 @@
+"","rt","stimulus","key_press","trial_type","trial_index","time_elapsed","internal_node_id","cond","test_part","correct_response","correct","summary.rt_real","summary.ant_resp_pct","summary.fa_pct","summary.miss_pct","summary.mistakes","summary.ACC"
+"1", 2262.8,"<p><div style='font-size:40px;''><strong>Reaktionstid </strong></div></p><p class='gap-above'> Her skal du gennemføre tre forskellige tests af din reaktionstid. </p><p class='gap-above'><strong><i>Tryk på en tast for at læse instruktionen til den første.</strong></i></p>", 32,"html-keyboard-response",  0,  2269,"0.0-0.0",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"2",13678.4,"<p><div style='font-size:25px;''><strong>Auditiv reaktionstid </strong></div></p><p class='gap-above'</p<p>I den følgende opgave skal du lytte godt efter.</p><p>  Hver gang du hører en <strong>bip-lyd</strong>, skal du trykke på <strong>mellemrumstasten,</strong> så hurtigt som du kan.</p><p class='largegap-above'</p<p><div style='font-size:80px;''>+</div></p><p class='largegap-above'</p<p> Du får lov til at prøve det nogle gange først.</p><p class='gap-above'> <strong><i>Kig på krydset i midten og tryk på mellemrumstasten for at starte træningsrunden.</strong></i></p>", 32,"html-keyboard-response",  1, 15962,"0.0-1.0","aud_s","instructions",NA,NA,NA,NA,NA,NA,NA,NA
+"3",NA,"<div style=""font-size:80px;"">+</div>",NA,"html-keyboard-response",  2, 18165,"0.0-2.0-0.0","aud_s","training_fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"4",  389.0,"sounds/452sine.mp3", 32,"audio-keyboard-response",  3, 18551,"0.0-2.0-1.0","aud_s","training_test","space",TRUE,NA,NA,NA,NA,NA,NA
+"5",NA," ",NA,"html-keyboard-response",  4, 18605,"0.0-2.0-2.0",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"6",NA,"<div style=""font-size:80px;"">+</div>",NA,"html-keyboard-response",  5, 20056,"0.0-2.0-0.1","aud_s","training_fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"7",  240.0,"sounds/452sine.mp3", 32,"audio-keyboard-response",  6, 20303,"0.0-2.0-1.1","aud_s","training_test","space",TRUE,NA,NA,NA,NA,NA,NA
+"8",NA," ",NA,"html-keyboard-response",  7, 20356,"0.0-2.0-2.1",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"9",NA,"<div style=""font-size:80px;"">+</div>",NA,"html-keyboard-response",  8, 21809,"0.0-2.0-0.2","aud_s","training_fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"10",  251.0,"sounds/452sine.mp3", 32,"audio-keyboard-response",  9, 22066,"0.0-2.0-1.2","aud_s","training_test","space",TRUE,NA,NA,NA,NA,NA,NA
+"11",NA," ",NA,"html-keyboard-response", 10, 22123,"0.0-2.0-2.2",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"12",NA,"<div style=""font-size:80px;"">+</div>",NA,"html-keyboard-response", 11, 24326,"0.0-2.0-0.3","aud_s","training_fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"13",  229.0,"sounds/452sine.mp3", 32,"audio-keyboard-response", 12, 24561,"0.0-2.0-1.3","aud_s","training_test","space",TRUE,NA,NA,NA,NA,NA,NA
+"14",NA," ",NA,"html-keyboard-response", 13, 24615,"0.0-2.0-2.3",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"15",NA,"<div style=""font-size:80px;"">+</div>",NA,"html-keyboard-response", 14, 26069,"0.0-2.0-0.4","aud_s","training_fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"16",  240.0,"sounds/452sine.mp3", 32,"audio-keyboard-response", 15, 26311,"0.0-2.0-1.4","aud_s","training_test","space",TRUE,NA,NA,NA,NA,NA,NA
+"17",NA," ",NA,"html-keyboard-response", 16, 26365,"0.0-2.0-2.4",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"18",NA,"<div style=""font-size:80px;"">+</div>",NA,"html-keyboard-response", 17, 28318,"0.0-2.0-0.5","aud_s","training_fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"19",  211.0,"sounds/452sine.mp3", 32,"audio-keyboard-response", 18, 28534,"0.0-2.0-1.5","aud_s","training_test","space",TRUE,NA,NA,NA,NA,NA,NA
+"20",NA," ",NA,"html-keyboard-response", 19, 28587,"0.0-2.0-2.5",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"21",NA,"<div style=""font-size:80px;"">+</div>",NA,"html-keyboard-response", 20, 29540,"0.0-2.0-0.6","aud_s","training_fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"22",  259.0,"sounds/452sine.mp3", 32,"audio-keyboard-response", 21, 29806,"0.0-2.0-1.6","aud_s","training_test","space",TRUE,NA,NA,NA,NA,NA,NA
+"23",NA," ",NA,"html-keyboard-response", 22, 29861,"0.0-2.0-2.6",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"24", 1597.1,"<div style=""font-size:80px;"">+</div>", 32,"html-keyboard-response", 23, 32313,"0.0-2.0-0.7","aud_s","training_fixation","null",FALSE,NA,NA,NA,NA,NA,NA
+"25",  221.0,"sounds/452sine.mp3", 32,"audio-keyboard-response", 24, 32534,"0.0-2.0-1.7","aud_s","training_test","space",TRUE,NA,NA,NA,NA,NA,NA
+"26",NA," ",NA,"html-keyboard-response", 25, 32589,"0.0-2.0-2.7",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"27",18149.6,"<p>Din gennemsnitlige reaktionstid her i træningsrunden var </p><p><strong> 255ms </strong></p><p>Du trykkede for tidligt 13 % af gangene </p></div><p class='gap-above'><strong><i>Tryk på mellemrumstasten for at fortsætte.</strong></i></p>", 32,"html-keyboard-response", 26, 50741,"0.0-3.0","aud_s","feedback_training",NA,NA,255,  0, 13,  0,NA,NA
+"28", 4843.8,"<p><strong>Nu kommer den rigtige test af din auditive reaktionstid</strong>.</p> <p> Når du hører lyden, skal du trykke så hurtigt som du kan. </p><p class='largegap-above'</p<p><div style='font-size:80px;''>+</div></p><p class='largegap-above'</p<p>Er du klar? Opgaven handler om fart!</p><p class='gap-above'><strong><i>Tryk på mellemrumstasten for at starte</strong></i></p>", 32,"html-keyboard-response", 27, 55587,"0.0-4.0","aud_s","instructions",NA,NA,NA,NA,NA,NA,NA,NA
+"29",NA,"<div style=""font-size:80px;"">+</div>",NA,"html-keyboard-response", 28, 58142,"0.0-5.0-0.0","aud_s","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"30",  219.0,"sounds/452sine.mp3", 32,"audio-keyboard-response", 29, 58363,"0.0-5.0-1.0","aud_s","test","space",TRUE,NA,NA,NA,NA,NA,NA
+"31",NA," ",NA,"html-keyboard-response", 30, 58415,"0.0-5.0-2.0",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"32",NA,"<div style=""font-size:80px;"">+</div>",NA,"html-keyboard-response", 31, 59370,"0.0-5.0-0.1","aud_s","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"33",  280.0,"sounds/452sine.mp3", 32,"audio-keyboard-response", 32, 59655,"0.0-5.0-1.1","aud_s","test","space",TRUE,NA,NA,NA,NA,NA,NA
+"34",NA," ",NA,"html-keyboard-response", 33, 59711,"0.0-5.0-2.1",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"35",NA,"<div style=""font-size:80px;"">+</div>",NA,"html-keyboard-response", 34, 61665,"0.0-5.0-0.2","aud_s","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"36",  251.0,"sounds/452sine.mp3", 32,"audio-keyboard-response", 35, 61922,"0.0-5.0-1.2","aud_s","test","space",TRUE,NA,NA,NA,NA,NA,NA
+"37",NA," ",NA,"html-keyboard-response", 36, 61975,"0.0-5.0-2.2",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"38",NA,"<div style=""font-size:80px;"">+</div>",NA,"html-keyboard-response", 37, 63680,"0.0-5.0-0.3","aud_s","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"39",  240.0,"sounds/452sine.mp3", 32,"audio-keyboard-response", 38, 63918,"0.0-5.0-1.3","aud_s","test","space",TRUE,NA,NA,NA,NA,NA,NA
+"40",NA," ",NA,"html-keyboard-response", 39, 63970,"0.0-5.0-2.3",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"41",NA,"<div style=""font-size:80px;"">+</div>",NA,"html-keyboard-response", 40, 65924,"0.0-5.0-0.4","aud_s","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"42",  251.0,"sounds/452sine.mp3", 32,"audio-keyboard-response", 41, 66176,"0.0-5.0-1.4","aud_s","test","space",TRUE,NA,NA,NA,NA,NA,NA
+"43",NA," ",NA,"html-keyboard-response", 42, 66230,"0.0-5.0-2.4",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"44",NA,"<div style=""font-size:80px;"">+</div>",NA,"html-keyboard-response", 43, 67432,"0.0-5.0-0.5","aud_s","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"45",  261.0,"sounds/452sine.mp3", 32,"audio-keyboard-response", 44, 67687,"0.0-5.0-1.5","aud_s","test","space",TRUE,NA,NA,NA,NA,NA,NA
+"46",NA," ",NA,"html-keyboard-response", 45, 67740,"0.0-5.0-2.5",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"47",NA,"<div style=""font-size:80px;"">+</div>",NA,"html-keyboard-response", 46, 69440,"0.0-5.0-0.6","aud_s","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"48",  269.0,"sounds/452sine.mp3", 32,"audio-keyboard-response", 47, 69709,"0.0-5.0-1.6","aud_s","test","space",TRUE,NA,NA,NA,NA,NA,NA
+"49",NA," ",NA,"html-keyboard-response", 48, 69763,"0.0-5.0-2.6",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"50",NA,"<div style=""font-size:80px;"">+</div>",NA,"html-keyboard-response", 49, 72219,"0.0-5.0-0.7","aud_s","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"51",  259.0,"sounds/452sine.mp3", 32,"audio-keyboard-response", 50, 72476,"0.0-5.0-1.7","aud_s","test","space",TRUE,NA,NA,NA,NA,NA,NA
+"52",NA," ",NA,"html-keyboard-response", 51, 72530,"0.0-5.0-2.7",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"53",NA,"<div style=""font-size:80px;"">+</div>",NA,"html-keyboard-response", 52, 74485,"0.0-5.0-0.8","aud_s","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"54",  229.0,"sounds/452sine.mp3", 32,"audio-keyboard-response", 53, 74716,"0.0-5.0-1.8","aud_s","test","space",TRUE,NA,NA,NA,NA,NA,NA
+"55",NA," ",NA,"html-keyboard-response", 54, 74768,"0.0-5.0-2.8",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"56",NA,"<div style=""font-size:80px;"">+</div>",NA,"html-keyboard-response", 55, 77227,"0.0-5.0-0.9","aud_s","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"57",  240.0,"sounds/452sine.mp3", 32,"audio-keyboard-response", 56, 77473,"0.0-5.0-1.9","aud_s","test","space",TRUE,NA,NA,NA,NA,NA,NA
+"58",NA," ",NA,"html-keyboard-response", 57, 77524,"0.0-5.0-2.9",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"59",NA,"<div style=""font-size:80px;"">+</div>",NA,"html-keyboard-response", 58, 79480,"0.0-5.0-0.10","aud_s","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"60",  240.0,"sounds/452sine.mp3", 32,"audio-keyboard-response", 59, 79721,"0.0-5.0-1.10","aud_s","test","space",TRUE,NA,NA,NA,NA,NA,NA
+"61",NA," ",NA,"html-keyboard-response", 60, 79773,"0.0-5.0-2.10",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"62",NA,"<div style=""font-size:80px;"">+</div>",NA,"html-keyboard-response", 61, 81230,"0.0-5.0-0.11","aud_s","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"63",  240.0,"sounds/452sine.mp3", 32,"audio-keyboard-response", 62, 81469,"0.0-5.0-1.11","aud_s","test","space",TRUE,NA,NA,NA,NA,NA,NA
+"64",NA," ",NA,"html-keyboard-response", 63, 81523,"0.0-5.0-2.11",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"65",NA,"<div style=""font-size:80px;"">+</div>",NA,"html-keyboard-response", 64, 82980,"0.0-5.0-0.12","aud_s","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"66",  229.0,"sounds/452sine.mp3", 32,"audio-keyboard-response", 65, 83211,"0.0-5.0-1.12","aud_s","test","space",TRUE,NA,NA,NA,NA,NA,NA
+"67",NA," ",NA,"html-keyboard-response", 66, 83263,"0.0-5.0-2.12",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"68", 2352.1,"<div style=""font-size:80px;"">+</div>", 32,"html-keyboard-response", 67, 85717,"0.0-5.0-0.13","aud_s","fixation","null",FALSE,NA,NA,NA,NA,NA,NA
+"69",  440.0,"sounds/452sine.mp3", 32,"audio-keyboard-response", 68, 86162,"0.0-5.0-1.13","aud_s","test","space",TRUE,NA,NA,NA,NA,NA,NA
+"70",NA," ",NA,"html-keyboard-response", 69, 86214,"0.0-5.0-2.13",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"71", 1910.6,"<div style=""font-size:80px;"">+</div>", 32,"html-keyboard-response", 70, 88166,"0.0-5.0-0.14","aud_s","fixation","null",FALSE,NA,NA,NA,NA,NA,NA
+"72",  451.0,"sounds/452sine.mp3", 32,"audio-keyboard-response", 71, 88625,"0.0-5.0-1.14","aud_s","test","space",TRUE,NA,NA,NA,NA,NA,NA
+"73",NA," ",NA,"html-keyboard-response", 72, 88675,"0.0-5.0-2.14",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"74",NA,"<div style=""font-size:80px;"">+</div>",NA,"html-keyboard-response", 73, 89879,"0.0-5.0-0.15","aud_s","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"75",  291.0,"sounds/452sine.mp3", 32,"audio-keyboard-response", 74, 90173,"0.0-5.0-1.15","aud_s","test","space",TRUE,NA,NA,NA,NA,NA,NA
+"76",NA," ",NA,"html-keyboard-response", 75, 90225,"0.0-5.0-2.15",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"77",NA,"<div style=""font-size:80px;"">+</div>",NA,"html-keyboard-response", 76, 92433,"0.0-5.0-0.16","aud_s","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"78",  240.0,"sounds/452sine.mp3", 32,"audio-keyboard-response", 77, 92672,"0.0-5.0-1.16","aud_s","test","space",TRUE,NA,NA,NA,NA,NA,NA
+"79",NA," ",NA,"html-keyboard-response", 78, 92723,"0.0-5.0-2.16",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"80",NA,"<div style=""font-size:80px;"">+</div>",NA,"html-keyboard-response", 79, 94925,"0.0-5.0-0.17","aud_s","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"81",  600.0,"sounds/452sine.mp3", 32,"audio-keyboard-response", 80, 95523,"0.0-5.0-1.17","aud_s","test","space",TRUE,NA,NA,NA,NA,NA,NA
+"82",NA," ",NA,"html-keyboard-response", 81, 95574,"0.0-5.0-2.17",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"83",NA,"<div style=""font-size:80px;"">+</div>",NA,"html-keyboard-response", 82, 97276,"0.0-5.0-0.18","aud_s","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"84",  240.0,"sounds/452sine.mp3", 32,"audio-keyboard-response", 83, 97517,"0.0-5.0-1.18","aud_s","test","space",TRUE,NA,NA,NA,NA,NA,NA
+"85",NA," ",NA,"html-keyboard-response", 84, 97573,"0.0-5.0-2.18",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"86",NA,"<div style=""font-size:80px;"">+</div>",NA,"html-keyboard-response", 85, 99528,"0.0-5.0-0.19","aud_s","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"87",  219.0,"sounds/452sine.mp3", 32,"audio-keyboard-response", 86, 99751,"0.0-5.0-1.19","aud_s","test","space",TRUE,NA,NA,NA,NA,NA,NA
+"88",NA," ",NA,"html-keyboard-response", 87, 99805,"0.0-5.0-2.19",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"89", 6919.9,"<p>Din gennemsnitlige reaktionstid var </p><p><strong> 284 ms </strong></p><p>Du trykkede for tidligt 10 % af gangene </p></div><p class='gap-above'><strong><i>Tryk på mellemrumstasten for at afslutte den auditive reaktionstids-test</strong></i></p>", 32,"html-keyboard-response", 88,106727,"0.0-6.0","aud_s","feedback_real",NA,NA,284,  0, 10,  0,NA,NA
+"90",10066.0,"<p><div style='font-size:25px;'><strong>Visuel kompleks reaktionstids-test </strong></div></p><p class='gap-above'>I den følgende opgave skal du bruge fire fingre. </p><p>Placer dem nu som vist på billedet her. </p><p> <img src='img/choicetask.png'></img><p class='gap-above'> <strong><i>Tryk på mellemrumstasten for at læse instruktionen.</strong></i></p>", 32,"html-keyboard-response", 89,116794,"0.0-7.0","vis_ch","instructions",NA,NA,NA,NA,NA,NA,NA,NA
+"91",34272.1,"<p>Du vil se fire hvide kasser på skærmen.</p><div class='instr-img'><img src='img/cRT_fix.png'></img><p class='smallgap-above'class='small'><strong>Vent!</strong></p></div><p class='gap-above'>Hver gang du ser et kryds i én af kasserne, skal du trykke på den </p><p>tilhørende tastatur-tast så hurtigt som du kan:</p><div class='instr-img'><img src='img/reminder.png'></img></div><p class='gap-above'> Du får lov til at prøve det nogle gange først.</p><p class='smallgap-above'> <strong><i>Tryk på mellemrumstasten for at starte træningsrunden.</strong></i></p>", 32,"html-keyboard-response", 90,151067,"0.0-8.0","vis_ch","instructions",NA,NA,NA,NA,NA,NA,NA,NA
+"92",NA,"img/cRT_fix.png",NA,"image-keyboard-response", 91,153572,"0.0-9.0-0.0","vis_ch","training_fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"93",  327.3,"img/cRT3.png",188,"image-keyboard-response", 92,153901,"0.0-9.0-1.0","vis_ch","training_test",",",TRUE,NA,NA,NA,NA,NA,NA
+"94",NA,"img/cRT_fix.png",NA,"image-keyboard-response", 93,155152,"0.0-9.0-0.1","vis_ch","training_fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"95",  356.3,"img/cRT4.png",190,"image-keyboard-response", 94,155510,"0.0-9.0-1.1","vis_ch","training_test",".",TRUE,NA,NA,NA,NA,NA,NA
+"96",NA,"img/cRT_fix.png",NA,"image-keyboard-response", 95,157511,"0.0-9.0-0.2","vis_ch","training_fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"97",  291.6,"img/cRT3.png",188,"image-keyboard-response", 96,157804,"0.0-9.0-1.2","vis_ch","training_test",",",TRUE,NA,NA,NA,NA,NA,NA
+"98",NA,"img/cRT_fix.png",NA,"image-keyboard-response", 97,159806,"0.0-9.0-0.3","vis_ch","training_fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"99",  281.2,"img/cRT1.png", 88,"image-keyboard-response", 98,160088,"0.0-9.0-1.3","vis_ch","training_test","z",FALSE,NA,NA,NA,NA,NA,NA
+"100", 4172.2,"<p><div style='font-size:40px;'><strong>FORKERT TAST </strong></div></p><p class='largegap-above'><div class='instr-img'><img src='img/reminder.png'></img><p class='smallgap-above'> <strong><i>Tryk på mellemrumstasten for at fortsætte træningsrunden...</strong></i></p>", 32,"html-keyboard-response", 99,164263,"0.0-9.0-2.3-0.3",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"101",NA,"img/cRT_fix.png",NA,"image-keyboard-response",100,166015,"0.0-9.0-0.4","vis_ch","training_fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"102",  351.5,"img/cRT1.png", 90,"image-keyboard-response",101,166368,"0.0-9.0-1.4","vis_ch","training_test","z",TRUE,NA,NA,NA,NA,NA,NA
+"103",NA,"img/cRT_fix.png",NA,"image-keyboard-response",102,167873,"0.0-9.0-0.5","vis_ch","training_fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"104",  327.8,"img/cRT4.png",188,"image-keyboard-response",103,168201,"0.0-9.0-1.5","vis_ch","training_test",".",FALSE,NA,NA,NA,NA,NA,NA
+"105", 1989.2,"<p><div style='font-size:40px;'><strong>FORKERT TAST </strong></div></p><p class='largegap-above'><div class='instr-img'><img src='img/reminder.png'></img><p class='smallgap-above'> <strong><i>Tryk på mellemrumstasten for at fortsætte træningsrunden...</strong></i></p>", 32,"html-keyboard-response",104,170191,"0.0-9.0-2.5-0.5",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"106",NA,"img/cRT_fix.png",NA,"image-keyboard-response",105,171944,"0.0-9.0-0.6","vis_ch","training_fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"107",  275.4,"img/cRT2.png", 88,"image-keyboard-response",106,172221,"0.0-9.0-1.6","vis_ch","training_test","x",TRUE,NA,NA,NA,NA,NA,NA
+"108",NA,"img/cRT_fix.png",NA,"image-keyboard-response",107,174476,"0.0-9.0-0.7","vis_ch","training_fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"109",  369.8,"img/cRT2.png", 88,"image-keyboard-response",108,174847,"0.0-9.0-1.7","vis_ch","training_test","x",TRUE,NA,NA,NA,NA,NA,NA
+"110",25661.6,"<p>Du svarede rigtigt 88 % af gangene </p><p>og din gennemsnitlige reaktionstid her i træningsrunden var </p><p><strong> 287ms </strong></p><p>Du trykkede for tidligt 6 % af gangene </p></div><p class='gap-above'><strong><i>Tryk på mellemrumstasten for at fortsætte</strong></i></p>", 32,"html-keyboard-response",109,200510,"0.0-10.0","vis_ch","feedback_training",NA,NA,287,  0,  6,NA,  2, 88
+"111", 6491.9,"<p><strong>Nu kommer den rigtige test af din reaktionstid</strong>.</p> <p>Når du ser krydset, skal du trykke på den tilhørende tast så hurtigt som du kan. </p><p>Du får ikke at vide, om du laver fejl. </p><p class='gap-above'> Husk: </p><div class='instr-img'>     <img src='img/reminder.png'></img><p class='largegap-above'>Er du klar? Opgaven handler om fart!</p><p class='smallgap-above'><strong><i>Tryk på mellemrumstasten for at starte.</strong></i></p>", 32,"html-keyboard-response",110,207003,"0.0-11.0","vis_ch","instructions",NA,NA,NA,NA,NA,NA,NA,NA
+"112",NA,"img/cRT_fix.png",NA,"image-keyboard-response",111,208762,"0.0-12.0-0.0","vis_ch","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"113",  398.0,"img/cRT4.png",190,"image-keyboard-response",112,209161,"0.0-12.0-1.0","vis_ch","test",".",TRUE,NA,NA,NA,NA,NA,NA
+"114",NA,"img/cRT_fix.png",NA,"image-keyboard-response",113,210916,"0.0-12.0-0.1","vis_ch","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"115",  319.9,"img/cRT2.png", 88,"image-keyboard-response",114,211237,"0.0-12.0-1.1","vis_ch","test","x",TRUE,NA,NA,NA,NA,NA,NA
+"116",NA,"img/cRT_fix.png",NA,"image-keyboard-response",115,212991,"0.0-12.0-0.2","vis_ch","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"117",  365.1,"img/cRT2.png", 88,"image-keyboard-response",116,213357,"0.0-12.0-1.2","vis_ch","test","x",TRUE,NA,NA,NA,NA,NA,NA
+"118",NA,"img/cRT_fix.png",NA,"image-keyboard-response",117,215862,"0.0-12.0-0.3","vis_ch","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"119",  360.2,"img/cRT4.png",190,"image-keyboard-response",118,216222,"0.0-12.0-1.3","vis_ch","test",".",TRUE,NA,NA,NA,NA,NA,NA
+"120",NA,"img/cRT_fix.png",NA,"image-keyboard-response",119,218726,"0.0-12.0-0.4","vis_ch","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"121",  282.9,"img/cRT2.png", 88,"image-keyboard-response",120,219010,"0.0-12.0-1.4","vis_ch","test","x",TRUE,NA,NA,NA,NA,NA,NA
+"122",NA,"img/cRT_fix.png",NA,"image-keyboard-response",121,221513,"0.0-12.0-0.5","vis_ch","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"123",  308.4,"img/cRT3.png",188,"image-keyboard-response",122,221822,"0.0-12.0-1.5","vis_ch","test",",",TRUE,NA,NA,NA,NA,NA,NA
+"124",NA,"img/cRT_fix.png",NA,"image-keyboard-response",123,224077,"0.0-12.0-0.6","vis_ch","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"125",  308.5,"img/cRT2.png", 90,"image-keyboard-response",124,224386,"0.0-12.0-1.6","vis_ch","test","x",FALSE,NA,NA,NA,NA,NA,NA
+"126",NA,"img/cRT_fix.png",NA,"image-keyboard-response",125,226642,"0.0-12.0-0.7","vis_ch","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"127",  300.7,"img/cRT4.png",190,"image-keyboard-response",126,226943,"0.0-12.0-1.7","vis_ch","test",".",TRUE,NA,NA,NA,NA,NA,NA
+"128",NA,"img/cRT_fix.png",NA,"image-keyboard-response",127,228196,"0.0-12.0-0.8","vis_ch","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"129",  325.5,"img/cRT4.png",188,"image-keyboard-response",128,228522,"0.0-12.0-1.8","vis_ch","test",".",FALSE,NA,NA,NA,NA,NA,NA
+"130",   36.8,"img/cRT_fix.png",190,"image-keyboard-response",129,231026,"0.0-12.0-0.9","vis_ch","fixation","null",FALSE,NA,NA,NA,NA,NA,NA
+"131",  319.0,"img/cRT1.png", 88,"image-keyboard-response",130,231346,"0.0-12.0-1.9","vis_ch","test","z",FALSE,NA,NA,NA,NA,NA,NA
+"132",  160.0,"img/cRT_fix.png", 90,"image-keyboard-response",131,232597,"0.0-12.0-0.10","vis_ch","fixation","null",FALSE,NA,NA,NA,NA,NA,NA
+"133",  281.6,"img/cRT3.png",190,"image-keyboard-response",132,232899,"0.0-12.0-1.10","vis_ch","test",",",FALSE,NA,NA,NA,NA,NA,NA
+"134",NA,"img/cRT_fix.png",NA,"image-keyboard-response",133,234904,"0.0-12.0-0.11","vis_ch","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"135",  321.5,"img/cRT4.png",190,"image-keyboard-response",134,235226,"0.0-12.0-1.11","vis_ch","test",".",TRUE,NA,NA,NA,NA,NA,NA
+"136",NA,"img/cRT_fix.png",NA,"image-keyboard-response",135,236481,"0.0-12.0-0.12","vis_ch","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"137",  305.7,"img/cRT2.png", 88,"image-keyboard-response",136,236788,"0.0-12.0-1.12","vis_ch","test","x",TRUE,NA,NA,NA,NA,NA,NA
+"138",NA,"img/cRT_fix.png",NA,"image-keyboard-response",137,238793,"0.0-12.0-0.13","vis_ch","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"139",  320.9,"img/cRT4.png",190,"image-keyboard-response",138,239114,"0.0-12.0-1.13","vis_ch","test",".",TRUE,NA,NA,NA,NA,NA,NA
+"140",NA,"img/cRT_fix.png",NA,"image-keyboard-response",139,240867,"0.0-12.0-0.14","vis_ch","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"141",  439.8,"img/cRT2.png", 88,"image-keyboard-response",140,241308,"0.0-12.0-1.14","vis_ch","test","x",TRUE,NA,NA,NA,NA,NA,NA
+"142",NA,"img/cRT_fix.png",NA,"image-keyboard-response",141,243311,"0.0-12.0-0.15","vis_ch","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"143",  357.9,"img/cRT4.png",190,"image-keyboard-response",142,243671,"0.0-12.0-1.15","vis_ch","test",".",TRUE,NA,NA,NA,NA,NA,NA
+"144",NA,"img/cRT_fix.png",NA,"image-keyboard-response",143,245922,"0.0-12.0-0.16","vis_ch","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"145",  345.8,"img/cRT4.png",190,"image-keyboard-response",144,246269,"0.0-12.0-1.16","vis_ch","test",".",TRUE,NA,NA,NA,NA,NA,NA
+"146",NA,"img/cRT_fix.png",NA,"image-keyboard-response",145,248522,"0.0-12.0-0.17","vis_ch","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"147",  303.8,"img/cRT2.png", 88,"image-keyboard-response",146,248827,"0.0-12.0-1.17","vis_ch","test","x",TRUE,NA,NA,NA,NA,NA,NA
+"148",NA,"img/cRT_fix.png",NA,"image-keyboard-response",147,250832,"0.0-12.0-0.18","vis_ch","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"149",  370.0,"img/cRT3.png",188,"image-keyboard-response",148,251203,"0.0-12.0-1.18","vis_ch","test",",",TRUE,NA,NA,NA,NA,NA,NA
+"150",NA,"img/cRT_fix.png",NA,"image-keyboard-response",149,253705,"0.0-12.0-0.19","vis_ch","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"151",  421.8,"img/cRT2.png", 88,"image-keyboard-response",150,254130,"0.0-12.0-1.19","vis_ch","test","x",TRUE,NA,NA,NA,NA,NA,NA
+"152",NA,"img/cRT_fix.png",NA,"image-keyboard-response",151,255634,"0.0-12.0-0.20","vis_ch","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"153",  415.8,"img/cRT3.png",190,"image-keyboard-response",152,256051,"0.0-12.0-1.20","vis_ch","test",",",FALSE,NA,NA,NA,NA,NA,NA
+"154",NA,"img/cRT_fix.png",NA,"image-keyboard-response",153,257052,"0.0-12.0-0.21","vis_ch","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"155",  375.6,"img/cRT3.png",188,"image-keyboard-response",154,257429,"0.0-12.0-1.21","vis_ch","test",",",TRUE,NA,NA,NA,NA,NA,NA
+"156",NA,"img/cRT_fix.png",NA,"image-keyboard-response",155,258681,"0.0-12.0-0.22","vis_ch","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"157",  380.1,"img/cRT1.png", 88,"image-keyboard-response",156,259062,"0.0-12.0-1.22","vis_ch","test","z",FALSE,NA,NA,NA,NA,NA,NA
+"158",  115.4,"img/cRT_fix.png", 90,"image-keyboard-response",157,260065,"0.0-12.0-0.23","vis_ch","fixation","null",FALSE,NA,NA,NA,NA,NA,NA
+"159",  760.5,"img/cRT1.png", 90,"image-keyboard-response",158,260827,"0.0-12.0-1.23","vis_ch","test","z",TRUE,NA,NA,NA,NA,NA,NA
+"160",NA,"img/cRT_fix.png",NA,"image-keyboard-response",159,262830,"0.0-12.0-0.24","vis_ch","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"161",  365.0,"img/cRT2.png", 88,"image-keyboard-response",160,263196,"0.0-12.0-1.24","vis_ch","test","x",TRUE,NA,NA,NA,NA,NA,NA
+"162",NA,"img/cRT_fix.png",NA,"image-keyboard-response",161,265202,"0.0-12.0-0.25","vis_ch","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"163",  397.1,"img/cRT1.png", 90,"image-keyboard-response",162,265600,"0.0-12.0-1.25","vis_ch","test","z",TRUE,NA,NA,NA,NA,NA,NA
+"164",NA,"img/cRT_fix.png",NA,"image-keyboard-response",163,267602,"0.0-12.0-0.26","vis_ch","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"165",  298.2,"img/cRT1.png", 90,"image-keyboard-response",164,267901,"0.0-12.0-1.26","vis_ch","test","z",TRUE,NA,NA,NA,NA,NA,NA
+"166",NA,"img/cRT_fix.png",NA,"image-keyboard-response",165,269154,"0.0-12.0-0.27","vis_ch","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"167",  347.3,"img/cRT4.png",190,"image-keyboard-response",166,269502,"0.0-12.0-1.27","vis_ch","test",".",TRUE,NA,NA,NA,NA,NA,NA
+"168",   51.0,"img/cRT_fix.png",188,"image-keyboard-response",167,271755,"0.0-12.0-0.28","vis_ch","fixation","null",FALSE,NA,NA,NA,NA,NA,NA
+"169",  351.7,"img/cRT1.png", 90,"image-keyboard-response",168,272109,"0.0-12.0-1.28","vis_ch","test","z",TRUE,NA,NA,NA,NA,NA,NA
+"170",NA,"img/cRT_fix.png",NA,"image-keyboard-response",169,274114,"0.0-12.0-0.29","vis_ch","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"171",  370.6,"img/cRT3.png",188,"image-keyboard-response",170,274485,"0.0-12.0-1.29","vis_ch","test",",",TRUE,NA,NA,NA,NA,NA,NA
+"172",NA,"img/cRT_fix.png",NA,"image-keyboard-response",171,275987,"0.0-12.0-0.30","vis_ch","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"173",  378.1,"img/cRT1.png", 90,"image-keyboard-response",172,276367,"0.0-12.0-1.30","vis_ch","test","z",TRUE,NA,NA,NA,NA,NA,NA
+"174",NA,"img/cRT_fix.png",NA,"image-keyboard-response",173,278122,"0.0-12.0-0.31","vis_ch","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"175",  363.5,"img/cRT3.png",190,"image-keyboard-response",174,278487,"0.0-12.0-1.31","vis_ch","test",",",FALSE,NA,NA,NA,NA,NA,NA
+"176",   76.7,"img/cRT_fix.png",188,"image-keyboard-response",175,279492,"0.0-12.0-0.32","vis_ch","fixation","null",FALSE,NA,NA,NA,NA,NA,NA
+"177",  344.3,"img/cRT1.png", 90,"image-keyboard-response",176,279838,"0.0-12.0-1.32","vis_ch","test","z",TRUE,NA,NA,NA,NA,NA,NA
+"178",NA,"img/cRT_fix.png",NA,"image-keyboard-response",177,281341,"0.0-12.0-0.33","vis_ch","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"179",  347.4,"img/cRT1.png", 90,"image-keyboard-response",178,281690,"0.0-12.0-1.33","vis_ch","test","z",TRUE,NA,NA,NA,NA,NA,NA
+"180",NA,"img/cRT_fix.png",NA,"image-keyboard-response",179,284195,"0.0-12.0-0.34","vis_ch","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"181",  304.6,"img/cRT3.png",188,"image-keyboard-response",180,284501,"0.0-12.0-1.34","vis_ch","test",",",TRUE,NA,NA,NA,NA,NA,NA
+"182",NA,"img/cRT_fix.png",NA,"image-keyboard-response",181,286006,"0.0-12.0-0.35","vis_ch","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"183",  331.6,"img/cRT4.png",190,"image-keyboard-response",182,286340,"0.0-12.0-1.35","vis_ch","test",".",TRUE,NA,NA,NA,NA,NA,NA
+"184",NA,"img/cRT_fix.png",NA,"image-keyboard-response",183,288342,"0.0-12.0-0.36","vis_ch","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"185",  339.4,"img/cRT3.png",188,"image-keyboard-response",184,288682,"0.0-12.0-1.36","vis_ch","test",",",TRUE,NA,NA,NA,NA,NA,NA
+"186",NA,"img/cRT_fix.png",NA,"image-keyboard-response",185,290937,"0.0-12.0-0.37","vis_ch","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"187",  365.7,"img/cRT3.png",188,"image-keyboard-response",186,291303,"0.0-12.0-1.37","vis_ch","test",",",TRUE,NA,NA,NA,NA,NA,NA
+"188",NA,"img/cRT_fix.png",NA,"image-keyboard-response",187,293557,"0.0-12.0-0.38","vis_ch","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"189",  306.7,"img/cRT1.png", 90,"image-keyboard-response",188,293864,"0.0-12.0-1.38","vis_ch","test","z",TRUE,NA,NA,NA,NA,NA,NA
+"190",NA,"img/cRT_fix.png",NA,"image-keyboard-response",189,295116,"0.0-12.0-0.39","vis_ch","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"191",  232.7,"img/cRT2.png",188,"image-keyboard-response",190,295350,"0.0-12.0-1.39","vis_ch","test","x",FALSE,NA,NA,NA,NA,NA,NA
+"192", 8302.1,"<p>Du svarede rigtigt 87 % af gangene </p><p>og din gennemsnitlige reaktionstid var </p><p><strong> 331ms </strong></p><p>Du trykkede for tidligt 3 % af gangene </p></div><p class='gap-above'><strong><i>Tryk på mellemrumstasten for at afslutte denne reaktionstids-test</strong></i></p>", 32,"html-keyboard-response",191,303654,"0.0-13.0","vis_ch","feedback_real",NA,NA,331,  0, 12,NA,  8, 87
+"193", 7057.0,"<p><div style='font-size:25px;''><strong>Visuel simpel reaktionstid </strong></div></p><pclass='largegap-above'>I den følgende opgave vil du se en hvid kasse på skærmen.</p><div class='instr-img'><img src='img/blankbox.png'></img><p class='small'><strong>Vent!</strong></p></div><p class='gap-above'>Hver gang du ser et <strong>kryds</strong> i kassen,</p><p>skal du trykke på <strong>mellemrumstasten,</strong> så hurtigt som du kan.</p><div class='instr-img'><img src='img/cross.png'></img><p class='small'><strong>Tryk!</strong></p></div><p> Du får lov til at prøve det nogle gange først.</p><p class='gap-above'> <strong><i>Tryk på mellemrumstasten for at starte træningsrunden.</strong></i></p>", 32,"html-keyboard-response",192,310714,"0.0-14.0","vis_s","instructions",NA,NA,NA,NA,NA,NA,NA,NA
+"194",NA,"img/blankbox.png",NA,"image-keyboard-response",193,311966,"0.0-15.0-0.0","vis_s","training_fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"195",  790.4,"img/cross.png", 32,"image-keyboard-response",194,312758,"0.0-15.0-1.0","vis_s","training_test","space",TRUE,NA,NA,NA,NA,NA,NA
+"196",NA,"img/blankbox.png",NA,"image-keyboard-response",195,314762,"0.0-15.0-0.1","vis_s","training_fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"197",  314.5,"img/cross.png", 32,"image-keyboard-response",196,315078,"0.0-15.0-1.1","vis_s","training_test","space",TRUE,NA,NA,NA,NA,NA,NA
+"198",NA,"img/blankbox.png",NA,"image-keyboard-response",197,317583,"0.0-15.0-0.2","vis_s","training_fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"199",  288.0,"img/cross.png", 32,"image-keyboard-response",198,317872,"0.0-15.0-1.2","vis_s","training_test","space",TRUE,NA,NA,NA,NA,NA,NA
+"200",NA,"img/blankbox.png",NA,"image-keyboard-response",199,319125,"0.0-15.0-0.3","vis_s","training_fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"201",  312.4,"img/cross.png", 32,"image-keyboard-response",200,319438,"0.0-15.0-1.3","vis_s","training_test","space",TRUE,NA,NA,NA,NA,NA,NA
+"202", 2231.8,"img/blankbox.png", 32,"image-keyboard-response",201,321694,"0.0-15.0-0.4","vis_s","training_fixation","null",FALSE,NA,NA,NA,NA,NA,NA
+"203",  489.2,"img/cross.png", 32,"image-keyboard-response",202,322184,"0.0-15.0-1.4","vis_s","training_test","space",TRUE,NA,NA,NA,NA,NA,NA
+"204",NA,"img/blankbox.png",NA,"image-keyboard-response",203,324688,"0.0-15.0-0.5","vis_s","training_fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"205",  269.1,"img/cross.png", 32,"image-keyboard-response",204,324959,"0.0-15.0-1.5","vis_s","training_test","space",TRUE,NA,NA,NA,NA,NA,NA
+"206",NA,"img/blankbox.png",NA,"image-keyboard-response",205,326212,"0.0-15.0-0.6","vis_s","training_fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"207",  296.2,"img/cross.png", 32,"image-keyboard-response",206,326510,"0.0-15.0-1.6","vis_s","training_test","space",TRUE,NA,NA,NA,NA,NA,NA
+"208", 1225.4,"img/blankbox.png", 32,"image-keyboard-response",207,328012,"0.0-15.0-0.7","vis_s","training_fixation","null",FALSE,NA,NA,NA,NA,NA,NA
+"209",  242.0,"img/cross.png", 32,"image-keyboard-response",208,328256,"0.0-15.0-1.7","vis_s","training_test","space",TRUE,NA,NA,NA,NA,NA,NA
+"210", 2423.1,"<p>Din gennemsnitlige reaktionstid her i træningsrunden var </p><p><strong> 315ms </strong></p><p>Du trykkede for tidligt 13 % af gangene </p></div><p class='gap-above'><strong><i>Tryk på mellemrumstasten for at fortsætte.</strong></i></p>", 32,"html-keyboard-response",209,330681,"0.0-16.0","aud_s","feedback_training",NA,NA,315,  0, 13,  8,NA,NA
+"211", 1498.8,"<p><strong>Nu kommer den rigtige test af din reaktionstid</strong>.</p> <p>Når du ser krydset, skal du trykke så hurtigt som du kan. </p><div class='instr-img'><div class='largegap-above'><img src='img/cross.png'></img><p class='largegap-above'>Er du klar? Opgaven handler om fart!</p><p class='smallgap-above'><strong><i>Tryk på mellemrumstasten for at starte</strong></i></p>", 32,"html-keyboard-response",210,332181,"0.0-17.0","vis_s","instructions",NA,NA,NA,NA,NA,NA,NA,NA
+"212",NA,"img/blankbox.png",NA,"image-keyboard-response",211,334686,"0.0-18.0-0.0","vis_s","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"213",  282.1,"img/cross.png", 32,"image-keyboard-response",212,334969,"0.0-18.0-1.0","vis_s","test","space",TRUE,NA,NA,NA,NA,NA,NA
+"214",NA,"img/blankbox.png",NA,"image-keyboard-response",213,336725,"0.0-18.0-0.1","vis_s","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"215",  271.8,"img/cross.png", 32,"image-keyboard-response",214,336997,"0.0-18.0-1.1","vis_s","test","space",TRUE,NA,NA,NA,NA,NA,NA
+"216",NA,"img/blankbox.png",NA,"image-keyboard-response",215,338499,"0.0-18.0-0.2","vis_s","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"217",  367.3,"img/cross.png", 32,"image-keyboard-response",216,338867,"0.0-18.0-1.2","vis_s","test","space",TRUE,NA,NA,NA,NA,NA,NA
+"218", 2420.7,"img/blankbox.png", 32,"image-keyboard-response",217,341374,"0.0-18.0-0.3","vis_s","fixation","null",FALSE,NA,NA,NA,NA,NA,NA
+"219",  265.0,"img/cross.png", 32,"image-keyboard-response",218,341639,"0.0-18.0-1.3","vis_s","test","space",TRUE,NA,NA,NA,NA,NA,NA
+"220",NA,"img/blankbox.png",NA,"image-keyboard-response",219,342642,"0.0-18.0-0.4","vis_s","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"221",  294.6,"img/cross.png", 32,"image-keyboard-response",220,342938,"0.0-18.0-1.4","vis_s","test","space",TRUE,NA,NA,NA,NA,NA,NA
+"222",NA,"img/blankbox.png",NA,"image-keyboard-response",221,343942,"0.0-18.0-0.5","vis_s","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"223",  476.7,"img/cross.png", 32,"image-keyboard-response",222,344420,"0.0-18.0-1.5","vis_s","test","space",TRUE,NA,NA,NA,NA,NA,NA
+"224",NA,"img/blankbox.png",NA,"image-keyboard-response",223,346674,"0.0-18.0-0.6","vis_s","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"225",    4.8,"img/cross.png", 32,"image-keyboard-response",224,346679,"0.0-18.0-1.6","vis_s","test","space",TRUE,NA,NA,NA,NA,NA,NA
+"226",NA,"img/blankbox.png",NA,"image-keyboard-response",225,347933,"0.0-18.0-0.7","vis_s","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"227",  271.9,"img/cross.png", 32,"image-keyboard-response",226,348206,"0.0-18.0-1.7","vis_s","test","space",TRUE,NA,NA,NA,NA,NA,NA
+"228", 1441.2,"img/blankbox.png", 32,"image-keyboard-response",227,349711,"0.0-18.0-0.8","vis_s","fixation","null",FALSE,NA,NA,NA,NA,NA,NA
+"229",  331.8,"img/cross.png", 32,"image-keyboard-response",228,350044,"0.0-18.0-1.8","vis_s","test","space",TRUE,NA,NA,NA,NA,NA,NA
+"230",NA,"img/blankbox.png",NA,"image-keyboard-response",229,352047,"0.0-18.0-0.9","vis_s","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"231",  326.6,"img/cross.png", 32,"image-keyboard-response",230,352374,"0.0-18.0-1.9","vis_s","test","space",TRUE,NA,NA,NA,NA,NA,NA
+"232", 1778.0,"img/blankbox.png", 32,"image-keyboard-response",231,354875,"0.0-18.0-0.10","vis_s","fixation","null",FALSE,NA,NA,NA,NA,NA,NA
+"233",  819.8,"img/cross.png", 32,"image-keyboard-response",232,355696,"0.0-18.0-1.10","vis_s","test","space",TRUE,NA,NA,NA,NA,NA,NA
+"234",NA,"img/blankbox.png",NA,"image-keyboard-response",233,356699,"0.0-18.0-0.11","vis_s","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"235",  390.7,"img/cross.png", 32,"image-keyboard-response",234,357091,"0.0-18.0-1.11","vis_s","test","space",TRUE,NA,NA,NA,NA,NA,NA
+"236",NA,"img/blankbox.png",NA,"image-keyboard-response",235,359591,"0.0-18.0-0.12","vis_s","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"237",  280.2,"img/cross.png", 32,"image-keyboard-response",236,359873,"0.0-18.0-1.12","vis_s","test","space",TRUE,NA,NA,NA,NA,NA,NA
+"238",NA,"img/blankbox.png",NA,"image-keyboard-response",237,361626,"0.0-18.0-0.13","vis_s","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"239",  419.4,"img/cross.png", 32,"image-keyboard-response",238,362046,"0.0-18.0-1.13","vis_s","test","space",TRUE,NA,NA,NA,NA,NA,NA
+"240",NA,"img/blankbox.png",NA,"image-keyboard-response",239,363051,"0.0-18.0-0.14","vis_s","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"241",  497.2,"img/cross.png", 32,"image-keyboard-response",240,363549,"0.0-18.0-1.14","vis_s","test","space",TRUE,NA,NA,NA,NA,NA,NA
+"242",NA,"img/blankbox.png",NA,"image-keyboard-response",241,365803,"0.0-18.0-0.15","vis_s","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"243",  293.6,"img/cross.png", 32,"image-keyboard-response",242,366097,"0.0-18.0-1.15","vis_s","test","space",TRUE,NA,NA,NA,NA,NA,NA
+"244",NA,"img/blankbox.png",NA,"image-keyboard-response",243,367349,"0.0-18.0-0.16","vis_s","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"245",  235.5,"img/cross.png", 32,"image-keyboard-response",244,367587,"0.0-18.0-1.16","vis_s","test","space",TRUE,NA,NA,NA,NA,NA,NA
+"246",NA,"img/blankbox.png",NA,"image-keyboard-response",245,369342,"0.0-18.0-0.17","vis_s","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"247",  258.7,"img/cross.png", 32,"image-keyboard-response",246,369602,"0.0-18.0-1.17","vis_s","test","space",TRUE,NA,NA,NA,NA,NA,NA
+"248",NA,"img/blankbox.png",NA,"image-keyboard-response",247,370606,"0.0-18.0-0.18","vis_s","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"249",  304.1,"img/cross.png", 32,"image-keyboard-response",248,370911,"0.0-18.0-1.18","vis_s","test","space",TRUE,NA,NA,NA,NA,NA,NA
+"250",NA,"img/blankbox.png",NA,"image-keyboard-response",249,372665,"0.0-18.0-0.19","vis_s","fixation","null",TRUE,NA,NA,NA,NA,NA,NA
+"251",  263.2,"img/cross.png", 32,"image-keyboard-response",250,372930,"0.0-18.0-1.19","vis_s","test","space",TRUE,NA,NA,NA,NA,NA,NA
+"252", 3155.2,"<p>Din gennemsnitlige reaktionstid var </p><p><strong> 316 ms </strong></p><p>Du trykkede for tidligt 13 % af gangene </p></div><p class='gap-above'><strong><i>Tryk på mellemrumstasten for at afslutte den visuelle reaktionstids-test.</strong></i></p>", 32,"html-keyboard-response",251,376086,"0.0-19.0","vis_s","feedback_real",NA,NA,316,  1, 13, 10,NA,NA

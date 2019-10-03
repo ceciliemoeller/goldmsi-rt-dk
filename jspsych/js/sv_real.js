@@ -50,7 +50,7 @@ timeline_sv.push(start_real);
 var test_procedure = {
   timeline: [fixation, test],
   timeline_variables: test_stimuli,
-  repetitions: 2
+  repetitions: 20
 };
 
 timeline_sv.push(test_procedure);
@@ -78,10 +78,10 @@ var debrief_block = {
       "<p><strong> " + rt_real + " ms </strong></p>" +
       "<p>Du trykkede for tidligt " + falsealarm_pct + " % af gangene </p>" +
       "</div>" +
-      "<p class='gap-above'><strong><i>Tryk på mellemrumstasten for at afslutte den auditive reaktionstids-test</strong></i></p>";
+      "<p class='gap-above'><strong><i>Tryk på mellemrumstasten for at afslutte den visuelle reaktionstids-test.</strong></i></p>";
   },
   choices: ['space'],
-  data: { cond: 'aud_s', test_part: 'feedback_real' },
+  data: { cond: 'vis_s', test_part: 'feedback_real' },
 
   on_finish: function (data) {
     // get data

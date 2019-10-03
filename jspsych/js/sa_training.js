@@ -59,7 +59,7 @@ var training = {
 var training_procedure = {
   timeline: [training_fixation, training, training_resp],
   timeline_variables: training_stimuli,
-  repetitions: 3
+  repetitions: 8
 }
 
 timeline_sa.push(training_procedure);
@@ -88,7 +88,7 @@ var training_debrief_block = {
       "<p><strong> " + rt_real + "ms </strong></p>" +
       "<p>Du trykkede for tidligt " + falsealarm_pct + " % af gangene </p>" +
       "</div>" +
-      "<p class='gap-above'><strong><i>Tryk på mellemrumstasten for at fortsætte</strong></i></p>";
+      "<p class='gap-above'><strong><i>Tryk på mellemrumstasten for at fortsætte.</strong></i></p>";
   },
   choices: ['space'],
   data: { cond: 'aud_s', test_part: 'feedback_training' },

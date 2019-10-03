@@ -6,7 +6,7 @@ var instructions_1 = {
         "<p class='gap-above'>I den følgende opgave skal du bruge fire fingre. </p>" +
         "<p>Placer dem nu som vist på billedet her. </p>" +
         "<p> <img src='img/choicetask.png'></img>" +
-        "<p class='gap-above'> <strong><i>Tryk på mellemrumstasten for at læse instruktionen</strong></i></p>",
+        "<p class='gap-above'> <strong><i>Tryk på mellemrumstasten for at læse instruktionen.</strong></i></p>",
 
     choices: ['space'],
     data: { cond: 'vis_ch', test_part: 'instructions' },
@@ -90,8 +90,9 @@ var feedback_inc = {
       return "<p><div style='font-size:40px;'><strong>FORKERT TAST </strong></div></p>" +
       "<p class='largegap-above'><div class='instr-img'>" +
       "<img src='img/reminder.png'></img>" +
-      "<p class='smallgap-above'> <strong><i>Tryk på en tast for at fortsætte træningsrunden...</strong></i></p>" 
-     }
+      "<p class='smallgap-above'> <strong><i>Tryk på mellemrumstasten for at fortsætte træningsrunden...</strong></i></p>" 
+     },
+     choices: ['space']
   }
 
   var feedback_slow = {
@@ -101,10 +102,11 @@ var feedback_inc = {
       "<p><div style='font-size:25 px;'><strong>Husk, det handler om fart! </strong></div></p>" +
       "<p class='largegap-above'><div class='instr-img'>" +
       "<img src='img/reminder.png'></img>" +
-      "<p class='gap-above'> <strong><i>Tryk på en tast for at fortsætte træningsrunden...</strong></i></p>" 
-     }
+      "<p class='gap-above'> <strong><i>Tryk på mellemrumstasten for at fortsætte træningsrunden...</strong></i></p>" 
+     },
+     choices: ['space']
   }
-
+ 
 
 
 var if_node_inc = {

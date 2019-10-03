@@ -3,3 +3,8 @@ write.csv(fromJSON(latest$results$jspsych), "latestdata.csv")
 library(readr)
 latestdata <- read_csv("~/jsPsych/latestdata.csv")
 View(latestdata)
+
+write.csv(fromJSON(full_RTdataset$results$jspsych), "full_RTdataset.csv")
+library(readr)
+full_RTdataset <- read_csv("~/jsPsych/full_RTdataset.csv")
+View(full_RTdataset)
