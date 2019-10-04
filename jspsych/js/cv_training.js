@@ -16,18 +16,13 @@ var instructions_1 = {
 var instructions_2 = {
     type: "html-keyboard-response",
     stimulus: "<p>Du vil se fire hvide kasser på skærmen.</p>" +
-        // "<div style='width: 900px;'>" +
-        "<div class='instr-img'>" +
+        "<p class='gap-above'>" +
         "<img src='img/cRT_fix.png'></img>" +
-
         "<p class='smallgap-above'class='small'><strong>Vent!</strong></p>" +
-        "</div>" +
         "<p class='gap-above'>Hver gang du ser et kryds i én af kasserne, " +
         "skal du trykke på den </p>" +
         "<p>tilhørende tastatur-tast så hurtigt som du kan:</p>" +
-        "<div class='instr-img'>" +
         "<img src='img/reminder.png'></img>" +
-        "</div>" +
         "<p class='gap-above'> Du får lov til at prøve det nogle gange først.</p>" +
         "<p class='smallgap-above'> <strong><i>Tryk på mellemrumstasten for at starte træningsrunden.</strong></i></p>",
     choices: ['space'],
@@ -69,60 +64,48 @@ var training_test = {
         data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response) && data.rt > 100
     }
 };
-// // Fix i morgen:
-// https://www.jspsych.org/overview/trial/#dynamic-parameters:
-// var feedback = {
-//     type: 'html-keyboard-response',
-//     stimulus: function(){
-//       var last_trial_correct = jsPsych.data.get().last(1).values()[0].correct;
-//       if(last_trial_correct){
-//         return "<p>Correct!</p>";
-//       } else {
-//         return "<p>Wrong.</p>"
-//       }
-//     }
-//   }
-// ... og add feedback var to timeine below
 
 var feedback_inc = {
     type: 'html-keyboard-response',
-    stimulus: function(){
-      return "<p><div style='font-size:40px;'><strong>FORKERT TAST </strong></div></p>" +
-      "<p class='largegap-above'><div class='instr-img'>" +
-      "<img src='img/reminder.png'></img>" +
-      "<p class='smallgap-above'> <strong><i>Tryk på mellemrumstasten for at fortsætte træningsrunden...</strong></i></p>" 
-     },
-     choices: ['space']
-  }
+    stimulus: function () {
+        return "<p><div style='font-size:40px;'><strong>FORKERT TAST </strong></div></p>" +
+            "<p class='largegap-above'>" +
+            "<img src='img/reminder.png'></img>" +
+            "<p class='smallgap-above'>" +
+            "<strong><i>Tryk på mellemrumstasten for at fortsætte træningsrunden...</strong></i></p>"
+    },
+    choices: ['space']
+}
 
-  var feedback_slow = {
+var feedback_slow = {
     type: 'html-keyboard-response',
-    stimulus: function(){
-      return "<p><div style='font-size:40px;'><strong>FOR LANGSOMT </strong></div></p>" +
-      "<p><div style='font-size:25 px;'><strong>Husk, det handler om fart! </strong></div></p>" +
-      "<p class='largegap-above'><div class='instr-img'>" +
-      "<img src='img/reminder.png'></img>" +
-      "<p class='gap-above'> <strong><i>Tryk på mellemrumstasten for at fortsætte træningsrunden...</strong></i></p>" 
-     },
-     choices: ['space']
-  }
- 
+    stimulus: function () {
+        return "<p><div style='font-size:40px;'><strong>FOR LANGSOMT </strong></div></p>" +
+            "<p><div style='font-size:25 px;'><strong>Husk, det handler om fart! </strong></div></p>" +
+            "<p class='largegap-above'>" +
+            "<img src='img/reminder.png'></img>" +
+            "<p class='gap-above'>" +
+            "<strong><i>Tryk på mellemrumstasten for at fortsætte træningsrunden...</strong></i></p>"
+    },
+    choices: ['space']
+}
+
 
 
 var if_node_inc = {
     timeline: [feedback_inc],
-    conditional_function: function(){
+    conditional_function: function () {
         // get the data from the previous trial,
         // and shout if it was incorrect
-        var result = ((jsPsych).data.get().last(1).values()[0].correct === false) && 
-          ((jsPsych).data.get().last(1).values()[0].key_press != null);
+        var result = ((jsPsych).data.get().last(1).values()[0].correct === false) &&
+            ((jsPsych).data.get().last(1).values()[0].key_press != null);
         return result;
     }
 }
 
 var if_node_slow = {
     timeline: [feedback_slow],
-    conditional_function: function(){
+    conditional_function: function () {
         // get the data from the previous trial,
         // and shout if there was no response
         return jsPsych.data.get().last(1).values()[0].key_press === null;
@@ -171,13 +154,10 @@ var training_debrief_block = {
         var accuracy = Math.round(correct_real.count() / trials.count() * 100);
 
 
-        return "<p>Du svarede rigtigt " + accuracy + " % af gangene </p>" +
+        return "<p>Du svarede rigtigt " + accuracy + " % af gangene, </p>" +
             "<p>og din gennemsnitlige reaktionstid her i træningsrunden var </p>" +
-            "<p><strong> " + rt_real + "ms </strong></p>" +
-
-            "<p>Du trykkede for tidligt " + falsealarm_pct + " % af gangene </p>" +
-            "</div>" +
-            "<p class='gap-above'><strong><i>Tryk på mellemrumstasten for at fortsætte</strong></i></p>";
+            "<p class='gap-above'><strong> " + rt_real + " ms </strong></p>" +
+            "<p class='largegap-above'><strong><i>Tryk på mellemrumstasten for at fortsætte.</strong></i></p>";
     },
     choices: ['space'],
     data: { cond: 'vis_ch', test_part: 'feedback_training' },

@@ -25,7 +25,6 @@ var training_stimuli = [
 var training_fixation = {
   type: 'html-keyboard-response',
   stimulus: '<div style="font-size:80px;">+</div>',
-  //   choices: jsPsych.NO_KEYS,
   choices: ['space'],
   trial_duration: function () {
     return jsPsych.randomization.sampleWithoutReplacement([950, 1200, 1450, 1700, 1950, 2200, 2450], 1)[0];
@@ -86,8 +85,7 @@ var training_debrief_block = {
 
     return "<p>Din gennemsnitlige reaktionstid her i træningsrunden var </p>" +
       "<p><strong> " + rt_real + "ms </strong></p>" +
-      "<p>Du trykkede for tidligt " + falsealarm_pct + " % af gangene </p>" +
-      "</div>" +
+      "<p>Du trykkede for tidligt " + falsealarm_pct + " % af gangene. </p>" +
       "<p class='gap-above'><strong><i>Tryk på mellemrumstasten for at fortsætte.</strong></i></p>";
   },
   choices: ['space'],

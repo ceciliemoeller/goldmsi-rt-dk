@@ -3,7 +3,7 @@
 var test_stimuli = [
   {
     stimulus: "img/cross.png",
-    data: {cond: 'vis_s', test_part: 'test', correct_response: 'space' }
+    data: { cond: 'vis_s', test_part: 'test', correct_response: 'space' }
   }
 ];
 
@@ -14,7 +14,7 @@ var fixation = {
   trial_duration: function () {
     return jsPsych.randomization.sampleWithoutReplacement([1000, 1250, 1500, 1750, 2000, 2250, 2500], 1)[0];
   },
-  data: {cond: 'vis_s', test_part: 'fixation', correct_response: 'null' },
+  data: { cond: 'vis_s', test_part: 'fixation', correct_response: 'null' },
   on_finish: function (data) {
     data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
   },
@@ -37,13 +37,12 @@ var start_real = {
   type: "html-keyboard-response",
   stimulus: "<p><strong>Nu kommer den rigtige test af din reaktionstid</strong>.</p> " +
     "<p>Når du ser krydset, skal du trykke så hurtigt som du kan. </p>" +
-    "<div class='instr-img'>" +
-    "<div class='largegap-above'>" +
+    "<div class='largegap-above'></div>" +
     "<img src='img/cross.png'></img>" +
     "<p class='largegap-above'>Er du klar? Opgaven handler om fart!</p>" +
     "<p class='smallgap-above'><strong><i>Tryk på mellemrumstasten for at starte</strong></i></p>",
-    choices: ['space'],
-    data: {cond: 'vis_s', test_part: 'instructions'},
+  choices: ['space'],
+  data: { cond: 'vis_s', test_part: 'instructions' },
 };
 timeline_sv.push(start_real);
 
@@ -76,8 +75,7 @@ var debrief_block = {
 
     return "<p>Din gennemsnitlige reaktionstid var </p>" +
       "<p><strong> " + rt_real + " ms </strong></p>" +
-      "<p>Du trykkede for tidligt " + falsealarm_pct + " % af gangene </p>" +
-      "</div>" +
+      "<p>Du trykkede for tidligt " + falsealarm_pct + " % af gangene. </p>" +
       "<p class='gap-above'><strong><i>Tryk på mellemrumstasten for at afslutte den visuelle reaktionstids-test.</strong></i></p>";
   },
   choices: ['space'],

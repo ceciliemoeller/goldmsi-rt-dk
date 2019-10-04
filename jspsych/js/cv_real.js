@@ -15,10 +15,10 @@ var fixation = {
     trial_duration: function () {
         return jsPsych.randomization.sampleWithoutReplacement([1000, 1250, 1500, 1750, 2000, 2250, 2500], 1)[0];
     },
-    data: {cond: 'vis_ch', test_part: 'fixation', correct_response: 'null' },
+    data: { cond: 'vis_ch', test_part: 'fixation', correct_response: 'null' },
     on_finish: function (data) {
         data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
-      },
+    },
     response_ends_trial: false
 };
 
@@ -40,13 +40,11 @@ var start_real = {
         "<p>Når du ser krydset, skal du trykke på den tilhørende tast så hurtigt som du kan. </p>" +
         "<p>Du får ikke at vide, om du laver fejl. </p>" +
         "<p class='gap-above'> Husk: </p>" +
-        "<div class='instr-img'>" +
-        "     <img src='img/reminder.png'></img>" +
-
+        "<img src='img/reminder.png'></img>" +
         "<p class='largegap-above'>Er du klar? Opgaven handler om fart!</p>" +
         "<p class='smallgap-above'><strong><i>Tryk på mellemrumstasten for at starte.</strong></i></p>",
-        choices: ['space'],
-        data: {cond: 'vis_ch', test_part: 'instructions'},
+    choices: ['space'],
+    data: { cond: 'vis_ch', test_part: 'instructions' },
 };
 timeline_cv.push(start_real);
 
@@ -54,9 +52,9 @@ var test_procedure = {
     timeline: [fixation, test],
     sample: {
         type: 'fixed-repetitions',
-        size: 10, // 10 repetitions of each trial, 40 total trials, order is randomized.
+        size: 5, // 10 repetitions of each trial, 40 total trials, order is randomized.
     },
-    timeline_variables: test_stimuli    
+    timeline_variables: test_stimuli
 };
 
 timeline_cv.push(test_procedure);
@@ -83,22 +81,17 @@ var debrief_block = {
         var incorrect_trials = trials.filter({ correct: false })
         var false_alarms = fixations.filter({ key_press: 32 });
 
-        // calculate proportion of false alarms (responses to fixations only, i.e. excl. 0-100ms test-responses)
-        var falsealarm_pct = Math.round(false_alarms.count() / fixations.count() * 100);
         // calculate accuracy (% correct responses)
         var accuracy = Math.round(correct_real.count() / trials.count() * 100);
 
 
-        return "<p>Du svarede rigtigt " + accuracy + " % af gangene </p>" +
+        return "<p>Du svarede rigtigt " + accuracy + " % af gangene, </p>" +
             "<p>og din gennemsnitlige reaktionstid var </p>" +
-            "<p><strong> " + rt_real + "ms </strong></p>" +
-
-            "<p>Du trykkede for tidligt " + falsealarm_pct + " % af gangene </p>" +
-            "</div>" +
-            "<p class='gap-above'><strong><i>Tryk på mellemrumstasten for at afslutte denne reaktionstids-test</strong></i></p>";
+            "<p class='gap-above'><strong> " + rt_real + " ms </strong></p>" +
+            "<p class='gap-above'><strong><i>Tryk på mellemrumstasten for at afslutte denne reaktionstids-test.</strong></i></p>";
     },
-      choices: ['space'],
-    data:{cond: 'vis_ch', test_part: 'feedback_real'},
+    choices: ['space'],
+    data: { cond: 'vis_ch', test_part: 'feedback_real' },
 
     on_finish: function (data) {
         // get data

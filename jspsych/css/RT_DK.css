@@ -11,10 +11,10 @@ body {
      color: whitesmoke;
  }
 
- .instr-img {
+ /* .instr-img {
     display: inline-block; 
     margin-right: 30px;
- }
+ } */
  .jspsych-content-wrapper{
      margin:0 auto;
      max-width: 900px;

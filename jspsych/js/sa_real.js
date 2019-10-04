@@ -5,7 +5,6 @@ var test_stimuli = [
 var fixation = {
   type: 'html-keyboard-response',
   stimulus: '<div style="font-size:80px;">+</div>',
-  //   choices: jsPsych.NO_KEYS,
   choices: ['space'],
   trial_duration: function () {
     return jsPsych.randomization.sampleWithoutReplacement([950, 1200, 1450, 1700, 1950, 2200, 2450], 1)[0];
@@ -44,11 +43,10 @@ var start_real = {
     "<p><div style='font-size:80px;''>+</div></p>" +
     "<p class='largegap-above'</p" +
     "<p>Er du klar? Opgaven handler om fart!</p>" +
-    "<p class='gap-above'><strong><i>Tryk på mellemrumstasten for at starte</strong></i></p>",
+    "<p class='gap-above'><strong><i>Tryk på mellemrumstasten for at starte.</strong></i></p>",
   choices: ['space'],
   data: { cond: 'aud_s', test_part: 'instructions' },
-  post_trial_gap: 100
-};
+  };
 timeline_sa.push(start_real);
 
 var test_procedure = {
@@ -81,9 +79,8 @@ var debrief_block = {
 
     return "<p>Din gennemsnitlige reaktionstid var </p>" +
       "<p><strong> " + rt_real + " ms </strong></p>" +
-      "<p>Du trykkede for tidligt " + falsealarm_pct + " % af gangene </p>" +
-      "</div>" +
-      "<p class='gap-above'><strong><i>Tryk på mellemrumstasten for at afslutte den auditive reaktionstids-test</strong></i></p>";
+      "<p>Du trykkede for tidligt " + falsealarm_pct + " % af gangene. </p>" +
+      "<p class='gap-above'><strong><i>Tryk på mellemrumstasten for at afslutte den auditive reaktionstids-test.</strong></i></p>";
   },
   choices: ['space'],
   data: { cond: 'aud_s', test_part: 'feedback_real' },

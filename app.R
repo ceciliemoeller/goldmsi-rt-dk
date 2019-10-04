@@ -25,7 +25,7 @@ head <- tags$head(
 ui <- tags$div(
   head,
   includeScript("jspsych/run_jspsych.js"),
-  tags$div(id = "js_psych", style = "min-height: 100vh")
+  tags$div(id = "js_psych", style = "min-height: 90vh")
 )
 
 elt_jspsych <- page(
