@@ -17,6 +17,7 @@ library(stringr)
 library(varhandle)
 
 #setwd("C:/Users/nch/Desktop/pmcharrison-psychTestR-bcc0e86")    # Specify where to save output files when running locally
+#setwd("C:/Users/au213911/Documents/jspsych")
 
 # Configure options
 config <- test_options(title="Dansk Gold-MSI",
