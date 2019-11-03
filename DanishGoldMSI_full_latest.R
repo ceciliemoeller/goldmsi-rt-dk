@@ -15,54 +15,16 @@ library(shiny)
 library(tibble)
 library(stringr)
 library(varhandle)
-library(mpt)
 
 #setwd("C:/Users/nch/Desktop/pmcharrison-psychTestR-bcc0e86")    # Specify where to save output files when running locally
-setwd("C:/Users/au213911/Documents/jspsych")
-
-
-
-# For jsPsych
-library_dir <- "jspsych/jspsych-6.1.0"
-custom_dir <- "jspsych/js"
-
-head <- tags$head(
-  # jsPsych library files
-  includeScript(file.path(library_dir, "jspsych.js")),
-  includeScript(file.path(library_dir, "plugins/jspsych-html-keyboard-response.js")),
-  includeScript(file.path(library_dir, "plugins/jspsych-image-keyboard-response.js")),
-  includeScript(file.path(library_dir, "plugins/jspsych-audio-keyboard-response.js")),
-  # Custom files
-  includeScript(file.path(custom_dir, "welcome.js")),
-  includeScript(file.path(custom_dir,"sv_training.js")),
-  includeScript(file.path(custom_dir,"sv_real.js")),
-  includeScript(file.path(custom_dir,"cv_training.js")),
-  includeScript(file.path(custom_dir,"cv_real.js")),
-  includeScript(file.path(custom_dir,"sa_training.js")),
-  includeScript(file.path(custom_dir,"sa_real.js")),
-  includeCSS(file.path(library_dir, "css/jspsych.css")),
-  includeCSS("jspsych/css/RT_DK.css")
-)
-
-ui <- tags$div(
-  head,
-  includeScript("jspsych/run_jspsych.js"),
-  tags$div(id = "js_psych", style = "min-height: 90vh")
-)
+#setwd("C:/Users/au213911/Documents/jspsych")
 
 # Configure options
 config <- test_options(title="Dansk Gold-MSI",
-                       admin_password="g0ldms1",
-                       researcher_email="Ni3lsChrHansen@gmail.com",
-                       problems_info="Problemer? Kontakt venligst Niels Chr. Hansen pï¿½ Ni3lsChrHansen@gmail.com.",
-                       display = display_options(
-                         full_screen = TRUE,
-                         content_background_colour = "grey",
-                         css = c(file.path(library_dir, "css/jspsych.css"), 
-                                 "jspsych/css/RT_DK.css")
-                       ))
+             admin_password="g0ldms1",
+             researcher_email="Ni3lsChrHansen@gmail.com",
+             problems_info="Problemer? Kontakt venligst Niels Chr. Hansen pï¿½ Ni3lsChrHansen@gmail.com.")
 
-# For GMSI
 # Question text
 revCode <- c(1,1,1,1,1,1,1,1,0,1,0,1,0,0,1,1,0,1,1,1,0,1,0,1,0,1,0,1,1,1,1,1,1,1,1,1,1,1) # Reverse coding key (1=positive, 0=negative)
 GeneralCode <- c(1,0,1,0,0,0,1,0,0,1,0,1,0,1,1,0,1,0,1,0,0,0,1,1,1,0,1,0,1,1,0,1,1,0,0,0,1,0)
@@ -135,8 +97,8 @@ num_items <- nrow(items)
 # WELCOME PAGE
 welcome <- one_button_page(body = div(h2(strong("Hvor musikalsk er du?")),
                                       div(p("Tak for din interesse i dette videnskabelige projekt om musikalitet og mental hastighed i den generelle danske befolkning udfï¿½rt af Aarhus Universitet."),
-                                      p("Denne undersï¿½gelse tager ca. 25 minutter. ",strong("Det er vigtigt, at du gennemfï¿½rer lyttetesten i stille omgivelser og bruger hï¿½retelefoner.")," Lï¿½s og godkend venligst samtykkeerklï¿½ringen pï¿½ nï¿½ste side, fï¿½r vi kan begynde."),align="center")),
-                           button_text="Næste")
+                                      p("Denne undersï¿½gelse tager ca. 25 minutter. ",strong("Det er vigtigt, at du gennemfï¿½rer lyttetesten i stille omgivelser og bruger hï¿½retelefoner.")," Lï¿½s og godkend venligst samtykkeerklï¿½ringen pï¿½ nï¿½ste side, fï¿½r vi kan begynde."),align="left")),
+                           button_text="Nï¿½ste")
 
 # CONSENT FORM
 consent <- one_button_page(body = div(h3("SAMTYKKEERKLï¿½RING"),
@@ -417,19 +379,12 @@ save_GMSI <- code_block(function(state, ...) {
   save_result(place=state,label="GeneralMusicalSophistication",value=get_global("GeneralMusicalSophistication",state))
   })
 
-
 # LAST PAGE
 last_page_gmsi <-   reactive_page(function(state, count, ...) {              # Feedback page
                 final_page(div(p(paste0("Tak for hjï¿½lpen! Din Gold-MSI score er: ",get_global("GeneralMusicalSophistication",state=state))),
                                p(paste0("Det gï¿½r dig mere musikalsk sofistikeret end ",sum(get_global("GeneralMusicalSophistication",state=state)>=GeneralPercentiles),"% af befolkningen!"))))
                                p(paste0("Vi skal nu teste din reaktionstid og dine lyttefï¿½rdigheder. Hvis du ikke allerede har gjort det, sï¿½ tag venligst hovedtelefoner pï¿½ nu."))
   })
-
-# TESTING
-JUST_TESTING <- one_button_page(body = div(h2(strong("JEPS")),
-                                           div(p("Den kommer fint ud af js-delen"),
-                                               p("Fedt!"),align="center")),
-                                button_text="Næste")
 
 
 #####################
@@ -441,23 +396,6 @@ calibration <- volume_calibration_page(url="https://file-examples.com/wp-content
                                        #on_complete=,
                                        #admin_ui=,
                                        prompt="Vi skal nu teste din reaktionstid og dine lyttefï¿½rdigheder. Hvis du ikke allerede har gjort det, sï¿½ tag venligst hovedtelefoner pï¿½ nu. Indstil lyden pï¿½ din computer, sï¿½ lydniveauet er komfortabelt for dig. Hvis ikke du hï¿½rer den lyd vi afspiller nu, sï¿½ check dine indstillinger pï¿½ computeren. Du kan kun deltage i denne del af undersï¿½gelsen, hvis din computer kan afspille lyden.")
-
-#######################
-# REACTION TIME TESTS #
-#######################
-# ui <- tags$div(
-#   head,
-#   includeScript("jspsych/run_jspsych.js"),
-#   tags$div(id = "js_psych", style = "min-height: 90vh")
-# )
-
-elt_jspsych <- page(
-  ui = ui,
-  label = "jspsych",
-  get_answer = function(input, ...) input$jspsych_results,
-  validate = function(answer, ...) nchar(answer) > 0L,
-  save_answer = TRUE
-)
 
 
 ################################
@@ -475,7 +413,6 @@ mistuning <- mpt(num_items=2,
                                                             y_axis = "Antal",
                                                             explain_IRT = FALSE), 
                  take_training = T)
-
 #####################
 # DEFINE EXPERIMENT #
 #####################
@@ -491,22 +428,16 @@ experiment <- c(
   #end_module(),                                            # End Demographics module
   #elt_save_results_to_disk(complete = TRUE),               # Default save function 
   begin_module("GMSI"),                                    # Begin GMSI module
-  #randomiser,                                              # Randomise GMSI questions  
-  #show_items,                                              # Show GMSI questions 
-  #instrument,                                              # Instrument input page
-  #email,                                                   # Email
-  #save_GMSI,                                               # Save GMSI data
+  randomiser,                                              # Randomise GMSI questions  
+  show_items,                                              # Show GMSI questions 
+  instrument,                                              # Instrument input page
+  email,                                                   # Email
+  save_GMSI,                                               # Save GMSI data
   end_module(),                                            # End GMSI module
-  #elt_save_results_to_disk(complete = TRUE),               # Default save function
-  #calibration,                                             # Sound calibration page
-  #begin_module("MPT"),                                     # Begin MPT module
-  #mistuning,                                              # Mistuning perception test
-  #end_module(),                                            # End MPT module
-  begin_module("RT"),                                      # Begin RT module
-  elt_jspsych,                                             # Reaction time tests 
-  end_module(),                                            # End RT module
   elt_save_results_to_disk(complete = TRUE),               # Default save function
-  JUST_TESTING,                                            # TEST PAGE
+  calibration,                                             # Sound calibration page
+  #mistuning,                                              # Mistuning perception test
+  elt_save_results_to_disk(complete = TRUE),               # Default save function
   last_page_gmsi)                                          # Last page with Gold-MSI percentile feedback
   
 #########################
@@ -514,9 +445,6 @@ experiment <- c(
 #########################
 
 make_test(experiment,opt=config)
-
-#shiny::runApp(".")
-
 
 # #########HERFRA??????????????????????????????????????????????????????????????????????##########################
 # #####################

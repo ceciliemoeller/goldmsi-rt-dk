@@ -49,7 +49,7 @@ timeline_sv.push(start_real);
 var test_procedure = {
   timeline: [fixation, test],
   timeline_variables: test_stimuli,
-  repetitions: 20
+  repetitions: 2
 };
 
 timeline_sv.push(test_procedure);

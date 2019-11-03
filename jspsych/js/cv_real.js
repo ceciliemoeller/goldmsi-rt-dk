@@ -52,7 +52,7 @@ var test_procedure = {
     timeline: [fixation, test],
     sample: {
         type: 'fixed-repetitions',
-        size: 5, // 10 repetitions of each trial, 40 total trials, order is randomized.
+        size: 1, // 10 repetitions of each trial, 40 total trials, order is randomized.
     },
     timeline_variables: test_stimuli
 };

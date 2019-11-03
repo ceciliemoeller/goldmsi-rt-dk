@@ -117,7 +117,7 @@ var training_procedure = {
     timeline: [training_fixation, training_test, if_node_inc, if_node_slow],
     sample: {
         type: 'fixed-repetitions',
-        size: 2, // 2 repetitions of each trial, 8 total trials, order is randomized.
+        size: 1, // 2 repetitions of each trial, 8 total trials, order is randomized.
     },
     timeline_variables: training_stimuli
 }

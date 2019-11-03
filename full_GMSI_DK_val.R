@@ -104,4 +104,4 @@ fra NC:
                                                             y_axis = "Antal deltagere",
                                                             explain_IRT = FALSE), # FALSE for testing
                  take_training = F)
-                                                          
+                         
