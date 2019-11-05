@@ -389,29 +389,29 @@ instrument <- text_input_page(
 
 # EMAIL
 email <- c(text_input_page(
-  label = "email_futureres",
-  prompt = "(Frivilligt:) Indtast din e-mail-adresse her, hvis vi må kontakte dig med henblik på evt. deltagelse i fremtidig forskning:",
+  label = "email_future_res",
+  prompt = "(Frivilligt:) Indtast din e-mail-adresse her, hvis vi må kontakte dig med henblik på evt. DELTAGELSE I FREMTIDIG FORSKNING:",
   save_answer = T,
   button_text = "Næste",
-  # validate = function(answer, ...) {
-  #   if (!grepl(".*@.*\\.",answer))
-  #     "Skriv venligst en gyldig e-mail-adresse."
-  #   else TRUE
-  # },
+  validate = function(answer, ...) {
+        if (answer!=""&!grepl(".*@.*\\.",answer))
+          "Skriv venligst en gyldig e-mail-adresse."
+    else TRUE
+  },
   on_complete = function(answer, state, ...) {
     set_global(key = "email_futureres", value = answer, state = state)
   }),
   
   text_input_page(
     label = "email_prize",
-    prompt = "(Frivilligt:) Når du har gennemført hele denne undersøgelse, har du mulighed for at deltage i lodtrækningen om et gavekort på kr. 500,- . Indtast din e-mail-adresse her, hvis du vil deltage i lodtrækningen:",
+    prompt = "(Frivilligt:) Når du har gennemført hele denne undersøgelse, har du mulighed for at DELTAGE I LODTRÆKNINGEN om et gavekort på kr. 500,- . Indtast din e-mail-adresse her, hvis du vil deltage i lodtrækningen:",
     save_answer = T,
     button_text = "Næste",
-    # validate = function(answer, ...) {
-    #   if (!grepl(".*@.*\\.",answer))
-    #     "Skriv venligst en gyldig e-mail-adresse."
-    #   else TRUE
-    # },
+    validate = function(answer, ...) {
+      if (answer!=""&!grepl(".*@.*\\.",answer))
+        "Skriv venligst en gyldig e-mail-adresse."
+      else TRUE
+    },
     on_complete = function(answer, state, ...) {
       set_global(key = "email_prize", value = answer, state = state)
     }))
@@ -432,10 +432,9 @@ last_page_gmsi <-   reactive_page(function(state, count, ...) {              # F
   })
 
 # TESTING
-JUST_TESTING <- one_button_page(body = div(h2(strong("JEPS")),
-                                           div(p("Den kommer fint ud af js-delen"),
-                                               p("Fedt!"),align="center")),
-                                button_text="Næste")
+JUST_TESTING <- one_button_page(body = div(h2(strong("JEPS!")),
+                                           div(p("It ran all the way through to the test page!"),align="center")),
+                                      button_text="Næste")
 
 
 #####################
@@ -474,8 +473,8 @@ elt_jspsych <- page(
 # MISTUNING PERCEPTION TEST    #
 ################################
 
-mistuning <- mpt(num_items=2,
-                 dict=mpt::mpt_dict,#languages="DA",
+mistuning <- mpt(num_items=1,
+                  dict=mpt::mpt_dict, #languages="DA",
                  feedback=psychTestRCAT::cat.feedback.graph("MPT",
                                                             text_finish = "Flot klaret!",
                                                             next_button = "Næste",
@@ -486,42 +485,11 @@ mistuning <- mpt(num_items=2,
                                                             explain_IRT = FALSE), 
                  take_training = F)
 
+
+
 #####################
 # DEFINE EXPERIMENT #
 #####################
-
-experiment <- c(
-  welcome,                                                 # Intro page
-  #consent,                                                 # Consent page
-  #begin_module("Demographics"),                            # Begin Demographics module
-  #demographics,                                            # Demographics questions
-  ##demographics1,                                          # 1st part, Demographics questions
-  ##demographics_extra,                                     # Extra question if relevant
-  ##demographics2,                                          # 2nd part, Demographics questions
-  #end_module(),                                            # End Demographics module
-  #elt_save_results_to_disk(complete = TRUE),               # Default save function 
-  begin_module("GMSI"),                                    # Begin GMSI module
-  #randomiser,                                              # Randomise GMSI questions  
-  #show_items,                                              # Show GMSI questions 
-  #instrument,                                              # Instrument input page
-  email,                                                   # Email
-  #save_GMSI,                                               # Save GMSI data
-  end_module(),                                            # End GMSI module
-  elt_save_results_to_disk(complete = TRUE),               # Default save function
-  calibration,                                             # Sound calibration page
-  #begin_module("MPT"),                                     # Begin MPT module
-  #mistuning,                                              # Mistuning perception test
-  #end_module(),                                            # End MPT module
-  begin_module("RT"),                                      # Begin RT module
-  elt_jspsych,                                             # Reaction time tests 
-  end_module(),                                            # End RT module
-  elt_save_results_to_disk(complete = TRUE),               # Default save function
-  JUST_TESTING,                                            # TEST PAGE
-  last_page_gmsi)                                          # Last page with Gold-MSI percentile feedback
-
-######################################
-#   RANDOMISATION IN DEVELPOMENT     #
-######################################
 
 # experiment <- c(
 #   welcome,                                                 # Intro page
@@ -540,16 +508,58 @@ experiment <- c(
 #   email,                                                   # Email
 #   #save_GMSI,                                               # Save GMSI data
 #   end_module(),                                            # End GMSI module
-#   elt_save_results_to_disk(complete = TRUE),              # Default save function
-#   calibration,                                          # Sound calibration page
-#   mistuning,
-#   randomise_at_run_time(
-#     "tests",
-#     list(elt_jspsych,
-#          mistuning)
-#   )
-# )  %>% c(final_page("End")) # %>% make_test()
+#   elt_save_results_to_disk(complete = TRUE),               # Default save function
+#   calibration,                                             # Sound calibration page
+#   #begin_module("MPT"),                                     # Begin MPT module
+#   #mistuning,                                              # Mistuning perception test
+#   #end_module(),                                            # End MPT module
+#   begin_module("RT"),                                      # Begin RT module
+#   elt_jspsych,                                             # Reaction time tests 
+#   end_module(),                                            # End RT module
+#   elt_save_results_to_disk(complete = TRUE),               # Default save function
+#   JUST_TESTING,                                            # TEST PAGE
+#   last_page_gmsi)                                          # Last page with Gold-MSI percentile feedback
 
+######################################
+#   RANDOMISATION IN DEVELOPMENT     #
+######################################
+# 
+
+experiment <- c(
+  welcome,                                                 # Intro page
+  #consent,                                                 # Consent page
+  #begin_module("Demographics"),                            # Begin Demographics module
+  #demographics,                                            # Demographics questions
+  ##demographics1,                                          # 1st part, Demographics questions
+  ##demographics_extra,                                     # Extra question if relevant
+  ##demographics2,                                          # 2nd part, Demographics questions
+  #end_module(),                                            # End Demographics module
+  #elt_save_results_to_disk(complete = TRUE),               # Default save function
+  begin_module("GMSI"),                                    # Begin GMSI module
+  #randomiser,                                              # Randomise GMSI questions
+  #show_items,                                              # Show GMSI questions
+  #instrument,                                              # Instrument input page
+  email,                                                   # Email
+  #save_GMSI,                                               # Save GMSI data
+  end_module(),                                            # End GMSI module
+  elt_save_results_to_disk(complete = TRUE),              # Default save function
+  calibration,                                            # Sound calibration page,
+  # randomise_at_run_time(
+  #   "tests",
+  #   list(list(begin_module("MPT"),mistuning,end_module()),list(begin_module("RT"),elt_jspsych,end_module()))),
+  
+  randomise_at_run_time(
+    "tests",
+    list(calibration, # This works
+         email)),
+    # list(elt_jspsych, 
+    #      mistuning)), # This doesn't?
+  JUST_TESTING,
+  final_page("End"))  
+  #last_page_gmsi)
+#)  %>% c(final_page("End")) # %>% make_test()
+
+  
 
 #########################
 # RUN EXPERIMENT        #
