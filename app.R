@@ -10,7 +10,7 @@
 ###################
 
 #install.packages('devtools')
-#devtools::install_github('pmcharrison/psychTestR')
+# devtools::install_github('pmcharrison/psychTestR')
 #devtools::install_github('pmcharrison/mpt')
 
 
@@ -95,7 +95,7 @@ qText <- c("Jeg bruger meget af min fritid på musik-relaterede aktiviteter.",
            "Jeg er helt fint i stand til at tale om de følelser et musikstykke vækker i mig.",
            "Jeg bruger ikke mange penge på musik.",
            "Jeg kan høre, når folk synger eller spiller falsk.",
-           "Når jeg synger, har jeg ingen idé om hvorvidt jeg synger falsk eller ej.",
+           "Når jeg synger, har jeg ingen idÃ© om hvorvidt jeg synger falsk eller ej.",
            "Det er som om jeg er afhængig af musik - jeg ville ikke kunne leve uden.",
            "Jeg kan ikke lide at synge offentligt, fordi jeg er bange for at komme til at synge nogle forkerte toner.",
            "Når jeg hører et stykke musik, kan jeg normalt identificere genren.",
@@ -141,23 +141,23 @@ num_items <- nrow(items)
 # WELCOME PAGE
 welcome <- one_button_page(body = div(h2(strong("Hvor musikalsk er du?")),
                                       div(p("Tak for din interesse i dette videnskabelige projekt om musikalitet og mental hastighed i den generelle danske befolkning udført af Aarhus Universitet."),
-                                      p("Denne undersøgelse tager ca. 25 minutter. ",strong("Det er vigtigt, at du gennemfører lyttetesten i stille omgivelser og bruger høretelefoner.")," Læs og godkend venligst samtykkeerklæringen på næste side, før vi kan begynde."),align="center")),
+                                      p("Denne undersøgelse tager ca. 25 minutter. "),
+                                       p(strong("Det er vigtigt, at du gennemfører lyttetesten i stille omgivelser og bruger høretelefoner."),
+                                        p("Læs og godkend venligst samtykkeerklæringen på næste side, før vi kan begynde."),align="center"))),
                            button_text="Næste")
 
 # CONSENT FORM
 consent <- one_button_page(body = div(h3("SAMTYKKEERKLÆRING"),
-                                      div(p("I forbindelse med dette forskningsprojekt med AU løbenummer [xxxxxx%%%¤¤¤###.] har vi brug for dit samtykke til, at vi må behandle dine personoplysninger i overensstemmelse med Databeskyttelsesforordningen."),
+                                      div(p("I forbindelse med dette forskningsprojekt med AU løbenummer [xxxxxx%%%Â¤Â¤Â¤###.] har vi brug for dit samtykke til, at vi må behandle dine personoplysninger i overensstemmelse med Databeskyttelsesforordningen."),
                                           p(strong("Formål"),": The Goldsmiths Musical Sophistication Index (Gold-MSI) er et spørgeskema, der er udviklet af engelske forskere til at undersøge musikalitet i den brede befolkning. Dette forskningsprojekt indsamler normer for den danske befolkning, baseret på svar fra ca. 750 danske respondenter. I tillæg indsamles basale reaktionstidsmål, som kan bidrage til forståelsen af årsag og effekt af nogle af de positive karakteristika, der er associeret med formel hhv. uformel musikalsk træning."),
                                           p("Du kan læse mere om spørgeskemaet her (på engelsk): ",a("https://www.gold.ac.uk/music-mind-brain/gold-msi/", href="https://www.gold.ac.uk/music-mind-brain/gold-msi/")),
                                           p(strong("Dataansvarlig"),": Aarhus Universitet (CVR nr. 31119103) er dataansvarlig for behandlingen af dine personoplysninger."),
-                                          p(strong("Projektleder"),"Cecilie Møller er leder af projektgruppen, som kan kontaktes på: Center for Music in the Brain, Aarhus Universitet, Nørrebrogade 44, bygning 1A, 1. sal, 8000 Aarhus C,Danmark, email: ",a("cecilie@clin.au.dk",href="mailto:cecilie@clin.au.dk")),
-                                          p(strong("Databeskyttelsesrådgiver"),": Aarhus Universitets databeskyttelsesrådgiver Michael Lund Kristensen kan kontaktes på ",a("mlklund@au.dk",href="mailto:mlklund@au.dk"),", +4593509082."),
+                                          p(strong("Projektleder"),"Cecilie Møller er leder af projektgruppen, som kan kontaktes på: Center for Music in the Brain, Aarhus Universitet, Nørrebrogade 44, bygning 1A, 1. sal, 8000 Aarhus C, Danmark, email: cecilie@clin.au.dk"),#a("cecilie@clin.au.dk",href="mailto:cecilie@clin.au.dk")),
+                                          p(strong("Databeskyttelsesrådgiver"),": Aarhus Universitets databeskyttelsesrådgiver Michael Lund Kristensen kan kontaktes på mlklund@au.dk, tlf: +4593509082"),#a("mlklund@au.dk",href="mailto:mlklund@au.dk"),", +4593509082."),
                                           p(strong("Personoplysninger, der behandles om dig"),": Vi behandler de personoplysninger om dig, som du afgiver via spørgeskemaet. Det drejer sig konkret om din e-mail. Det er tilladt at undlade at angive sin e-mail. Listen over e-mailadresser vil blive opbevaret i overensstemmelse med bestemmelserne i Databeskyttelsesforordningen og anden relevant dansk lovgivning. Listen over e-mailadresser bliver slettet efter afholdelse af lodtrækningen med mindre du accepterer at forskerne må gemme din e-mailadresse med henblik på at kontakte dig i forbindelse med opfølgning af projektet. I så fald vil din e-mailadresse blive slettet efter 5 år eller når du selv ønsker at trække samtykket tilbage."),
                                           p(strong("Andre modtagere"),": Projektgruppens øvrige medlemmer modtager og behandler det indsamlede datamateriale i anonymiseret form. Det betyder, at dine data vil blive delt med vores samarbejdspartner i projektet, Goldsmiths, University of London. Goldsmiths vil ikke benytte data til andre formål end udførelsen af dette projekt. Dine personoplysninger bliver ikke delt med nogen tredje part."),
                                           p(strong("Mulighed for at trække samtykke tilbage"),": Deltagelse er frivillig, og du kan til enhver tid uden begrundelse trække dit samtykke til behandling af personoplysninger tilbage, uden at det får nogen konsekvenser for dig. Dette kan ske ved henvendelse til projektgruppen (se ovenfor). Hvis du tilbagetrækker dit samtykke, får det først virkning fra dette tidspunkt og påvirker ikke lovligheden af vores behandling op til dette tidspunkt."),
-                                          p(strong("Godkendelse"),": Denne samtykkeerklæring godkendes elektronisk i forbindelse med besvarelsen af spørgeskemaet. Dette gøres ved at trykke 'Accepter' nedenfor:"),
-                                          p(strong("Jeg afgiver hermed mit samtykke til, at mine persondata behandles i overensstemmelse med samtykkeerklæringen")),
-                                          align="left")),
+                                          p(strong("Godkendelse: Jeg afgiver hermed mit samtykke til, at mine persondata behandles i overensstemmelse med samtykkeerklæringen.")),align="left")),
                            button_text="Accepter")
 
 # DEMOGRAPHICS
@@ -390,7 +390,8 @@ instrument <- text_input_page(
 # EMAIL
 email <- c(text_input_page(
   label = "email_future_res",
-  prompt = "(Frivilligt:) Indtast din e-mail-adresse her, hvis vi må kontakte dig med henblik på evt. DELTAGELSE I FREMTIDIG FORSKNING:",
+  prompt = div("(Frivilligt:) Indtast din e-mail-adresse her, hvis vi må kontakte dig med henblik på evt.",
+  p(strong("DELTAGELSE I FREMTIDIG FORSKNING:"))),
   save_answer = T,
   button_text = "Næste",
   validate = function(answer, ...) {
@@ -404,7 +405,9 @@ email <- c(text_input_page(
   
   text_input_page(
     label = "email_prize",
-    prompt = "(Frivilligt:) Når du har gennemført hele denne undersøgelse, har du mulighed for at DELTAGE I LODTRÆKNINGEN om et gavekort på kr. 500,- . Indtast din e-mail-adresse her, hvis du vil deltage i lodtrækningen:",
+    prompt = div("(Frivilligt:) Når du har gennemført hele denne undersøgelse, har du mulighed for at",
+    p(strong("DELTAGE I LODTRÆKNINGEN om et gavekort på kr. 500,- til Ticketmaster")),
+    p("Indtast din e-mail-adresse her, hvis du vil deltage i lodtrækningen:")),
     save_answer = T,
     button_text = "Næste",
     validate = function(answer, ...) {
@@ -445,11 +448,13 @@ calibration <- volume_calibration_page(url="https://file-examples.com/wp-content
                                        button_text="Lydniveauet er fint nu. Fortsæt",
                                        #on_complete=,
                                        #admin_ui=,
-                                       prompt= div(p("Vi skal nu teste din reaktionstid og dine lyttefærdigheder."), 
-                                       p("Hvis du ikke allerede har gjort det, så tag venligst hovedtelefoner på nu."),
+                                       prompt= div(h4(strong("Vi skal nu teste din reaktionstid og dine lyttefærdigheder.")), 
+                                       p(strong("Hvis du ikke allerede har gjort det, så tag venligst hovedtelefoner på nu."),
                                        p("Indstil lyden på din computer, så lydniveauet er komfortabelt for dig."),
-                                       p("Hvis ikke du hører den lyd vi afspiller nu, så check dine indstillinger på computeren. Du kan kun deltage i denne del af undersøgelsen, hvis din computer kan afspille lyden.")))
-
+                                       p("............."),   
+                                       p("Hvis ikke du hører den lyd vi afspiller nu, så check dine indstillinger på computeren."),
+                                       p("Du kan kun deltage i denne del af undersøgelsen, hvis din computer kan afspille lyden."),
+                                       p("I modsat fald er du desværre nødt til at stoppe her og lukke ned for dit browser-vindue."))))
 
 #######################
 # REACTION TIME TESTS #
@@ -474,7 +479,7 @@ elt_jspsych <- page(
 ################################
 
 mistuning <- mpt(num_items=1,
-                  dict=mpt::mpt_dict, #languages="DA",
+                 dict=mpt::mpt_dict, #languages("DA"),
                  feedback=psychTestRCAT::cat.feedback.graph("MPT",
                                                             text_finish = "Flot klaret!",
                                                             next_button = "Næste",
@@ -482,8 +487,9 @@ mistuning <- mpt(num_items=1,
                                                             text_rank = "Din placering i forhold til tidligere deltagere:",
                                                             x_axis = "Score",
                                                             y_axis = "Antal",
-                                                            explain_IRT = FALSE), 
+                                                            explain_IRT = FALSE),
                  take_training = F)
+
 
 
 
@@ -550,10 +556,10 @@ experiment <- c(
   
   randomise_at_run_time(
     "tests",
-    list(calibration, # This works
-         email)),
-    # list(elt_jspsych, 
-    #      mistuning)), # This doesn't?
+    # list(calibration, # This works
+    #      email)),
+    list(elt_jspsych, 
+        mistuning)), # This doesn't?
   JUST_TESTING,
   final_page("End"))  
   #last_page_gmsi)

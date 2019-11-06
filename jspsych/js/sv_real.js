@@ -40,7 +40,7 @@ var start_real = {
     "<div class='largegap-above'></div>" +
     "<img src='img/cross.png'></img>" +
     "<p class='largegap-above'>Er du klar? Opgaven handler om fart!</p>" +
-    "<p class='smallgap-above'><strong><i>Tryk på mellemrumstasten for at starte</strong></i></p>",
+    "<p class='smallgap-above'><strong><i>Tryk på mellemrumstasten for at starte.</strong></i></p>",
   choices: ['space'],
   data: { cond: 'vis_s', test_part: 'instructions' },
 };
