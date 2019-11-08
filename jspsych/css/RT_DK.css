@@ -1,6 +1,6 @@
 /*
- * CSS for Cilles jspsych experiments.
- *
+ * CSS for the jspsych implementation of the RT sub-experiment of the Danish Gold-MSI validation study
+ 
  */
 
 body {
@@ -17,7 +17,7 @@ body {
  } */
  .jspsych-content-wrapper{
      margin:0 auto;
-     max-width: 950px;
+     max-width: 950px;     
  }
  .smallgap-above{
     margin-top: 20px;

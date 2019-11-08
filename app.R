@@ -28,6 +28,7 @@ setwd("C:/Users/au213911/Documents/jspsych")
 
 
 
+
 # For jsPsych
 library_dir <- "jspsych/jspsych-6.1.0"
 custom_dir <- "jspsych/js"
@@ -153,7 +154,7 @@ consent <- one_button_page(body = div(h3("SAMTYKKEERKLÆRING"),
                                           p("Du kan læse mere om spørgeskemaet her (på engelsk): ",a("https://www.gold.ac.uk/music-mind-brain/gold-msi/", href="https://www.gold.ac.uk/music-mind-brain/gold-msi/")),
                                           p(strong("Dataansvarlig"),": Aarhus Universitet (CVR nr. 31119103) er dataansvarlig for behandlingen af dine personoplysninger."),
                                           p(strong("Projektleder"),"Cecilie Møller er leder af projektgruppen, som kan kontaktes på: Center for Music in the Brain, Aarhus Universitet, Nørrebrogade 44, bygning 1A, 1. sal, 8000 Aarhus C, Danmark, email: cecilie@clin.au.dk"),#a("cecilie@clin.au.dk",href="mailto:cecilie@clin.au.dk")),
-                                          p(strong("Databeskyttelsesrådgiver"),": Aarhus Universitets databeskyttelsesrådgiver Michael Lund Kristensen kan kontaktes på mlklund@au.dk, tlf: +4593509082"),#a("mlklund@au.dk",href="mailto:mlklund@au.dk"),", +4593509082."),
+                                          p(strong("Databeskyttelsesrådgiver"),": Aarhus Universitets databeskyttelsesrådgiver kan kontaktes på dpo@au.dk, tlf: +4593509082"),#a("mlklund@au.dk",href="mailto:mlklund@au.dk"),", +4593509082."),
                                           p(strong("Personoplysninger, der behandles om dig"),": Vi behandler de personoplysninger om dig, som du afgiver via spørgeskemaet. Det drejer sig konkret om din e-mail. Det er tilladt at undlade at angive sin e-mail. Listen over e-mailadresser vil blive opbevaret i overensstemmelse med bestemmelserne i Databeskyttelsesforordningen og anden relevant dansk lovgivning. Listen over e-mailadresser bliver slettet efter afholdelse af lodtrækningen med mindre du accepterer at forskerne må gemme din e-mailadresse med henblik på at kontakte dig i forbindelse med opfølgning af projektet. I så fald vil din e-mailadresse blive slettet efter 5 år eller når du selv ønsker at trække samtykket tilbage."),
                                           p(strong("Andre modtagere"),": Projektgruppens øvrige medlemmer modtager og behandler det indsamlede datamateriale i anonymiseret form. Det betyder, at dine data vil blive delt med vores samarbejdspartner i projektet, Goldsmiths, University of London. Goldsmiths vil ikke benytte data til andre formål end udførelsen af dette projekt. Dine personoplysninger bliver ikke delt med nogen tredje part."),
                                           p(strong("Mulighed for at trække samtykke tilbage"),": Deltagelse er frivillig, og du kan til enhver tid uden begrundelse trække dit samtykke til behandling af personoplysninger tilbage, uden at det får nogen konsekvenser for dig. Dette kan ske ved henvendelse til projektgruppen (se ovenfor). Hvis du tilbagetrækker dit samtykke, får det først virkning fra dette tidspunkt og påvirker ikke lovligheden af vores behandling op til dette tidspunkt."),
@@ -406,7 +407,7 @@ email <- c(text_input_page(
   text_input_page(
     label = "email_prize",
     prompt = div("(Frivilligt:) Når du har gennemført hele denne undersøgelse, har du mulighed for at",
-    p(strong("DELTAGE I LODTRÆKNINGEN om et gavekort på kr. 500,- til Ticketmaster")),
+    p(strong("DELTAGE I LODTRÆKNINGEN om et gavekort på kr. 500,- til Ticketmaster.")),
     p("Indtast din e-mail-adresse her, hvis du vil deltage i lodtrækningen:")),
     save_answer = T,
     button_text = "Næste",
@@ -529,43 +530,45 @@ mistuning <- mpt(num_items=1,
 ######################################
 #   RANDOMISATION IN DEVELOPMENT     #
 ######################################
-# 
 
-experiment <- c(
-  welcome,                                                 # Intro page
-  #consent,                                                 # Consent page
-  #begin_module("Demographics"),                            # Begin Demographics module
-  #demographics,                                            # Demographics questions
+experiment <- join(
+  welcome,                                                  # Intro page
+  # consent,                                                # Consent page
+  # begin_module("Demographics"),                           # Begin Demographics module
+  # demographics,                                           # Demographics questions
   ##demographics1,                                          # 1st part, Demographics questions
   ##demographics_extra,                                     # Extra question if relevant
   ##demographics2,                                          # 2nd part, Demographics questions
-  #end_module(),                                            # End Demographics module
-  #elt_save_results_to_disk(complete = TRUE),               # Default save function
-  begin_module("GMSI"),                                    # Begin GMSI module
-  #randomiser,                                              # Randomise GMSI questions
-  #show_items,                                              # Show GMSI questions
-  #instrument,                                              # Instrument input page
-  email,                                                   # Email
-  #save_GMSI,                                               # Save GMSI data
-  end_module(),                                            # End GMSI module
-  elt_save_results_to_disk(complete = TRUE),              # Default save function
-  calibration,                                            # Sound calibration page,
+  # end_module(),                                           # End Demographics module
+  # elt_save_results_to_disk(complete = TRUE),              # Default save function
+  begin_module("GMSI"),                                     # Begin GMSI module
+  # randomiser,                                             # Randomise GMSI questions
+  #  show_items,                                            # Show GMSI questions
+  # instrument,                                             # Instrument input page
+  email,                                                    # Email
+ # save_GMSI,                                               # Save GMSI data
+  #last_page_gmsi,                                          # GSMI last page with percentile feedback
+  end_module(),                                             # End GMSI module
+  elt_save_results_to_disk(complete = TRUE),                # Default save function
+  calibration,                                              # Sound calibration page,
+  # randomise_at_run_time(  
+  #    "tests",
+  #        list(
+  #           list(begin_module("RT"),elt_jspsych,end_module()),
+  #           list(begin_module("MPT"),mistuning,end_module())
+  #           )
+  # ),                                                         # This throws an error: Warning: Error in elt@fun: is.scalar.numeric(item_id) is not TRUE, 82: <Anonymous>
+  randomise_at_run_time("tests", list(elt_jspsych,mistuning)), # This works
+  
+  
   # randomise_at_run_time(
   #   "tests",
   #   list(list(begin_module("MPT"),mistuning,end_module()),list(begin_module("RT"),elt_jspsych,end_module()))),
+  #JUST_TESTING,
+  final_page("Tak for hjælpen")
   
-  randomise_at_run_time(
-    "tests",
-    # list(calibration, # This works
-    #      email)),
-    list(elt_jspsych, 
-        mistuning)), # This doesn't?
-  JUST_TESTING,
-  final_page("End"))  
-  #last_page_gmsi)
-#)  %>% c(final_page("End")) # %>% make_test()
+)
 
-  
 
 #########################
 # RUN EXPERIMENT        #
