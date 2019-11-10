@@ -24,7 +24,7 @@ library(varhandle)
 library(mpt)
 
 #setwd("C:/Users/nch/Desktop/pmcharrison-psychTestR-bcc0e86")    # Specify where to save output files when running locally
-#setwd("C:/Users/au213911/Documents/jspsych")
+setwd("C:/Users/au213911/Documents/jspsych")
 
 
 
@@ -428,12 +428,11 @@ save_GMSI <- code_block(function(state, ...) {
   })
 
 
-# GMSI FEEDBACK
-gmsi_feedback <-   reactive_page(function(state, count, ...) {              # Feedback page
-                  one_button_page(div(p(paste0("Tak for hjælpen! Din Gold-MSI score er: ",get_global("GeneralMusicalSophistication",state=state))),
-                               p(paste0("Det gør dig mere musikalsk sofistikeret end ",sum(get_global("GeneralMusicalSophistication",state=state)>=GeneralPercentiles),"% af befolkningen!")),
-                               p(paste0("Vi skal nu teste din reaktionstid og dine lyttefærdigheder. Hvis du ikke allerede har gjort det, så tag venligst hovedtelefoner på nu."))),
-                               button_text="Næste")
+# LAST PAGE
+last_page_gmsi <-   reactive_page(function(state, count, ...) {              # Feedback page
+                final_page(div(p(paste0("Tak for hjælpen! Din Gold-MSI score er: ",get_global("GeneralMusicalSophistication",state=state))),
+                               p(paste0("Det gør dig mere musikalsk sofistikeret end ",sum(get_global("GeneralMusicalSophistication",state=state)>=GeneralPercentiles),"% af befolkningen!"))))
+                               p(paste0("Vi skal nu teste din reaktionstid og dine lyttefærdigheder. Hvis du ikke allerede har gjort det, så tag venligst hovedtelefoner på nu."))
   })
 
 # TESTING
@@ -481,7 +480,7 @@ elt_jspsych <- page(
 ################################
 
 mistuning <- mpt(num_items=1,
-                 dict=mpt::mpt_dict, #languages = "DA",
+                 dict=mpt::mpt_dict, #languages("DA"),
                  feedback=psychTestRCAT::cat.feedback.graph("MPT",
                                                             text_finish = "Flot klaret!",
                                                             next_button = "Næste",
@@ -499,28 +498,75 @@ mistuning <- mpt(num_items=1,
 # DEFINE EXPERIMENT #
 #####################
 
+# experiment <- c(
+#   welcome,                                                 # Intro page
+#   #consent,                                                 # Consent page
+#   #begin_module("Demographics"),                            # Begin Demographics module
+#   #demographics,                                            # Demographics questions
+#   ##demographics1,                                          # 1st part, Demographics questions
+#   ##demographics_extra,                                     # Extra question if relevant
+#   ##demographics2,                                          # 2nd part, Demographics questions
+#   #end_module(),                                            # End Demographics module
+#   #elt_save_results_to_disk(complete = TRUE),               # Default save function 
+#   begin_module("GMSI"),                                    # Begin GMSI module
+#   #randomiser,                                              # Randomise GMSI questions  
+#   #show_items,                                              # Show GMSI questions 
+#   #instrument,                                              # Instrument input page
+#   email,                                                   # Email
+#   #save_GMSI,                                               # Save GMSI data
+#   end_module(),                                            # End GMSI module
+#   elt_save_results_to_disk(complete = TRUE),               # Default save function
+#   calibration,                                             # Sound calibration page
+#   #begin_module("MPT"),                                     # Begin MPT module
+#   #mistuning,                                              # Mistuning perception test
+#   #end_module(),                                            # End MPT module
+#   begin_module("RT"),                                      # Begin RT module
+#   elt_jspsych,                                             # Reaction time tests 
+#   end_module(),                                            # End RT module
+#   elt_save_results_to_disk(complete = TRUE),               # Default save function
+#   JUST_TESTING,                                            # TEST PAGE
+#   last_page_gmsi)                                          # Last page with Gold-MSI percentile feedback
+
+######################################
+#   RANDOMISATION IN DEVELOPMENT     #
+######################################
+
 experiment <- join(
   welcome,                                                  # Intro page
   # consent,                                                # Consent page
   # begin_module("Demographics"),                           # Begin Demographics module
   # demographics,                                           # Demographics questions
+  ##demographics1,                                          # 1st part, Demographics questions
+  ##demographics_extra,                                     # Extra question if relevant
+  ##demographics2,                                          # 2nd part, Demographics questions
   # end_module(),                                           # End Demographics module
   # elt_save_results_to_disk(complete = TRUE),              # Default save function
   begin_module("GMSI"),                                     # Begin GMSI module
   # randomiser,                                             # Randomise GMSI questions
-  # show_items,                                             # Show GMSI questions
+  #  show_items,                                            # Show GMSI questions
   # instrument,                                             # Instrument input page
   email,                                                    # Email
-  # save_GMSI,                                               # Save GMSI data
-  elt_save_results_to_disk(complete = TRUE),                # Default save function
-  gmsi_feedback,                                            # GSMI last page with percentile feedback
+ # save_GMSI,                                               # Save GMSI data
+  #last_page_gmsi,                                          # GSMI last page with percentile feedback
   end_module(),                                             # End GMSI module
-  calibration,                                              # Sound calibration page,
-  randomise_at_run_time("TestOrder_MPT_RT",
-                         list(c(begin_module("MPT"),mistuning,end_module()),
-                              c(begin_module("RT"),elt_jspsych,end_module()))),
   elt_save_results_to_disk(complete = TRUE),                # Default save function
-  final_page(div(p("Tak for hjælpen"),p("Du kan nu lukke vinduet.")))
+  calibration,                                              # Sound calibration page,
+  # randomise_at_run_time(  
+  #    "tests",
+  #        list(
+  #           list(begin_module("RT"),elt_jspsych,end_module()),
+  #           list(begin_module("MPT"),mistuning,end_module())
+  #           )
+  # ),                                                         # This throws an error: Warning: Error in elt@fun: is.scalar.numeric(item_id) is not TRUE, 82: <Anonymous>
+  randomise_at_run_time("tests", list(elt_jspsych,mistuning)), # This works
+  
+  
+  # randomise_at_run_time(
+  #   "tests",
+  #   list(list(begin_module("MPT"),mistuning,end_module()),list(begin_module("RT"),elt_jspsych,end_module()))),
+  #JUST_TESTING,
+  final_page("Tak for hjælpen")
+  
 )
 
 
@@ -534,3 +580,103 @@ make_test(experiment,opt=config)
 
 
   
+
+
+# #########HERFRA??????????????????????????????????????????????????????????????????????##########################
+# #####################
+# # DEFINE EXPERIMENT #
+# #####################
+# 
+# experiment <- c(
+#   welcome,                                                 # Intro page
+#   consent,                                                 # Consent page
+#   begin_module("Demographics"),                            # Begin Demographics module
+#   demographics,                                            # Demographics questions
+#   #demographics1,                                          # 1st part, Demographics questions
+#   #demographics_extra,                                     # Extra question if relevant
+#   #demographics2,                                          # 2nd part, Demographics questions
+#   end_module(),                                            # End Demographics module
+#   begin_module("GMSI"),                                    # Begin GMSI module
+#   randomiser,                                              # Randomise GMSI questions  
+#   show_items,                                              # Show GMSI questions 
+#   instrument,                                              # Instrument input page
+#   email,                                                   # Email
+#   save_GMSI,                                               # Save GMSI data
+#   end_module(),                                            # End GMSI module
+#   elt_save_results_to_disk(complete = TRUE),               # Default save function 
+#   last_page)                                               # Last page with percentile feedback
+# 
+# #########################
+# # RUN EXPERIMENT        #
+# #########################
+# 
+# make_test(experiment,opt=config)
+# 
+
+
+
+#########################
+# OUTTAKES              #
+#########################
+
+  # # Begin module
+  # begin_module("demographics"),
+  # 
+  # # Name insert page
+  # text_input_page(
+  #   label = "name", 
+  #   prompt = "Hvad er dit navn?", 
+  #   save_answer = T,
+  #   validate = function(answer, ...) {
+  #     if (answer == "")
+  #       "Navnefeltet skal udfyldes, før du kan fortsætte."
+  #     else TRUE
+  #   },
+  #   on_complete = function(answer, state, ...) {
+  #     set_global(key = "name", value = answer, state = state)
+  #   }),
+  # 
+  # 
+  # # End module
+  # end_module(),
+  
+  ###################
+  # GMSI QUESTIONS  #
+  ###################
+  
+  # # Begin module
+  # begin_module("GMSI"),
+  # 
+  # # Preferred instrument page
+  # text_input_page(
+  #   label = "instrument", 
+  #   prompt = "Det instrument (inklusive sangstemmen) som jeg er bedst til at spille på er:", 
+  #   on_complete = function(answer, state, ...) {
+  #     set_global(key = "instrument", value = answer, state = state)
+  #     
+  #     # Compute response table
+  #     responses <- data.frame(Qid=1:length(keys),RevCode=revCode,ResponseVal=integer(length(keys)),NormVal=integer(length(keys)),row.names=keys)
+  #     for (l in 1:length(keys)) {
+  #       responses[l,"ResponseVal"] <- get_global(keys[l],state=state)
+  #       if (responses[l,"RevCode"]==0) responses[l,"NormVal"] <- (responses[l,"ResponseVal"]-8)*-1 else responses[l,"NormVal"] <- responses[l,"ResponseVal"]
+  #       #set_global(key="GMSIscore",value=sum(get_global(key="GMSIscore",state=state),get_global(keys[l],state=state)),state=state)
+  #     }
+  #     set_global("responses",value=responses,state=state)
+  #   }),
+  # 
+  # code_block(function(state, ...) save_result(place=state,label="responses",value=get_global("responses",state))),
+  # 
+  # # End module
+  # end_module(),
+  # 
+  # #########################
+  # # SURVEY END & FEEDBACK #
+  # #########################
+  # 
+  # # Save data
+  # elt_save_results_to_disk(complete = TRUE),
+  # 
+  # # Final page
+  # reactive_page(function(state, count, ...) {
+  #   final_page(paste0("Tak for hjælpen, ", get_global("name", state), "!\n","Din samlede Gold-MSI score er: ",sum(get_global("responses",state=state)$NormVal,na.rm=T),"."))
+  # }))
