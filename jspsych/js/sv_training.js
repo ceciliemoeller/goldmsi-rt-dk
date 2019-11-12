@@ -117,7 +117,7 @@ var training_debrief_block = {
     // exclude trials with response time smaller than 100 ms (considered false anticipatory responses)
     var correct_real = jsPsych.data.get().filterCustom(
       function (trial) {
-        return (trial.test_part == "training_test") && (trial.key_press === 32) && (trial.rt > 100);
+        return (trial.cond == "vis_s") && (trial.test_part == "training_test") && (trial.key_press === 32) && (trial.rt > 100);
       }
     )
     // calculate reaction time (to correct trials excluding anticipatory responses (<100 ms))
@@ -136,13 +136,13 @@ var training_debrief_block = {
 
   on_finish: function (data) {
     // get data
-    var trials = jsPsych.data.get().filter({ test_part: 'training_test' });
-    var fixations = jsPsych.data.get().filter({ test_part: 'training_fixation' });
+    var trials = jsPsych.data.get().filter({ cond:'vis_s', test_part: 'training_test' });
+    var fixations = jsPsych.data.get().filter({ cond:'vis_s', test_part: 'training_fixation' });
     var false_alarms = fixations.filter({ correct: false });
     // exclude trials with response time smaller than 100 ms (considered false anticipatory responses)
     var correct_real = jsPsych.data.get().filterCustom(
       function (trial) {
-        return (trial.test_part == "training_test") && (trial.key_press === 32) && (trial.rt > 100);
+        return (trial.cond=="vis_s") && (trial.test_part == "training_test") && (trial.key_press === 32) && (trial.rt > 100);
       }
     )
     var misses = trials.filter({ correct: false });
@@ -150,7 +150,7 @@ var training_debrief_block = {
     // select trials with a response time smaller than 100 ms (considered false anticipatory responses).
     var too_fast = jsPsych.data.get().filterCustom(
       function (trial) {
-        return (trial.test_part == "training_test") && (trial.key_press === 32) && (trial.rt < 100);
+        return (trial.cond=="vis_s") && (trial.test_part == "training_test") && (trial.key_press === 32) && (trial.rt < 100);
       }
     )
 
