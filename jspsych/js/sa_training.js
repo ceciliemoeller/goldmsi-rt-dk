@@ -58,7 +58,7 @@ var training = {
 var training_procedure = {
   timeline: [training_fixation, training, training_resp],
   timeline_variables: training_stimuli,
-  repetitions: 2
+  repetitions: 8
 }
 
 timeline_sa.push(training_procedure);

@@ -1,8 +1,18 @@
-###############################################
-# Danish GoldMSI implementation in psychTestR #
-# Author: Niels Chr. Hansen                   # 
-# Date: 2019-09-28                            #
-###############################################
+#######################################################
+# psychTestR implementation of                        #     
+#                                                     #
+# - Danish GoldMSI                                    #
+#                                                     #
+# - basic auditory, visual and visual choice reaction #
+# time tests (originally written in jsPsych)          #
+#                                                     #
+# - Danish version of "the mistuning perception test" #
+#                                                     #
+# Authors: Niels Chr. Hansen, Cecilie Møller          #
+#          and Peter Harrison                         #
+#                                                     #
+# Date: 2019-11-13                                    #
+#######################################################
 
 
 ###################
@@ -437,17 +447,13 @@ gmsi_feedback <-   reactive_page(function(state, count, ...) {              # Fe
                                button_text="Næste")
   })
 
-# # TESTING
-# JUST_TESTING <- one_button_page(body = div(h2(strong("JEPS!")),
-#                                            div(p("It ran all the way through to the test page!"),align="center")),
-#                                       button_text="Næste")
 
 
 #####################
 # CALIBRATION TEST  #
 #####################
 
-calibration <- volume_calibration_page(url="https://file-examples.com/wp-content/uploads/2017/11/file_example_MP3_700KB.mp3", type="mp3",
+calibration <- volume_calibration_page(url="http://media.gold-msi.org/test_materials/MPT/training/in-tune.mp3", type="mp3",
                                        button_text="Lydniveauet er fint nu. Fortsæt",
                                        #on_complete=,
                                        #admin_ui=,
@@ -458,6 +464,7 @@ calibration <- volume_calibration_page(url="https://file-examples.com/wp-content
                                        p("Hvis ikke du hører den lyd vi afspiller nu, så check dine indstillinger på computeren."),
                                        p("Du kan kun deltage i denne del af undersøgelsen, hvis din computer kan afspille lyden."),
                                        p("I modsat fald er du desværre nødt til at stoppe her og lukke ned for dit browser-vindue."))))
+
 
 #######################
 # REACTION TIME TESTS #
@@ -481,7 +488,7 @@ elt_jspsych <- page(
 # MISTUNING PERCEPTION TEST    #
 ################################
 
-mistuning <- mpt(num_items=1,
+mistuning <- mpt(num_items=10,
                  dict=mpt::mpt_dict,
                  feedback=psychTestRCAT::cat.feedback.graph("MPT",
                                                             text_finish = "Flot klaret!",
@@ -491,7 +498,7 @@ mistuning <- mpt(num_items=1,
                                                             x_axis = "Score",
                                                             y_axis = "Antal",
                                                             explain_IRT = FALSE),
-                 take_training = F)
+                 take_training = T)
 
 
 
@@ -499,67 +506,67 @@ mistuning <- mpt(num_items=1,
 #####################
 # DEFINE EXPERIMENT #
 #####################
-# 
-# experiment <- join(
-#   new_timeline(join(
-#   welcome,                                                # Intro page
-#   consent,                                                # Consent page
-#   begin_module("Demographics"),                           # Begin Demographics module
-#   demographics,                                           # Demographics questions
-#   end_module(),                                           # End Demographics module
-#   elt_save_results_to_disk(complete = TRUE),              # Default save function
-#   begin_module("GMSI"),                                   # Begin GMSI module
-#   randomiser,                                             # Randomise GMSI questions
-#   show_items,                                             # Show GMSI questions
-#   instrument,                                             # Instrument input page
-#   email,                                                  # Email
-#   save_GMSI,                                              # Save GMSI data
-#   elt_save_results_to_disk(complete = TRUE),              # Default save function
-#   gmsi_feedback,                                          # GSMI last page with percentile feedback
-#   end_module(),                                           # End GMSI module
-#   calibration                                            # Sound calibration page,
-#   ), default_lang="DA"),
-#   randomise_at_run_time("TestOrder_MPT_RT",
-#                          list(c(begin_module("MPT"),mistuning,end_module()),
-#                               c(begin_module("RT"),elt_jspsych,end_module()))),
-#   new_timeline(join(
-#   elt_save_results_to_disk(complete = TRUE),              # Default save function
-#   final_page(div(p("Tak for hjælpen"),p("Du kan nu lukke vinduet.")))
-#   ), default_lang = "DA")
-# )
-
-##########################
-# DEBUGGING RT EXPERIMENT#
-##########################
 
 experiment <- join(
   new_timeline(join(
-    welcome,                                                # Intro page
-    # consent,                                                # Consent page
-    # begin_module("Demographics"),                           # Begin Demographics module
-    # demographics,                                           # Demographics questions
-    # end_module(),                                           # End Demographics module
-    # elt_save_results_to_disk(complete = TRUE),              # Default save function
-    # begin_module("GMSI"),                                   # Begin GMSI module
-    # randomiser,                                             # Randomise GMSI questions
-    # show_items,                                             # Show GMSI questions
-    # instrument,                                             # Instrument input page
-    # email,                                                  # Email
-    # save_GMSI,                                              # Save GMSI data
-    # elt_save_results_to_disk(complete = TRUE),              # Default save function
-    # gmsi_feedback,                                          # GSMI last page with percentile feedback
-    # end_module(),                                           # End GMSI module
-    calibration,                                            # Sound calibration page,
-    elt_jspsych
+  welcome,                                                # Intro page
+  consent,                                                # Consent page
+  begin_module("Demographics"),                           # Begin Demographics module
+  demographics,                                           # Demographics questions
+  end_module(),                                           # End Demographics module
+  elt_save_results_to_disk(complete = TRUE),              # Default save function
+  begin_module("GMSI"),                                   # Begin GMSI module
+  randomiser,                                             # Randomise GMSI questions
+  show_items,                                             # Show GMSI questions
+  instrument,                                             # Instrument input page
+  email,                                                  # Email
+  save_GMSI,                                              # Save GMSI data
+  elt_save_results_to_disk(complete = TRUE),              # Default save function
+  gmsi_feedback,                                          # GSMI last page with percentile feedback
+  end_module(),                                           # End GMSI module
+  calibration                                            # Sound calibration page,
   ), default_lang="DA"),
-  # randomise_at_run_time("TestOrder_MPT_RT",
-  #                       list(c(begin_module("MPT"),mistuning,end_module()),
-  #                            c(begin_module("RT"),elt_jspsych,end_module()))),
+  randomise_at_run_time("TestOrder_MPT_RT",
+                         list(c(begin_module("MPT"),mistuning,end_module()),
+                              c(begin_module("RT"),elt_jspsych,end_module()))),
   new_timeline(join(
-    elt_save_results_to_disk(complete = TRUE),              # Default save function
-    final_page(div(p("Tak for hjælpen"),p("Du kan nu lukke vinduet.")))
+  elt_save_results_to_disk(complete = TRUE),              # Default save function
+  final_page(div(p("Tak for hjælpen"),p("Du kan nu lukke vinduet.")))
   ), default_lang = "DA")
 )
+
+# ##########################
+# # DEBUGGING RT EXPERIMENT#
+# ##########################
+# 
+# experiment <- join(
+#   new_timeline(join(
+#     welcome,                                                # Intro page
+#     # consent,                                                # Consent page
+#     # begin_module("Demographics"),                           # Begin Demographics module
+#     # demographics,                                           # Demographics questions
+#     # end_module(),                                           # End Demographics module
+#     # elt_save_results_to_disk(complete = TRUE),              # Default save function
+#     # begin_module("GMSI"),                                   # Begin GMSI module
+#     # randomiser,                                             # Randomise GMSI questions
+#     # show_items,                                             # Show GMSI questions
+#     # instrument,                                             # Instrument input page
+#     # email,                                                  # Email
+#     # save_GMSI,                                              # Save GMSI data
+#     # elt_save_results_to_disk(complete = TRUE),              # Default save function
+#     # gmsi_feedback,                                          # GSMI last page with percentile feedback
+#     # end_module(),                                           # End GMSI module
+#     calibration,                                            # Sound calibration page,
+#     elt_jspsych
+#   ), default_lang="DA"),
+#   # randomise_at_run_time("TestOrder_MPT_RT",
+#   #                       list(c(begin_module("MPT"),mistuning,end_module()),
+#   #                            c(begin_module("RT"),elt_jspsych,end_module()))),
+#   new_timeline(join(
+#     elt_save_results_to_disk(complete = TRUE),              # Default save function
+#     final_page(div(p("Tak for hjælpen"),p("Du kan nu lukke vinduet.")))
+#   ), default_lang = "DA")
+# )
 
 #########################
 # RUN EXPERIMENT        #
