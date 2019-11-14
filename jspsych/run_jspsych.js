@@ -27,7 +27,7 @@ for (var i = 0; i < arrayLength; i++) {
 // timeline.push(cont)
 
 // an array of paths to sound and images that need to be manually pre-loaded
-var images = ['img/cross.png','img/blankbox.png','img/cRT_fix.png', 'img/cRT1.png', 'img/cRT2.png', 'img/cRT3.png', 'img/cRT4.png', 'img/reminder.png', 'img/choicetask.png'];
+var images = ['img/cross.png','img/blankbox.png','img/cRT_fix.png', 'img/cRT1.png', 'img/cRT2.png', 'img/cRT3.png', 'img/cRT4.png', 'img/reminder.png', 'img/choicetask.png', 'img/mib_logo.png'];
 var audio = ['sounds/452sine.mp3'];
 
 function run_jspsych() {

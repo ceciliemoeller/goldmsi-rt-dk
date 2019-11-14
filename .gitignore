@@ -3,4 +3,7 @@ cille.code-workspace
 .Rproj.user
 output
 check_dataformat.R
+AKA_app_rand_dev_ii.R
+AKA_app_rand_dev.R
+extractData.R
 
