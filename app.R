@@ -107,7 +107,7 @@ qText <- c("Jeg bruger meget af min fritid på musik-relaterede aktiviteter.",
            "Jeg er helt fint i stand til at tale om de følelser et musikstykke vækker i mig.",
            "Jeg bruger ikke mange penge på musik.",
            "Jeg kan høre, når folk synger eller spiller falsk.",
-           "Når jeg synger, har jeg ingen idÃ© om hvorvidt jeg synger falsk eller ej.",
+           "Når jeg synger, har jeg ingen idé om hvorvidt jeg synger falsk eller ej.",
            "Det er som om jeg er afhængig af musik - jeg ville ikke kunne leve uden.",
            "Jeg kan ikke lide at synge offentligt, fordi jeg er bange for at komme til at synge nogle forkerte toner.",
            "Når jeg hører et stykke musik, kan jeg normalt identificere genren.",
@@ -152,21 +152,20 @@ num_items <- nrow(items)
 
 # INTRO
 intro <- one_button_page(body = div(HTML("<img src='img/au_logo.png'></img> <img src='img/mib_logo.png'></img>"),
-                                    p(h4(strong("Forskning har vist...")),
-                                      div(p("...at musikalsk træning, musikalitet og reaktionstid hænger sammen."),
+                                    div(h4(strong("Forskning har vist...")),
+                                          p("...at musikalsk træning, musikalitet og reaktionstid hænger sammen."),
                                           p("Men hvad kom først: hønen eller ægget? Kan man være musikalsk, selvom man aldrig har sat sine ben i et musiklokale? Og ved du hvor musikalsk du er, sammenlignet med resten af befolkningen?"),
-                                          p(strong("Tag testen og del evt. dit resultat med dine venner."),
-                                            HTML("<br>"),
-                                            p("Klik på knappen nedenfor og få mulighed for at deltage i en større videnskabelig undersøgelse og en lodtrækning om 12 gavekort på kr 500,-"),
-                                            align="center"))),
-                                    button_text="Næste"))
+                                          p(strong("Tag testen og del evt. dit resultat med dine venner.")),
+                                          p("Klik på knappen nedenfor og få mulighed for at deltage i en større videnskabelig undersøgelse og en lodtrækning om 12 gavekort på kr 500,- til Ticketmaster."),
+                                          align="center")),
+                                    button_text="Næste")
 
 # WELCOME PAGE
 welcome <- one_button_page(body = div(HTML("<img src='img/au_logo.png'></img> <img src='img/mib_logo.png'></img>"),
-                                      p(h2(strong("Hvor musikalsk er du?")),
-                                        div(p("Tak for din interesse i dette videnskabelige projekt om musikalitet og mental hastighed i den generelle danske befolkning udført af Aarhus Universitet."),
+                                      div(h2(strong("Hvor musikalsk er du?")),
+                                            p("Tak for din interesse i dette videnskabelige projekt om musikalitet og mental hastighed i den generelle danske befolkning udført af Aarhus Universitet."),
                                             p("Denne undersøgelse tager ca. 25 minutter. Først skal du besvare et spørgeskema. Derefter tester vi (i vilkårlig rækkefølge) din reaktionstid og din evne til at høre om en sanger synger rent eller falsk."),
-                                            p(strong("Du skal bruge en computer med tastatur og det er vigtigt, at du gennemfører lyttetesten i stille omgivelser og bruger høretelefoner."),
+                                            p(strong("Du skal bruge en computer med tastatur og det er vigtigt, at du gennemfører lyttetesten i stille omgivelser og bruger høretelefoner.")),
                                               HTML("<br>"),
                                               p("............."),
                                               HTML("<br>"),
@@ -174,42 +173,24 @@ welcome <- one_button_page(body = div(HTML("<img src='img/au_logo.png'></img> <i
                                               p("- Jeg kan til enhver tid anmode om at få slettet mine data ved at kontakte den forsøgsansvarlige, Cecilie Møller på cecilie@clin.au.dk."),
                                               HTML("<br>"),
                                               p("Jeg afgiver hermed mit samtykke til, at mine persondata behandles i overensstemmelse med samtykkeerklæringen:"),
-                                              align="center"))),
-                                      button_text="Acceptér"))
+                                              align="center")),
+                                      button_text="Acceptér")
 
-# # CONSENT FORM
-# consent <- one_button_page(body = div(h3("SAMTYKKEERKLÆRING"),
-#                                       div(p("I forbindelse med dette forskningsprojekt med AU løbenummer 1639 har vi brug for dit samtykke til, at vi må behandle dine personoplysninger i overensstemmelse med Databeskyttelsesforordningen."),
-#                                           p(strong("Formål"),": The Goldsmiths Musical Sophistication Index (Gold-MSI) er et spørgeskema, der er udviklet af engelske forskere til at undersøge musikalitet i den brede befolkning. Dette forskningsprojekt indsamler normer for den danske befolkning, baseret på svar fra ca. 750 danske respondenter. I tillæg indsamles basale reaktionstidsmål, som kan bidrage til forståelsen af årsag og effekt af nogle af de positive karakteristika, der er associeret med formel hhv. uformel musikalsk træning."),
-#                                           p("Du kan læse mere om spørgeskemaet her (på engelsk): ",a("https://www.gold.ac.uk/music-mind-brain/gold-msi/", href="https://www.gold.ac.uk/music-mind-brain/gold-msi/")),
-#                                           p(strong("Dataansvarlig"),": Aarhus Universitet (CVR nr. 31119103) er dataansvarlig for behandlingen af dine personoplysninger."),
-#                                           p(strong("Projektleder"),"Cecilie Møller er leder af projektgruppen, som kan kontaktes på: Center for Music in the Brain, Aarhus Universitet, Nørrebrogade 44, bygning 1A, 1. sal, 8000 Aarhus C, Danmark, email: cecilie@clin.au.dk"),#a("cecilie@clin.au.dk",href="mailto:cecilie@clin.au.dk")),
-#                                           p(strong("Databeskyttelsesrådgiver"),": Aarhus Universitets databeskyttelsesrådgiver kan kontaktes på dpo@au.dk, tlf: +4593509082"),#a("mlklund@au.dk",href="mailto:mlklund@au.dk"),", +4593509082."),
-#                                           p(strong("Personoplysninger, der behandles om dig"),": Vi behandler de personoplysninger om dig, som du afgiver via spørgeskemaet. Det drejer sig konkret om din e-mail. Det er tilladt at undlade at angive sin e-mail. Listen over e-mailadresser vil blive opbevaret i overensstemmelse med bestemmelserne i Databeskyttelsesforordningen og anden relevant dansk lovgivning. Listen over e-mailadresser bliver slettet efter afholdelse af lodtrækningen med mindre du accepterer at forskerne må gemme din e-mailadresse med henblik på at kontakte dig i forbindelse med opfølgning af projektet. I så fald vil din e-mailadresse blive slettet efter 5 år eller når du selv ønsker at trække samtykket tilbage."),
-#                                           p(strong("Andre modtagere"),": Projektgruppens øvrige medlemmer modtager og behandler det indsamlede datamateriale i anonymiseret form. Det betyder, at dine data vil blive delt med vores samarbejdspartner i projektet, Goldsmiths, University of London. Goldsmiths vil ikke benytte data til andre formål end udførelsen af dette projekt. Dine personoplysninger bliver ikke delt med nogen tredje part."),
-#                                           p(strong("Mulighed for at trække samtykke tilbage"),": Deltagelse er frivillig, og du kan til enhver tid uden begrundelse trække dit samtykke til behandling af personoplysninger tilbage, uden at det får nogen konsekvenser for dig. Dette kan ske ved henvendelse til projektgruppen (se ovenfor). Hvis du tilbagetrækker dit samtykke, får det først virkning fra dette tidspunkt og påvirker ikke lovligheden af vores behandling op til dette tidspunkt."),
-#                                           p(strong("Godkendelse: Jeg afgiver hermed mit samtykke til, at mine persondata behandles i overensstemmelse med samtykkeerklæringen.")),align="left")),
-#                            button_text="Accepter")
+ # # CONSENT FORM
+ # consent <- one_button_page(body = div(h3("SAMTYKKEERKLÆRING"),
+ #                                       div(p("I forbindelse med dette forskningsprojekt med AU løbenummer 1639 har vi brug for dit samtykke til, at vi må behandle dine personoplysninger i overensstemmelse med Databeskyttelsesforordningen."),
+ #                                           p(strong("Formål"),": The Goldsmiths Musical Sophistication Index (Gold-MSI) er et spørgeskema, der er udviklet af engelske forskere til at undersøge musikalitet i den brede befolkning. Dette forskningsprojekt indsamler normer for den danske befolkning, baseret på svar fra ca. 750 danske respondenter. I tillæg indsamles basale reaktionstidsmål, som kan bidrage til forståelsen af årsag og effekt af nogle af de positive karakteristika, der er associeret med formel hhv. uformel musikalsk træning."),
+ #                                           p(strong("Dataansvarlig"),": Aarhus Universitet (CVR nr. 31119103) er dataansvarlig for behandlingen af dine personoplysninger."),
+ #                                           p("Du kan læse mere om spørgeskemaet her (på engelsk): ",a("https://www.gold.ac.uk/music-mind-brain/gold-msi/", href="https://www.gold.ac.uk/music-mind-brain/gold-msi/")),
+ #                                           p(strong("Projektleder"),"Cecilie Møller er leder af projektgruppen, som kan kontaktes på: Center for Music in the Brain, Aarhus Universitet, Nørrebrogade 44, bygning 1A, 1. sal, 8000 Aarhus C, Danmark, email: cecilie@clin.au.dk"),#a("cecilie@clin.au.dk",href="mailto:cecilie@clin.au.dk")),
+ #                                           p(strong("Databeskyttelsesrådgiver"),": Aarhus Universitets databeskyttelsesrådgiver kan kontaktes på dpo@au.dk, tlf: +4593509082"),#a("mlklund@au.dk",href="mailto:mlklund@au.dk"),", +4593509082."),
+ #                                           p(strong("Personoplysninger, der behandles om dig"),": Vi behandler de personoplysninger om dig, som du afgiver via spørgeskemaet. Det drejer sig konkret om din e-mail. Det er tilladt at undlade at angive sin e-mail. Listen over e-mailadresser vil blive opbevaret i overensstemmelse med bestemmelserne i Databeskyttelsesforordningen og anden relevant dansk lovgivning. Listen over e-mailadresser bliver slettet efter afholdelse af lodtrækningen med mindre du accepterer at forskerne må gemme din e-mailadresse med henblik på at kontakte dig i forbindelse med opfølgning af projektet. I så fald vil din e-mailadresse blive slettet efter 5 år eller når du selv ønsker at trække samtykket tilbage."),
+ #                                           p(strong("Andre modtagere"),": Projektgruppens øvrige medlemmer modtager og behandler det indsamlede datamateriale i anonymiseret form. Det betyder, at dine data vil blive delt med vores samarbejdspartner i projektet, Goldsmiths, University of London. Goldsmiths vil ikke benytte data til andre formål end udførelsen af dette projekt. Dine personoplysninger bliver ikke delt med nogen tredje part."),
+ #                                           p(strong("Mulighed for at trække samtykke tilbage"),": Deltagelse er frivillig, og du kan til enhver tid uden begrundelse trække dit samtykke til behandling af personoplysninger tilbage, uden at det får nogen konsekvenser for dig. Dette kan ske ved henvendelse til projektgruppen (se ovenfor). Hvis du tilbagetrækker dit samtykke, får det først virkning fra dette tidspunkt og påvirker ikke lovligheden af vores behandling op til dette tidspunkt."),
+ #                                           p(strong("Godkendelse: Jeg afgiver hermed mit samtykke til, at mine persondata behandles i overensstemmelse med samtykkeerklæringen.")),align="left")),
+ #                            button_text="Acceptér")
 
-# THANKS, GOODBYE AND SHARE PAGE
-goodbye <- final_page(div(HTML("<img src='img/au_logo.png'></img>"),
-                          p(h3(strong("Det var det! Tak for hjælpen."))),
-                          p(strong("Vinderne af lodtrækningspræmierne får direkte besked.")),
-                          HTML("<img src='img/mib_logo.png'></img>"),
-                          HTML("<br>"),
-                          #p(paste0("Du har nu videnskabens ord for at du er mere musikalsk sofistikeret end ",sum(get_global("GeneralMusicalSophistication",state=state)>=GeneralPercentiles),"% af befolkningen!")),
-                          
-                          p("Vi håber du synes det var sjovt at være med."),
-                          p("Hvis du er nysgerrig efter hvordan dine venner placerer sig, kan du dele testen ved at trykke på facebook og/eller twitter - knappen herunder."),
-                          p("Det vil også være en stor hjælp for os, at så mange som muligt får mulighed for at tage testen."),
-                          p("Dit eget resultat bliver ikke vist, med mindre du selv skriver det i opslaget."),
-                          HTML("<br>"),
-                          HTML('<iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fffjenkins.uni.au.dk:3838/hvor_musikalsk_er_du%2F&layout=button&size=large&width=100&height=100&appId" width="74" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>'),
-                          HTML('<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-url="http://http://ffjenkins.uni.au.dk:3838/hvor_musikalsk_er_du" data-lang="da" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>'),
-                          HTML("<br>"),
-                          p("............."),
-                          HTML("<br>"),
-                          p("Du kan nu lukke browser-vinduet.")))
+
 
 # DEMOGRAPHICS
 demographics <- c(
@@ -486,7 +467,24 @@ gmsi_feedback <-   reactive_page(function(state, count, ...) {              # Fe
                                button_text="Næste")
   })
 
-
+# THANKS, GOODBYE AND SHARE PAGE
+goodbye <- final_page(div(HTML("<img src='img/au_logo.png'></img> <img src='img/mib_logo.png'></img>"),
+                          p(h3(strong("Det var det. Tak for hjælpen!"))),
+                          p(strong("Vinderne af lodtrækningspræmierne får direkte besked.")),
+                          HTML("<br>"),
+                          #p(paste0("Du har nu videnskabens ord for at du er mere musikalsk sofistikeret end ",sum(get_global("GeneralMusicalSophistication",state=state)>=GeneralPercentiles),"% af befolkningen!")),
+                          
+                          p("Vi håber du synes det var sjovt at være med."),
+                          p("Hvis du er nysgerrig efter hvordan dine venner placerer sig, kan du dele testen ved at trykke på facebook og/eller twitter - knappen herunder."),
+                          p("Det vil også være en stor hjælp for os, at så mange som muligt får mulighed for at tage testen."),
+                          p("Dit eget resultat bliver ikke vist, med mindre du selv skriver det i opslaget."),
+                          HTML("<br>"),
+                          HTML('<iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fffjenkins.uni.au.dk:3838/hvor_musikalsk_er_du%2F&layout=button&size=large&width=100&height=100&appId" width="74" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>'),
+                          HTML('<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-url="http://http://ffjenkins.uni.au.dk:3838/hvor_musikalsk_er_du" data-lang="da" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>'),
+                          HTML("<br>"),
+                          p("............."),
+                          HTML("<br>"),
+                          p("Du kan nu lukke browser-vinduet.")))
 
 #####################
 # CALIBRATION TEST  #
@@ -564,14 +562,15 @@ experiment <- join(
   elt_save_results_to_disk(complete = TRUE),              # Default save function
   gmsi_feedback,                                          # GSMI last page with percentile feedback
   end_module(),                                           # End GMSI module
-  calibration                                            # Sound calibration page,
+  calibration                                             # Sound calibration page,
   ), default_lang="DA"),
   randomise_at_run_time("TestOrder_MPT_RT",
                          list(c(begin_module("MPT"),mistuning,end_module()),
                               c(begin_module("RT"),elt_jspsych,end_module()))),
   new_timeline(join(
   elt_save_results_to_disk(complete = TRUE),              # Default save function
-  final_page(div(p("Tak for hjælpen"),p("Du kan nu lukke vinduet.")))
+  goodbye
+  # final_page(div(p("Tak for hjælpen"),p("Du kan nu lukke vinduet.")))
   ), default_lang = "DA")
 )
 
