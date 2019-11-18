@@ -22,8 +22,8 @@
 #install.packages('Rcpp') # when reinstalling packages below, R complained that Rcpp was missing. This was an easy fix. 
 
 #install.packages('devtools')
-devtools::install_github('pmcharrison/psychTestR')
-devtools::install_github('pmcharrison/mpt')
+#devtools::install_github('pmcharrison/psychTestR')
+#devtools::install_github('pmcharrison/mpt')
 
 
 library(psychTestR)
@@ -550,21 +550,21 @@ mistuning <- mpt(num_items=10,
 experiment <- join(
   new_timeline(join(
   intro,                                                  # Intro page
-  # welcome,                                                # Welcome page, incl. consent
-  # # consent,                                                # Consent page
-  # begin_module("Demographics"),                           # Begin Demographics module
-  # demographics,                                           # Demographics questions
-  # end_module(),                                           # End Demographics module
-  # elt_save_results_to_disk(complete = TRUE),              # Default save function
-  # begin_module("GMSI"),                                   # Begin GMSI module
-  # randomiser,                                             # Randomise GMSI questions
-  # show_items,                                             # Show GMSI questions
-  # instrument,                                             # Instrument input page
-  # email,                                                  # Email
-  # save_GMSI,                                              # Save GMSI data
-  # elt_save_results_to_disk(complete = TRUE),              # Default save function
-  # gmsi_feedback,                                          # GSMI last page with percentile feedback
-  # end_module(),                                           # End GMSI module
+  welcome,                                                # Welcome page, incl. consent
+  # consent,                                                # Consent page
+  begin_module("Demographics"),                           # Begin Demographics module
+  demographics,                                           # Demographics questions
+  end_module(),                                           # End Demographics module
+  elt_save_results_to_disk(complete = TRUE),              # Default save function
+  begin_module("GMSI"),                                   # Begin GMSI module
+  randomiser,                                             # Randomise GMSI questions
+  show_items,                                             # Show GMSI questions
+  instrument,                                             # Instrument input page
+  email,                                                  # Email
+  save_GMSI,                                              # Save GMSI data
+  elt_save_results_to_disk(complete = TRUE),              # Default save function
+  gmsi_feedback,                                          # GSMI last page with percentile feedback
+  end_module(),                                           # End GMSI module
   calibration                                             # Sound calibration page,
   ), default_lang="DA"),
   randomise_at_run_time("TestOrder_MPT_RT",
