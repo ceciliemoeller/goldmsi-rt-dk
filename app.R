@@ -22,8 +22,8 @@
 #install.packages('Rcpp') # when reinstalling packages below, R complained that Rcpp was missing. This was an easy fix. 
 
 #install.packages('devtools')
-#devtools::install_github('pmcharrison/psychTestR')
-#devtools::install_github('pmcharrison/mpt')
+devtools::install_github('pmcharrison/psychTestR')
+devtools::install_github('pmcharrison/mpt')
 
 
 library(psychTestR)
