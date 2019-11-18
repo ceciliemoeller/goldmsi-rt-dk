@@ -35,6 +35,7 @@ library(stringr)
 library(varhandle)
 library(mpt)
 
+
 #setwd("C:/Users/nch/Desktop/pmcharrison-psychTestR-bcc0e86")    # Specify where to save output files when running locally
 #setwd("C:/Users/au213911/Documents/jspsych")
 
@@ -492,7 +493,7 @@ goodbye <- final_page(div(HTML("<img src='img/au_logo.png'></img> <img src='img/
 # CALIBRATION TEST  #
 #####################
 
-calibration <- volume_calibration_page(url="http://media.gold-msi.org/test_materials/MPT/training/in-tune.mp3", type="mp3",
+calibration <- volume_calibration_page(url="https://media.gold-msi.org/test_materials/MPT/training/in-tune.mp3", type="mp3",
                                        button_text="Lydniveauet er fint nu. Fortsæt",
                                        #on_complete=,
                                        #admin_ui=,
