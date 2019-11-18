@@ -19,6 +19,8 @@
 # INITIALIZE      #
 ###################
 
+#install.packages('Rcpp') # when reinstalling packages below, R complained that Rcpp was missing. This was an easy fix. 
+
 #install.packages('devtools')
 #devtools::install_github('pmcharrison/psychTestR')
 #devtools::install_github('pmcharrison/mpt')
@@ -461,7 +463,7 @@ save_GMSI <- code_block(function(state, ...) {
 
 # GMSI FEEDBACK
 gmsi_feedback <-   reactive_page(function(state, count, ...) {              # Feedback page
-                  one_button_page(div(p(paste0("Tak for hjælpen! Din Gold-MSI score er: ",get_global("GeneralMusicalSophistication",state=state))),
+                  one_button_page(div(p(paste0("Din Gold-MSI score er: ",get_global("GeneralMusicalSophistication",state=state))),
                                p(paste0("Det gør dig mere musikalsk sofistikeret end ",sum(get_global("GeneralMusicalSophistication",state=state)>=GeneralPercentiles),"% af befolkningen!")),
                                p(paste0("Vi skal nu teste din reaktionstid og dine lyttefærdigheder. Hvis du ikke allerede har gjort det, så tag venligst hovedtelefoner på nu."))),
                                button_text="Næste")
@@ -547,28 +549,28 @@ mistuning <- mpt(num_items=10,
 experiment <- join(
   new_timeline(join(
   intro,                                                  # Intro page
-  welcome,                                                # Welcome page, incl. consent
-  # consent,                                                # Consent page
-  begin_module("Demographics"),                           # Begin Demographics module
-  demographics,                                           # Demographics questions
-  end_module(),                                           # End Demographics module
-  elt_save_results_to_disk(complete = TRUE),              # Default save function
-  begin_module("GMSI"),                                   # Begin GMSI module
-  randomiser,                                             # Randomise GMSI questions
-  show_items,                                             # Show GMSI questions
-  instrument,                                             # Instrument input page
-  email,                                                  # Email
-  save_GMSI,                                              # Save GMSI data
-  elt_save_results_to_disk(complete = TRUE),              # Default save function
-  gmsi_feedback,                                          # GSMI last page with percentile feedback
-  end_module(),                                           # End GMSI module
+  # welcome,                                                # Welcome page, incl. consent
+  # # consent,                                                # Consent page
+  # begin_module("Demographics"),                           # Begin Demographics module
+  # demographics,                                           # Demographics questions
+  # end_module(),                                           # End Demographics module
+  # elt_save_results_to_disk(complete = TRUE),              # Default save function
+  # begin_module("GMSI"),                                   # Begin GMSI module
+  # randomiser,                                             # Randomise GMSI questions
+  # show_items,                                             # Show GMSI questions
+  # instrument,                                             # Instrument input page
+  # email,                                                  # Email
+  # save_GMSI,                                              # Save GMSI data
+  # elt_save_results_to_disk(complete = TRUE),              # Default save function
+  # gmsi_feedback,                                          # GSMI last page with percentile feedback
+  # end_module(),                                           # End GMSI module
   calibration                                             # Sound calibration page,
   ), default_lang="DA"),
   randomise_at_run_time("TestOrder_MPT_RT",
                          list(c(begin_module("MPT"),mistuning,end_module()),
                               c(begin_module("RT"),elt_jspsych,end_module()))),
-  new_timeline(join(
-  elt_save_results_to_disk(complete = TRUE),              # Default save function
+   new_timeline(join(
+   elt_save_results_to_disk(complete = TRUE),              # Default save function
   goodbye
   # final_page(div(p("Tak for hjælpen"),p("Du kan nu lukke vinduet.")))
   ), default_lang = "DA")
