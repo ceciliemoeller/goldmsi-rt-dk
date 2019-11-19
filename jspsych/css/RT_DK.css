@@ -11,6 +11,11 @@ body {
      color: whitesmoke;
  }
 
+ a {
+     color: whitesmoke;
+    font-weight: bold;
+ }
+
  /* .instr-img {
     display: inline-block; 
     margin-right: 30px;
