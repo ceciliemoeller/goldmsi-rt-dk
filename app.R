@@ -170,7 +170,7 @@ welcome <- one_button_page(body = div(HTML("<img src='img/au_logo.png'></img> <i
                                               HTML("<br>"),
                                               p("............."),
                                               HTML("<br>"),
-                                              p("- Jeg forstår, at ved at klikke videre nedenfor giver jeg samtykke til, at min besvarelse inkluderes i studiet 'Musical sophistication and mental speed in the Danish general population'. Mine personoplysninger behandles i overensstemmelse med samtykkeerklæringen (som kan findes i fuld tekst her: [LINK til samtykkeerklæringen])."),
+                                              p("- Jeg forstår, at ved at klikke videre nedenfor giver jeg samtykke til, at min besvarelse inkluderes i studiet 'Musical sophistication and mental speed in the Danish general population'. Mine personoplysninger behandles i overensstemmelse med samtykkeerklæringen (som kan findes i fuld tekst her: http://musicinthebrain.au.dk/contact/hvor-musikalsk-er-du/)."),
                                               p("- Jeg kan til enhver tid anmode om at få slettet mine data ved at kontakte den forsøgsansvarlige, Cecilie Møller på cecilie@clin.au.dk."),
                                               HTML("<br>"),
                                               p("Jeg afgiver hermed mit samtykke til, at mine persondata behandles i overensstemmelse med samtykkeerklæringen:"),
@@ -465,11 +465,13 @@ save_GMSI <- code_block(function(state, ...) {
 
 # GMSI FEEDBACK
 gmsi_feedback <-   reactive_page(function(state, count, ...) {              # Feedback page
-  one_button_page(div(p(paste0("Din Gold-MSI score er: ",get_global("GeneralMusicalSophistication",state=state))),
-                      p(paste0("Det gør dig mere musikalsk sofistikeret end ",sum(get_global("GeneralMusicalSophistication",state=state)>=GeneralPercentiles),"% af befolkningen!")),
+  one_button_page(div(p(paste0(h4("Din Gold-MSI score er: ",get_global("GeneralMusicalSophistication",state=state)))),
+                      p(paste0(strong("Det gør dig mere musikalsk sofistikeret end ",sum(get_global("GeneralMusicalSophistication",state=state)>=GeneralPercentiles),"% af befolkningen!"))),
+                      HTML("<br>"),
+                      p("............."),
+                      HTML("<br>"),
                       p("Nu er vi nået til de tests, hvor du skal bruge hovedtelefoner. Først skal du indstille lydniveauet på din computer."),
-                      p(strong("Skru helt ned for lyden")),
-                      p("og tag hovedtelefonerne på, inden du trykker på knappen nedenfor.")),
+                      p(strong("Skru helt ned for lyden"),"og tag hovedtelefonerne på, inden du trykker på knappen nedenfor.")),
                   button_text="Afspil lydeksempel")
 })
 # THANKS, GOODBYE AND SHARE PAGE
@@ -478,7 +480,7 @@ goodbye <- reactive_page(function(state, ...) {
                           p(h3(strong("Det var det. Tak for hjælpen!"))),
                           p(strong("Vinderne af lodtrækningspræmierne får direkte besked.")),
                           HTML("<br>"),
-                          #p(paste0("Du har nu videnskabens ord for, at du er mere musikalsk sofistikeret end ",sum(get_global("GeneralMusicalSophistication",state=state)>=GeneralPercentiles),"% af befolkningen!")),
+                          p(paste0("Du har nu videnskabens ord for, at du er mere musikalsk sofistikeret end ",sum(get_global("GeneralMusicalSophistication",state=state)>=GeneralPercentiles),"% af befolkningen!")),
                           
                           p("Vi håber du synes det var sjovt at være med."),
                           p("Hvis du er nysgerrig efter hvordan dine venner placerer sig, kan du dele testen ved at trykke på facebook og/eller twitter - knappen herunder."),
@@ -531,17 +533,17 @@ elt_jspsych <- page(
 # MISTUNING PERCEPTION TEST    #
 ################################
 
-mistuning <- mpt(num_items=2,
+mistuning <- mpt(num_items=10,
                  dict=mpt::mpt_dict,
                  feedback=psychTestRCAT::cat.feedback.graph("MPT",
                                                             text_finish = "Flot klaret!",
                                                             next_button = "Næste",
-                                                            text_score = "Din endelige score i 'Mistuning Perception'- testen:",
-                                                            text_rank = "Den røde streg viser din placering i forhold til tidligere deltagere (de blå kasser):",
-                                                            x_axis = "Score",
+                                                            text_score = "Din endelige score i denne 'Mistuning Perception'- test:",
+                                                            text_rank = "Din placering (tallet før skråstregen) i forhold til tidligere deltagere (tallet efter skråstregen):",
+                                                            x_axis = "Score (din score er markeret med en rød linje)",
                                                             y_axis = "Antal deltagere",
                                                             explain_IRT = FALSE),
-                 take_training = F)
+                 take_training = T)
 
 
 
