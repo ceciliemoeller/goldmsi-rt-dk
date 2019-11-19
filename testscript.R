@@ -93,8 +93,9 @@ welcome <- one_button_page(body = div(HTML("<img src='img/au_logo.png'></img> <i
 gmsi_feedback <-   reactive_page(function(state, count, ...) {              # Feedback page
   one_button_page(div(p(paste0("Din Gold-MSI score er: ",get_global("GeneralMusicalSophistication",state=state))),
                       p(paste0("Det gør dig mere musikalsk sofistikeret end ",sum(get_global("GeneralMusicalSophistication",state=state)>=GeneralPercentiles),"% af befolkningen!")),
-                      p(paste0("Nu er vi nået til de tests, hvor skal du bruge hovedtelefoner. Først skal du indstille lydniveauet på din computer."),
-                      p(strong("Skru helt ned for lyden) og tage hovedtelefonerne på, inden du trykker på knappen nedenfor."))),
+                      p("Nu er vi nået til de tests, hvor du skal bruge hovedtelefoner. Først skal du indstille lydniveauet på din computer."),
+                      p(strong("Skru helt ned for lyden")),
+                      p("og tag hovedtelefonerne på, inden du trykker på knappen nedenfor.")),
                   button_text="Afspil lydeksempel")
 })
 
@@ -116,6 +117,30 @@ goodbye <- final_page(div(HTML("<img src='img/au_logo.png'></img> <img src='img/
                           p("............."),
                           HTML("<br>"),
                           p("Du kan nu lukke browser-vinduet.")))
+
+
+# THANKS, GOODBYE AND SHARE PAGE
+goodbye <- reactive_page(function(state, ...) {
+  final_page(div(HTML("<img src='img/au_logo.png'></img> <img src='img/mib_logo.png'></img>"),
+                 p(h3(strong("Det var det. Tak for hjælpen!"))),
+                 p(strong("Vinderne af lodtrækningspræmierne får direkte besked.")),
+                 HTML("<br>"),
+                 p(paste0("Du har nu videnskabens ord for at du er mere musikalsk sofistikeret end ",sum(get_global("GeneralMusicalSophistication",state=state)>=GeneralPercentiles),"% af befolkningen!")),
+                 
+                 p("Vi håber du synes det var sjovt at være med."),
+                 p("Hvis du er nysgerrig efter hvordan dine venner placerer sig, kan du dele testen ved at trykke på facebook og/eller twitter - knappen herunder."),
+                 p("Det vil også være en stor hjælp for os, at så mange som muligt får mulighed for at tage testen."),
+                 p("Dit eget resultat bliver ikke vist, med mindre du selv skriver det i opslaget."),
+                 HTML("<br>"),
+                 HTML('<iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fffjenkins.uni.au.dk:3838/hvor_musikalsk_er_du%2F&layout=button&size=large&width=100&height=100&appId" width="74" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>'),
+                 HTML('<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-url="http://http://ffjenkins.uni.au.dk:3838/hvor_musikalsk_er_du" data-lang="da" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>'),
+                 HTML("<br>"),
+                 p("............."),
+                 HTML("<br>"),
+                 p("Du kan nu lukke browser-vinduet.")))
+})
+
+
 # CALIBRATION TEST  #
 #####################
 
