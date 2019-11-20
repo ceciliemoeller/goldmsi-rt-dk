@@ -22,7 +22,7 @@
 #install.packages('Rcpp') # when reinstalling packages below, R complained that Rcpp was missing. This was an easy fix. 
 
 #install.packages('devtools')
-#devtools::install_github('pmcharrison/psychTestR')
+devtools::install_github('pmcharrison/psychTestR')
 #devtools::install_github('pmcharrison/mpt')
 
 
@@ -153,7 +153,7 @@ num_items <- nrow(items)
 
 # INTRO
 intro <- one_button_page(body = div(HTML("<img src='img/au_logo.png'></img> <img src='img/mib_logo.png'></img>"),
-                                    div(h4(strong("Forskning har vist...")),
+                                    div(h4(strong("DENNE TEST ER STADIG UNDER OPBYGNING! Forskning har vist...")),
                                           p("...at musikalsk træning, musikalitet og reaktionstid hænger sammen."),
                                           p("Men hvad kom først: hønen eller ægget? Kan man være musikalsk, selvom man aldrig har sat sine ben i et musiklokale? Og ved du hvor musikalsk du er, sammenlignet med resten af befolkningen?"),
                                           p(strong("Tag testen og del evt. dit resultat med dine venner.")),
@@ -165,12 +165,14 @@ intro <- one_button_page(body = div(HTML("<img src='img/au_logo.png'></img> <img
 welcome <- one_button_page(body = div(HTML("<img src='img/au_logo.png'></img> <img src='img/mib_logo.png'></img>"),
                                       div(h2(strong("Hvor musikalsk er du?")),
                                             p("Tak for din interesse i dette videnskabelige projekt om musikalitet og mental hastighed i den generelle danske befolkning udført af Aarhus Universitet."),
-                                            p("Denne undersøgelse tager ca. 15-20 minutter. Først skal du besvare et spørgeskema. Derefter tester vi (i vilkårlig rækkefølge) din reaktionstid og din evne til at høre om en sanger synger rent eller falsk."),
+                                            p("Du kan deltage hvis du er mindst 18 år gammel, og hvis du forstår de danske instruktioner, uanset om du bor i Danmark eller ej."),
+                                            p("Denne undersøgelse tager ca. 20 minutter. Først skal du besvare et spørgeskema. Derefter tester vi (i vilkårlig rækkefølge) din reaktionstid og din evne til at høre om en sanger synger rent eller falsk."),
                                             p(strong("Du skal bruge en computer med tastatur og det er vigtigt, at du gennemfører lyttetesten i stille omgivelser og bruger høretelefoner.")),
                                               HTML("<br>"),
                                               p("............."),
                                               HTML("<br>"),
-                                              HTML("- Jeg forstår, at ved at klikke videre nedenfor giver jeg samtykke til, at min besvarelse inkluderes i studiet 'Musical sophistication and mental speed in the Danish general population'. Mine personoplysninger behandles i overensstemmelse med <A HREF='http://musicinthebrain.au.dk/contact/hvor_musikalsk_er_du/' >samtykkeerklæringen.</A>"),
+                                              HTML("- Jeg er 18 år gammel eller ældre"),
+                                              HTML("- Jeg forstår, at ved at klikke videre nedenfor giver jeg samtykke til, at min besvarelse inkluderes i studiet 'Musical sophistication and mental speed in the Danish general population'. Mine personoplysninger behandles i overensstemmelse med <A target='_blank' HREF='http://musicinthebrain.au.dk/contact/hvor_musikalsk_er_du/' >samtykkeerklæringen.</A>"),
                                               p("- Jeg kan til enhver tid anmode om at få slettet mine data ved at kontakte den forsøgsansvarlige, Cecilie Møller på cecilie@clin.au.dk."),
                                               HTML("<br>"),
                                               p("Jeg afgiver hermed mit samtykke til, at mine persondata behandles i overensstemmelse med samtykkeerklæringen:"),
@@ -315,16 +317,16 @@ demographics <- c(
       set_global(key = "education_expected", value = answer, state = state)
     }),
 
-  # PREFERRED MUSICAL GENRE
-  NAFC_page(
-    label = "genre",
-    prompt = "Hvilken musikalsk genre lytter du mest til?", 
-    choices = c("Rock/pop",
-                "Jazz",
-                "Klassisk"),
-    on_complete = function(answer, state, ...) {
-      set_global(key = "genre", value = answer, state = state)
-    }),
+  # # PREFERRED MUSICAL GENRE
+  # NAFC_page(
+  #   label = "genre",
+  #   prompt = "Hvilken musikalsk genre lytter du mest til?", 
+  #   choices = c("Rock/pop",
+  #               "Jazz",
+  #               "Klassisk"),
+  #   on_complete = function(answer, state, ...) {
+  #     set_global(key = "genre", value = answer, state = state)
+  #   }),
   
     #GAMING HABITS
   text_input_page(
@@ -488,14 +490,16 @@ goodbye <- reactive_page(function(state, ...) {
 
 calibration <- volume_calibration_page(url="https://media.gold-msi.org/test_materials/MPT/training/in-tune.mp3", type="mp3",
                                        button_text="Lydniveauet er fint nu. Start den første test!",
+                                       # btn_play_prompt = "Klik her for at afspille lyden",
                                        #on_complete=,
                                        #admin_ui=,
-                                       prompt= div(h4(strong("Hvis du ikke allerede har gjort det, så tag venligst hovedtelefoner på nu.")), 
-                                       p("Indstil lyden på din computer, så lydniveauet er komfortabelt for dig."),
+                                       prompt= div(p("Hvis du ikke allerede har gjort det, så tag venligst hovedtelefoner på nu."), 
+                                       h4(strong("Skru nu op for lyden på din computer, indtil lydniveauet er komfortabelt for dig.")),
                                        p("............."),
                                        p("Hvis ikke du hører den lyd vi afspiller nu, så check dine indstillinger på computeren."),
                                        p("Du kan kun deltage i denne del af undersøgelsen, hvis din computer kan afspille lyden."),
                                        p("I modsat fald er du desværre nødt til at stoppe her og lukke ned for dit browser-vindue.")))
+                                       
 
 
 #######################
@@ -520,7 +524,7 @@ elt_jspsych <- page(
 # MISTUNING PERCEPTION TEST    #
 ################################
 
-mistuning <- mpt(num_items=10,
+mistuning <- mpt(num_items=15,
                  dict=mpt::mpt_dict,
                  feedback=psychTestRCAT::cat.feedback.graph("MPT",
                                                             text_finish = "Flot klaret!",
@@ -547,14 +551,14 @@ experiment <- join(
   begin_module("Demographics"),                           # Begin Demographics module
   demographics,                                           # Demographics questions
   end_module(),                                           # End Demographics module
-  elt_save_results_to_disk(complete = TRUE),              # Default save function
+  elt_save_results_to_disk(complete = FALSE),              # Default save function
   begin_module("GMSI"),                                   # Begin GMSI module
   randomiser,                                             # Randomise GMSI questions
   show_items,                                             # Show GMSI questions
   instrument,                                             # Instrument input page
   email,                                                  # Email
   save_GMSI,                                              # Save GMSI data
-  elt_save_results_to_disk(complete = TRUE),              # Default save function
+  elt_save_results_to_disk(complete = FALSE),              # Default save function
   gmsi_feedback,                                          # GSMI last page with percentile feedback
   end_module(),                                           # End GMSI module
   calibration                                             # Sound calibration page,
@@ -565,8 +569,7 @@ experiment <- join(
    new_timeline(join(
    elt_save_results_to_disk(complete = TRUE),              # Default save function
   goodbye
-  # final_page(div(p("Tak for hjælpen"),p("Du kan nu lukke vinduet.")))
-  ), default_lang = "DA")
+   ), default_lang = "DA")
 )
 
 # ##########################
