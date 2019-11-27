@@ -22,7 +22,7 @@
 #install.packages('Rcpp') # when reinstalling packages below, R complained that Rcpp was missing. This was an easy fix. 
 
 #install.packages('devtools')
-devtools::install_github('pmcharrison/psychTestR')
+#devtools::install_github('pmcharrison/psychTestR')
 #devtools::install_github('pmcharrison/mpt')
 
 
@@ -153,7 +153,8 @@ num_items <- nrow(items)
 
 # INTRO
 intro <- one_button_page(body = div(HTML("<img src='img/au_logo.png'></img> <img src='img/mib_logo.png'></img>"),
-                                    div(h4(strong("DENNE TEST ER STADIG UNDER OPBYGNING! Forskning har vist...")),
+                                    div(h4(strong("DENNE TEST ER STADIG UNDER OPBYGNING! VI FORVENTER AT TESTEN BLIVER TILGÆNGELIG I STARTEN AF DECEMBER")),
+                                        h4(strong("Forskning har vist...")),
                                           p("...at musikalsk træning, musikalitet og reaktionstid hænger sammen."),
                                           p("Men hvad kom først: hønen eller ægget? Kan man være musikalsk, selvom man aldrig har sat sine ben i et musiklokale? Og ved du hvor musikalsk du er, sammenlignet med resten af befolkningen?"),
                                           p(strong("Tag testen og del evt. dit resultat med dine venner.")),
@@ -165,21 +166,39 @@ intro <- one_button_page(body = div(HTML("<img src='img/au_logo.png'></img> <img
 welcome <- one_button_page(body = div(HTML("<img src='img/au_logo.png'></img> <img src='img/mib_logo.png'></img>"),
                                       div(h2(strong("Hvor musikalsk er du?")),
                                             p("Tak for din interesse i dette videnskabelige projekt om musikalitet og mental hastighed i den generelle danske befolkning udført af Aarhus Universitet."),
-                                            p("Du kan deltage hvis du er mindst 18 år gammel, og hvis du forstår de danske instruktioner, uanset om du bor i Danmark eller ej."),
+                                            p("Du kan deltage, hvis du er mindst 18 år gammel, og hvis du forstår de danske instruktioner, uanset om du bor i Danmark eller ej."),
                                             p("Denne undersøgelse tager ca. 20 minutter. Først skal du besvare et spørgeskema. Derefter tester vi (i vilkårlig rækkefølge) din reaktionstid og din evne til at høre om en sanger synger rent eller falsk."),
                                             p(strong("Du skal bruge en computer med tastatur og det er vigtigt, at du gennemfører lyttetesten i stille omgivelser og bruger høretelefoner.")),
                                               HTML("<br>"),
                                               p("............."),
                                               HTML("<br>"),
                                               HTML("- Jeg er 18 år gammel eller ældre"),
-                                              HTML("- Jeg forstår, at ved at klikke videre nedenfor giver jeg samtykke til, at min besvarelse inkluderes i studiet 'Musical sophistication and mental speed in the Danish general population'. Mine personoplysninger behandles i overensstemmelse med <A target='_blank' HREF='http://musicinthebrain.au.dk/contact/hvor_musikalsk_er_du/' >samtykkeerklæringen.</A>"),
+                                              HTML("- Jeg forstår, at ved at klikke videre nedenfor giver jeg samtykke til, at min besvarelse inkluderes i studiet 'Musical sophistication and mental speed in the Danish general population'. Mine personoplysninger behandles i overensstemmelse med samtykkeerklæringen, som kan læses i sin fulde længde <A target='_blank' HREF='http://musicinthebrain.au.dk/contact/hvor_musikalsk_er_du/' >HER.</A>"),
                                               p("- Jeg kan til enhver tid anmode om at få slettet mine data ved at kontakte den forsøgsansvarlige, Cecilie Møller på cecilie@clin.au.dk."),
                                               HTML("<br>"),
                                               p("Jeg afgiver hermed mit samtykke til, at mine persondata behandles i overensstemmelse med samtykkeerklæringen:"),
                                               align="center")),
                                       button_text="Acceptér")
 
-
+device <-dropdown_page(
+  label = "platform",
+  prompt = div(p("Du skal bruge et tastatur til at gennemføre testen."),
+    p("Hvilken type IT-udstyr sidder du med lige nu?")),
+  save_answer=TRUE,
+  choices = c("Bærbar computer med indbygget tastatur", "Bærbar computer med eksternt tastatur", "Stationær computer"),
+  alternative_choice = TRUE,
+  alternative_text = "Andet",
+  next_button_text = "Næste",
+  # validate = function(answer, ...) {
+  #   if (answer==""|!check.numeric(answer,only.integer=T))
+  #     "Hvis du ikke anvender et tastatur, kan du ikke gennemføre hele testen og du kan derfor heller ikke deltage i lodtrækningen. Angiv venligst hvilken type udstyr du benytter."
+  #   else TRUE
+  # },
+  # on_complete = function(answer, state, ...) {
+  #   set_global(key = "age", value = answer, state = state)
+  # }
+  # 
+)
 
 # DEMOGRAPHICS
 demographics <- c(
@@ -524,51 +543,53 @@ elt_jspsych <- page(
 # MISTUNING PERCEPTION TEST    #
 ################################
 
-mistuning <- mpt(num_items=15,
+mistuning <- mpt(num_items=1,
                  dict=mpt::mpt_dict,
                  feedback=psychTestRCAT::cat.feedback.graph("MPT",
                                                             text_finish = "Flot klaret!",
                                                             next_button = "Næste",
-                                                            text_score = "Din endelige score i denne 'Mistuning Perception'- test:",
+                                                            text_score = "I denne 'Mistuning Perception'- test kan man score fra -3 til +3. Din endelige score er:",
                                                             text_rank = "Din placering (tallet før skråstregen) i forhold til tidligere deltagere (tallet efter skråstregen):",
-                                                            x_axis = "Score (din score er markeret med en rød linje)",
+                                                            x_axis = "'Mistuning perception'-score for alle tidligere deltagere (din score er markeret med en rød linje)",
                                                             y_axis = "Antal deltagere",
                                                             explain_IRT = FALSE),
-                 take_training = T)
+               take_training = F)
 
 
 
 
 #####################
-# DEFINE EXPERIMENT #
+# DEFINE EXPERIMENT #()
 #####################
 
 experiment <- join(
   new_timeline(join(
   intro,                                                  # Intro page
   welcome,                                                # Welcome page, incl. consent
-  # consent,                                                # Consent page
-  begin_module("Demographics"),                           # Begin Demographics module
-  demographics,                                           # Demographics questions
-  end_module(),                                           # End Demographics module
-  elt_save_results_to_disk(complete = FALSE),              # Default save function
-  begin_module("GMSI"),                                   # Begin GMSI module
-  randomiser,                                             # Randomise GMSI questions
-  show_items,                                             # Show GMSI questions
-  instrument,                                             # Instrument input page
-  email,                                                  # Email
-  save_GMSI,                                              # Save GMSI data
-  elt_save_results_to_disk(complete = FALSE),              # Default save function
-  gmsi_feedback,                                          # GSMI last page with percentile feedback
-  end_module(),                                           # End GMSI module
-  calibration                                             # Sound calibration page,
-  ), default_lang="DA"),
-  randomise_at_run_time("TestOrder_MPT_RT",
-                         list(c(begin_module("MPT"),mistuning,end_module()),
-                              c(begin_module("RT"),elt_jspsych,end_module()))),
-   new_timeline(join(
-   elt_save_results_to_disk(complete = TRUE),              # Default save function
-  goodbye
+  device,
+  #  # consent,                                                # Consent page
+  # begin_module("Demographics"),                           # Begin Demographics module
+  # demographics,                                           # Demographics questions
+  # end_module(),                                           # End Demographics module
+  # elt_save_results_to_disk(complete = FALSE),              # Default save function
+  # begin_module("GMSI"),                                   # Begin GMSI module
+  # randomiser,                                             # Randomise GMSI questions
+  # show_items,                                             # Show GMSI questions
+  # instrument,                                             # Instrument input page
+  # email,                                                  # Email
+  # save_GMSI,                                              # Save GMSI data
+  # elt_save_results_to_disk(complete = FALSE),              # Default save function
+  # gmsi_feedback,                                          # GSMI last page with percentile feedback
+  # end_module(),                                           # End GMSI module
+  # calibration                                             # Sound calibration page,
+  # ), default_lang="DA"),
+  # randomise_at_run_time("TestOrder_MPT_RT",
+  #                        list(c(begin_module("MPT"),mistuning,end_module()),
+  #                             c(begin_module("RT"),elt_jspsych,end_module()))),
+  #  new_timeline(join(
+  #  elt_save_results_to_disk(complete = TRUE),              # Default save function
+  # goodbye
+  final_page(div(p("Tak for interessen. Vi forventer, at testen bliver tilgængelig til december."),p("Du kan nu lukke vinduet.")))
    ), default_lang = "DA")
 )
 
