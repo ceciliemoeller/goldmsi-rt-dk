@@ -17,6 +17,10 @@ body {
     text-decoration: underline;
  }
 
+ .form-control .item,
+ .form-control .option {
+     color:black;
+ }
  /* .instr-img {
     display: inline-block; 
     margin-right: 30px;
@@ -33,4 +37,9 @@ body {
  }
  .largegap-above{
      margin-top:60px;
+ }
+
+ .center-img img{
+    max-width: 680px;
+    margin: 20px auto;
  }

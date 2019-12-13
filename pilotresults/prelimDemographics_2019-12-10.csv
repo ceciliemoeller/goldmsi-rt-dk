@@ -1,0 +1,28 @@
+"","id","gender","age","zip_code","gaming","nationality","residence","youth_country","employment","education_completed","education_expected"
+"1","fef16eb5d497cc76a50422d3f4a424514fc1e972e776b509fa902705ef04478c","Mand",4,"4444",4,"44","4","4","0.-10. klasse","9. eller 10. klasse",NA
+"2","d84427b059adbe249a5d4bdbc40ef320d81b77e41cae3865fe0dbee6b5bafee1","Mand",99,"9999",8,"9","9","9","Hjemmegående","Stadig under uddannelse","Ikke relevant"
+"3","77b642b006db0aaf210a790d95e6f4b8144074280dd6b9da8e0a3a0e4426c5ed","Kvinde",0,"0000",0,"0","0","0","0.-10. klasse","9. eller 10. klasse",NA
+"4","4c8a9c10d18b105948e1116afbd1c359b67a7558a993684c06df937681527147","Mand",22,"8000",0,"Dansk","Danmark","Danmark","Studerende på videregående uddannelse","Gymnasial uddannelse (fx gymnasium, HF, HTX, HHX)",NA
+"5","7b61661607c4dabdd59620c3c4d90c9096045a066fc59371a2ffb1be6d9951d3","Mand",22,"8000",0,"Dansk","Danmark","Danmark","Studerende på videregående uddannelse","Gymnasial uddannelse (fx gymnasium, HF, HTX, HHX)",NA
+"6","dc707aa5a6536e6324114f1e6b3e8c1d327554a88b06a5d9cb2aaa42b9915f18","Mand",22,"8000",0,"Dansk","Danmark","Danmark","Studerende på videregående uddannelse","Gymnasial uddannelse (fx gymnasium, HF, HTX, HHX)",NA
+"7","9a9a5d829a47b6fd6fea406c63a103b4541b9c797bfbc8f56f667acdca59ad63","Mand",26,"8200",20,"Dansk","Danmark","Danmark","Studerende på videregående uddannelse","Gymnasial uddannelse (fx gymnasium, HF, HTX, HHX)",NA
+"8","09e9db0b3167a349e7eb727b49cc0e6b8923209f01da9f326350154f08c63c70","Kvinde",22,"8000",0,"Dansk","Danmark","Danmark","Studerende på videregående uddannelse","Gymnasial uddannelse (fx gymnasium, HF, HTX, HHX)",NA
+"9","89bf9c81886a97fe8456cd6307fdfc5496f2da31a69a280d1e7945177c3427f2","Kvinde",24,"8200",0,"Dansk ","Danmark","Danmark ","Studerende på videregående uddannelse","Stadig under uddannelse","Lang videregående uddannelse (min. 5 år)"
+"10","f99b330c9dbefe4880be8dd3012af7686edfbec14e8a9627416756cd1cecfd7e","Mand",21,"8200",12,"Dansk","Danmark","Danmark","Studerende på videregående uddannelse","Stadig under uddannelse","Lang videregående uddannelse (min. 5 år)"
+"11","6a19ef681e6060c265fb488fce21b4edf8427c4531db022c12d0b73b0c7c0512","Mand",2,"4321",2,"9","+0","0","0.-10. klasse","9. eller 10. klasse",NA
+"12","7e62a9e5369f0830f0bb0448f2035f33a6c703acca05dcefa94ce3472c323167","Kvinde",6666,"5555",5555,"6666","5555","5","0.-10. klasse","Gymnasial uddannelse (fx gymnasium, HF, HTX, HHX)",NA
+"13","cfcaaa1407ba438860d4285539d47957c46ed12d8f5068cbb419f97a528115ac","Kvinde",6,"9999",44,"6","6","2","0.-10. klasse","9. eller 10. klasse",NA
+"14","05606bcfe52bdd4017a6d609b5d19a74868820053229b2144a1558b0e6f79838","Mand",43,"2017",0,"Dansk","Dansk","Danmark","Deltidsbeskæftiget lønmodtager","Faglært",NA
+"15","20c172feb42cb377592d86a45ecbb6f832eb7541152eb7c9d26ca23234bdf18b","Mand",11,"1234",1000,"kjbgkjhg","vjhfhjgfhgfhf","dchtrdtvfybfy","Ledig","Faglært",NA
+"16","f7983892b8cbb2ef7f147694115b494a4023eaa107c743c017babd99288af7d4","Mand",11111,"1111",1,"as","1","1","Selvstændig","Lang videregående uddannelse (min. 5 år)",NA
+"17","508c5b135983a8fbd4a98cb92418b4e174c0f727af13c5f46f4dc88a56c468d9","Mand",77,"7777",47,"7","7","7","0.-10. klasse","Mellemlang videregående uddannelse (3-4 år)",NA
+"18","466c90584956eb9a39b6fc7a3c61e9a4ac084ec0e5f9d5b4167013b548f22dd9","Mand",1,"1111",1,"1","1","1","0.-10. klasse","9. eller 10. klasse",NA
+"19","9d942b75e979c6f17020b352d683caa8308c33b969cfa9879bec093dd602fab7","Andet / ønsker ikke at oplyse",999,"7777",9,"9","9","9","Fuldtidsbeskæftiget lønmodtager","Kort videregående uddannelse",NA
+"20","aa6bd42aa46263169351decd0e8f42f6e6b5151b0b1e4fc4f58c678480419b27","Andet / ønsker ikke at oplyse",666,"6666",5,"1","1","1","Ledig","Stadig under uddannelse","Ikke relevant"
+"21","83d82bbaf4d1228ecf4f40ee31bc9e15f52b5c69237107d1b7ac4194e3d37d3d","Mand",7,"7777",7,"7","7","7","0.-10. klasse","9. eller 10. klasse",NA
+"22","75a18822d171c6f93a535f2b0793d482fc185b8a211b18bdf8de33665107b757","Mand",43,"8240",0,"dansk","Danmark","Danmark","Selvstændig","Lang videregående uddannelse (min. 5 år)",NA
+"23","1576ee72dcd202f8f8a30c8374c877ad889bdad075ce6e4a7aef154fba1866b9","Kvinde",88,"8888",3,"88","88","3","Pensionist/efterlønsmodtager","Stadig under uddannelse","Ikke relevant"
+"24","69a898863f5aac35ccdcb11709d1c2da1e514cd742414250f8fb19ea9e36e7a2","Kvinde",2,"2341",2,"2","2","2","0.-10. klasse","9. eller 10. klasse",NA
+"25","94e3d37d3de41f77ece0dfd1bfe53153b0e471846df27563c8454e5327064e53","Mand",52,"8200",26,"Dansk","Hullahopland","Danmark","Fuldtidsbeskæftiget lønmodtager","Stadig under uddannelse","Lang videregående uddannelse (min. 5 år)"
+"26","b26ce28fc6f4bc9a8ff53563f668bce146d11aecdb28d8a1ceff3a3df87a6fa7","Kvinde",2,"5432",1,"2","2","1","0.-10. klasse","9. eller 10. klasse",NA
+"27","ea406c63a103b4541b9c797bfbc8f56f667acdca59ad63f3f0f2cf5cb0d99cbf","Kvinde",2222,"4322",2,"2","2","2","0.-10. klasse","Gymnasial uddannelse (fx gymnasium, HF, HTX, HHX)",NA

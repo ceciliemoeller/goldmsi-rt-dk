@@ -162,52 +162,73 @@ intro <- one_button_page(body = div(HTML("<img src='img/au_logo.png'></img> <img
                                           align="center")),
                                     button_text="Næste")
 
+# DEVICE PAGE
+device <-dropdown_page(
+  label = "device",
+  prompt = div(h2(strong("Test af dit udstyr")),
+               p(strong("I testen skal du bruge en computer med tastatur og det er vigtigt, at du gennemfører lyttetesten i stille omgivelser og bruger hovedtelefoner.")),
+               p("For at beskytte dine ører, vil vi bede dig skrue næsten helt ned for lyden på din computer nu."),
+               p("Hvilken type IT-udstyr sidder du med lige nu?")),
+  save_answer=TRUE,
+  choices = c("Vælg","Bærbar computer med indbygget tastatur", "Bærbar computer med eksternt tastatur", "Stationær computer"),
+  alternative_choice = TRUE,
+  alternative_text = "Andet (udfyld venligst)",
+  next_button_text = "Næste",
+  max_width_pixels = 350,
+  validate = function(answer, ...) {
+    if (answer=="Vælg")
+      "Angiv venligst hvilken type udstyr du benytter. Hvis du ikke anvender et tastatur, kan du kun gennemføre den ene del af testen og du kan derfor ikke deltage i lodtrækningen."
+    else TRUE
+  },
+  on_complete = function(answer, state, ...) {
+    set_global(key = "device", value = answer, state = state)
+  }     
+)
+
+
+
+#  AUDIO TESTS PAGE   
+uia <- tags$div(
+  head,
+  includeScript("jspsych/run_jsaudio.js"),
+  tags$div(id = "js_audio", style = "min-height: 90vh")
+)
+
+elt_jsaudio <- page(
+  ui = uia,
+  label = "jsaudio",
+  get_answer = function(input, ...) input$jsaudio_results,
+  validate = function(answer, ...) nchar(answer) > 0L,
+  save_answer = TRUE
+)
+
 # WELCOME PAGE
 welcome <- one_button_page(body = div(HTML("<img src='img/au_logo.png'></img> <img src='img/mib_logo.png'></img>"),
                                       div(h2(strong("Hvor musikalsk er du?")),
-                                            p("Tak for din interesse i dette videnskabelige projekt om musikalitet og mental hastighed i den generelle danske befolkning udført af Aarhus Universitet."),
-                                            p("Du kan deltage, hvis du er mindst 18 år gammel, og hvis du forstår de danske instruktioner, uanset om du bor i Danmark eller ej."),
-                                            p("Denne undersøgelse tager ca. 20 minutter. Først skal du besvare et spørgeskema. Derefter tester vi (i vilkårlig rækkefølge) din reaktionstid og din evne til at høre om en sanger synger rent eller falsk."),
-                                            p(strong("Du skal bruge en computer med tastatur og det er vigtigt, at du gennemfører lyttetesten i stille omgivelser og bruger høretelefoner.")),
-                                              HTML("<br>"),
-                                              p("............."),
-                                              HTML("<br>"),
-                                              HTML("- Jeg er 18 år gammel eller ældre"),
-                                              HTML("- Jeg forstår, at ved at klikke videre nedenfor giver jeg samtykke til, at min besvarelse inkluderes i studiet 'Musical sophistication and mental speed in the Danish general population'. Mine personoplysninger behandles i overensstemmelse med samtykkeerklæringen, som kan læses i sin fulde længde <A target='_blank' HREF='http://musicinthebrain.au.dk/contact/hvor_musikalsk_er_du/' >HER.</A>"),
-                                              p("- Jeg kan til enhver tid anmode om at få slettet mine data ved at kontakte den forsøgsansvarlige, Cecilie Møller på cecilie@clin.au.dk."),
-                                              HTML("<br>"),
-                                              p("Jeg afgiver hermed mit samtykke til, at mine persondata behandles i overensstemmelse med samtykkeerklæringen:"),
-                                              align="center")),
-                                      button_text="Acceptér")
+                                          p("Tak for din interesse i dette videnskabelige projekt om musikalitet og mental hastighed i den generelle danske befolkning udført af Aarhus Universitet."),
+                                          p("Du kan deltage, hvis du er mindst 18 år gammel, og hvis du forstår de danske instruktioner, uanset om du bor i Danmark eller ej."),
+                                          p("Denne undersøgelse tager ca. 20 minutter. Først skal du besvare et spørgeskema. Derefter tester vi (i vilkårlig rækkefølge) din reaktionstid og din evne til at høre om en sanger synger rent eller falsk."),
+                                          HTML("<br>"),
+                                          p("............."),
+                                          HTML("<br>"),
+                                          p("- Jeg er 18 år gammel eller ældre"),
+                                          HTML("- Jeg forstår, at ved at klikke videre nedenfor giver jeg samtykke til, at min besvarelse inkluderes i studiet 'Musical sophistication and mental speed in the Danish general population'. Mine personoplysninger behandles i overensstemmelse med samtykkeerklæringen, som kan læses i sin fulde længde <A target='_blank' HREF='http://musicinthebrain.au.dk/fileadmin/Musicinthebrain/InformedconsentCecilieupdate.pdf' >HER.</A>"),
+                                          p("- Jeg kan til enhver tid trække mit samtykke til behandling af personoplysninger tilbage ved at kontakte den forsøgsansvarlige, Cecilie Møller, på cecilie@clin.au.dk."),
+                                          HTML("<br>"),
+                                          p("Jeg afgiver hermed mit samtykke til, at mine persondata behandles i overensstemmelse med samtykkeerklæringen:"),
+                                          align="center")),
+                           button_text="Acceptér")
 
-device <-dropdown_page(
-  label = "platform",
-  prompt = div(p("Du skal bruge et tastatur til at gennemføre testen."),
-    p("Hvilken type IT-udstyr sidder du med lige nu?")),
-  save_answer=TRUE,
-  choices = c("Bærbar computer med indbygget tastatur", "Bærbar computer med eksternt tastatur", "Stationær computer"),
-  alternative_choice = TRUE,
-  alternative_text = "Andet",
-  next_button_text = "Næste",
-  # validate = function(answer, ...) {
-  #   if (answer==""|!check.numeric(answer,only.integer=T))
-  #     "Hvis du ikke anvender et tastatur, kan du ikke gennemføre hele testen og du kan derfor heller ikke deltage i lodtrækningen. Angiv venligst hvilken type udstyr du benytter."
-  #   else TRUE
-  # },
-  # on_complete = function(answer, state, ...) {
-  #   set_global(key = "age", value = answer, state = state)
-  # }
-  # 
-)
 
 # DEMOGRAPHICS
 demographics <- c(
+  
   
   # ZIP CODE
   text_input_page(
     label = "zip_code",
     prompt = div(p("Først vil vi lige bede om lidt baggrundsinfo. Vi bruger denne information til at sikre, at vi modtager besvarelser fra et bredt udsnit af den danske befolkning."),
-                 p("Hvad er dit postnummer?")),
+                 p("Hvad er dit 4-cifrede postnummer? (Skriv 0000 hvis du ikke bor i Danmark)")),
     save_answer = T,
     button_text = "Næste",
     validate = function(answer, ...) {
@@ -243,51 +264,69 @@ demographics <- c(
       set_global(key = "gender", value = answer, state = state)
     }),
   
-  # NATIONALITET
-  text_input_page(
+  # NATIONALITY
+  dropdown_page(
     label = "nationality",
     prompt = "Hvad er din nationalitet?",
-    save_answer = T,
-    button_text = "Næste",
+    save_answer=TRUE,
+    choices = c("Vælg", "Dansk", "Finsk", "Færøsk", "Grønlandsk", "Islandsk", "Norsk", "Svensk"),
+    alternative_choice = TRUE,
+    alternative_text = "Andet (skriv venligst hvilket)",
+    next_button_text = "Næste",
+    max_width_pixels = 250,
     validate = function(answer, ...) {
-      if (answer=="")
+      if (answer=="Vælg")
         "Skriv venligst din nationalitet."
       else TRUE
     },
     on_complete = function(answer, state, ...) {
       set_global(key = "nationality", value = answer, state = state)
-    }),
+    }     
+  ),
   
+ 
   # RESIDENCE
-  text_input_page(
+  dropdown_page(
     label = "residence",
     prompt = "I hvilket land bor du?",
-    save_answer = T,
-    button_text = "Næste",
+    save_answer=TRUE,
+    choices = c("Vælg", "Danmark", "Finland", "Færøerne", "Grønland", "Island", "Norge", "Sverige"),
+    alternative_choice = TRUE,
+    alternative_text = "Andet (skriv venligst hvilket)",
+    next_button_text = "Næste",
+    max_width_pixels = 250,
     validate = function(answer, ...) {
-      if (answer=="")
+      if (answer=="Vælg")
         "Skriv venligst, hvor du bor."
       else TRUE
     },
     on_complete = function(answer, state, ...) {
       set_global(key = "residence", value = answer, state = state)
-    }),
+    }     
+  ),
+ 
   
   # CHILDHOOD/YOUTH COUNTRY
-  text_input_page(
+  dropdown_page(
     label = "youth_country",
-    prompt = "I hvilket land har du tilbragt størstedelen af din barndon/ungdom?",
-    save_answer = T,
-    button_text = "Næste",
+    prompt = "I hvilket land har du tilbragt størstedelen af din barndom/ungdom?",
+    save_answer=TRUE,
+    choices = c("Vælg", "Danmark", "Finland", "Færøerne", "Grønland", "Island", "Norge", "Sverige"),
+    alternative_choice = TRUE,
+    alternative_text = "Andet (skriv venligst hvilket)",
+    next_button_text = "Næste",
+    max_width_pixels = 250,
     validate = function(answer, ...) {
-      if (answer=="")
+      if (answer=="Vælg")
         "Besvar venligst spørgsmålet."
       else TRUE
     },
     on_complete = function(answer, state, ...) {
       set_global(key = "youth_country", value = answer, state = state)
-    }),
+    }     
+  ),
   
+ 
   # EMPLOYMENT
   NAFC_page(
     label = "employment",
@@ -405,20 +444,26 @@ show_items <- c(
     }))
 )
 
+
 # INSTRUMENT INPUT
-instrument <- text_input_page(
-  label = "instrument", 
+instrument <-dropdown_page(
+  label = "instrument",
   prompt = "Det instrument (inklusive sangstemmen) som jeg er bedst til at spille på er:", 
-  save_answer = T,
-  button_text = "Næste",
+  save_answer=TRUE,
+  choices = c("Vælg","Basguitar", "Basun", "Blokfløjte", "Bratch", "Cello", "Fagot", "Guitar (rytmisk, rock/pop/folk etc.)", "Guitar (klassisk)", "Horn", "Klarinet", "Klaver/Keyboard", "Kontrabas", "Obo", "Orgel", "Saxofon", "Sang", "Slagtøj", "Trommer", "Trompet", "Tuba", "Tværfløjte", "Violin", "Jeg kan hverken spille eller synge"),
+  alternative_choice = TRUE,
+  alternative_text = "Andet (skriv venligst hvilket)",
+  next_button_text = "Næste",
+  max_width_pixels = 300,
   validate = function(answer, ...) {
-    if (answer=="")
+    if (answer=="Vælg")
       "Besvar venligst spørgsmålet."
     else TRUE
   },
   on_complete = function(answer, state, ...) {
     set_global(key = "instrument", value = answer, state = state)
-    
+  
+ 
     # Compute response table
     responses <- data.frame(Qid=1:length(keys),RevCode=revCode,GeneralCode=GeneralCode,ResponseVal=integer(length(keys)),NormVal=integer(length(keys)),row.names=keys)
     for (l in 1:length(keys)) {
@@ -427,7 +472,22 @@ instrument <- text_input_page(
     }
     set_global("responses",value=responses,state=state)
     set_global("GeneralMusicalSophistication",value=sum(responses$NormVal[GeneralCode==1],na.rm=T),state=state)
+   })
+
+# OLLENS BRIEF
+ollen <- NAFC_page(
+  label = "ollen",
+  prompt = "Hvilken titel beskriver dig bedst?", 
+  choices = c("Ikke-musiker",
+              "Musikelskende ikke-musiker", 
+              "Amatørmusiker", 
+              "Seriøs amatørmusiker",
+              "Semi-professionel musiker", 
+              "Professionel musiker"),
+  on_complete = function(answer, state, ...) {
+    set_global(key = "ollen", value = answer, state = state)
   })
+
 
 # EMAIL
 email <- c(text_input_page(
@@ -472,7 +532,7 @@ save_GMSI <- code_block(function(state, ...) {
 
 # GMSI FEEDBACK
 gmsi_feedback <-   reactive_page(function(state, count, ...) {              # Feedback page
-  one_button_page(div(p(paste0("Din Gold-MSI score er: ",get_global("GeneralMusicalSophistication",state=state))),
+  one_button_page(div(p(paste0("På en skala fra 18 til 126 er din Gold-MSI score: ",get_global("GeneralMusicalSophistication",state=state))),
                       p(paste0("Det gør dig mere musikalsk sofistikeret end ",sum(get_global("GeneralMusicalSophistication",state=state)>=GeneralPercentiles),"% af befolkningen!")),
                       HTML("<br>"),
                       p("............."),
@@ -496,7 +556,7 @@ goodbye <- reactive_page(function(state, ...) {
                           p("Dit eget resultat bliver ikke vist, med mindre du selv skriver det i opslaget."),
                           HTML("<br>"),
                           HTML('<iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fcmb-onlinetest.au.dk%2Fhvor_musikalsk_er_du&layout=button&size=large&width=77&height=28&appId" width="77" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>'),
-                          HTML('<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="Hvor musikalsk er du?" data-url="https://cmb-onlinetest.au.dk/hvor_musikalsk_er_du" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>'),
+                          HTML('<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="Jeg har lige deltaget i dette online forskningsprojekt på Center for Music in the Brain. Hvor musikalsk er du?" data-url="https://cmb-onlinetest.au.dk/hvor_musikalsk_er_du" data-via="musicbrainAU" data-lang="da" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>'),
                           p("............."),
                           HTML("<br>"),
                           p("Du kan nu lukke browser-vinduet.")))
@@ -509,17 +569,16 @@ goodbye <- reactive_page(function(state, ...) {
 
 calibration <- volume_calibration_page(url="https://media.gold-msi.org/test_materials/MPT/training/in-tune.mp3", type="mp3",
                                        button_text="Lydniveauet er fint nu. Start den første test!",
-                                       # btn_play_prompt = "Klik her for at afspille lyden",
+                                       btn_play_prompt = "Klik her for at afspille lyden",
                                        #on_complete=,
                                        #admin_ui=,
                                        prompt= div(p("Hvis du ikke allerede har gjort det, så tag venligst hovedtelefoner på nu."), 
-                                       h4(strong("Skru nu op for lyden på din computer, indtil lydniveauet er komfortabelt for dig.")),
+                                       h4(strong("Indstil lyden på din computer, så lydniveauet er komfortabelt for dig.")),
                                        p("............."),
-                                       p("Hvis ikke du hører den lyd vi afspiller nu, så check dine indstillinger på computeren."),
+                                       p("Hvis ikke du hører den lyd vi afspiller nu, så check dine indstillinger i browseren eller på computeren."),
                                        p("Du kan kun deltage i denne del af undersøgelsen, hvis din computer kan afspille lyden."),
                                        p("I modsat fald er du desværre nødt til at stoppe her og lukke ned for dit browser-vindue.")))
                                        
-
 
 #######################
 # REACTION TIME TESTS #
@@ -551,86 +610,57 @@ mistuning <- mpt(num_items=1,
                                                             text_score = "I denne 'Mistuning Perception'- test kan man score fra -3 til +3. Din endelige score er:",
                                                             text_rank = "Din placering (tallet før skråstregen) i forhold til tidligere deltagere (tallet efter skråstregen):",
                                                             x_axis = "'Mistuning perception'-score for alle tidligere deltagere (din score er markeret med en rød linje)",
+                                                                     # "Hvis du har lyst, kan du downloade figuren her ved at føre musen henover og klikke på kameraet i menulinien over figuren.",
                                                             y_axis = "Antal deltagere",
                                                             explain_IRT = FALSE),
-               take_training = F)
+               take_training = T)
 
 
 
 
 #####################
-# DEFINE EXPERIMENT #()
+# DEFINE EXPERIMENT #
 #####################
 
 experiment <- join(
-  new_timeline(join(
-  intro,                                                  # Intro page
-  welcome,                                                # Welcome page, incl. consent
-  device,
-  #  # consent,                                                # Consent page
-  # begin_module("Demographics"),                           # Begin Demographics module
-  # demographics,                                           # Demographics questions
-  # end_module(),                                           # End Demographics module
-  # elt_save_results_to_disk(complete = FALSE),              # Default save function
-  # begin_module("GMSI"),                                   # Begin GMSI module
-  # randomiser,                                             # Randomise GMSI questions
-  # show_items,                                             # Show GMSI questions
-  # instrument,                                             # Instrument input page
-  # email,                                                  # Email
-  # save_GMSI,                                              # Save GMSI data
-  # elt_save_results_to_disk(complete = FALSE),              # Default save function
-  # gmsi_feedback,                                          # GSMI last page with percentile feedback
-  # end_module(),                                           # End GMSI module
-  # calibration                                             # Sound calibration page,
-  # ), default_lang="DA"),
-  # randomise_at_run_time("TestOrder_MPT_RT",
-  #                        list(c(begin_module("MPT"),mistuning,end_module()),
-  #                             c(begin_module("RT"),elt_jspsych,end_module()))),
-  #  new_timeline(join(
-  #  elt_save_results_to_disk(complete = TRUE),              # Default save function
-  # goodbye
-  final_page(div(p("Tak for interessen. Vi forventer, at testen bliver tilgængelig til december."),p("Du kan nu lukke vinduet.")))
+   new_timeline(join(
+   intro,                                                  # Intro page
+   device,                                                 # Device page (laptop/PC w.internal/external keyboard)
+   elt_jsaudio,                                            # Audio test page (sound/no sound)
+   welcome,                                                # Welcome page, incl. consent
+   begin_module("Demographics"),                           # Begin Demographics module
+   demographics,                                           # Demographics questions
+   end_module(),                                           # End Demographics module
+   elt_save_results_to_disk(complete = FALSE),             # Default save function
+   begin_module("GMSI"),                                   # Begin GMSI module
+   randomiser,                                             # Randomise GMSI questions
+   show_items,                                             # Show GMSI questions
+   instrument,                                             # Instrument input page
+   ollen,                                                  # Ollen's MSI (brief)
+   email,                                                  # Email
+   save_GMSI,                                              # Save GMSI data
+   elt_save_results_to_disk(complete = FALSE),             # Default save function
+   gmsi_feedback,                                          # GSMI last page with percentile feedback
+   end_module(),                                           # End GMSI module
+    calibration                                            # Sound calibration page ,
+   ), default_lang="DA"),
+   randomise_at_run_time("TestOrder_MPT_RT",
+                          list(c(begin_module("MPT"),mistuning,elt_save_results_to_disk(complete = TRUE),end_module()),
+                               c(begin_module("RT"),elt_jspsych,elt_save_results_to_disk(complete = TRUE),end_module()))),
+    new_timeline(join(
+    elt_save_results_to_disk(complete = TRUE),              # Default save function
+   goodbye
+  #final_page(div(p("Tak for interessen. Vi forventer, at testen bliver tilgængelig til december."),p("Du kan nu lukke vinduet.")))
    ), default_lang = "DA")
 )
 
-# ##########################
-# # DEBUGGING RT EXPERIMENT#
-# ##########################
-# 
-# experiment <- join(
-#   new_timeline(join(
-#     welcome,                                                # Intro page
-#     # consent,                                                # Consent page
-#     # begin_module("Demographics"),                           # Begin Demographics module
-#     # demographics,                                           # Demographics questions
-#     # end_module(),                                           # End Demographics module
-#     # elt_save_results_to_disk(complete = TRUE),              # Default save function
-#     # begin_module("GMSI"),                                   # Begin GMSI module
-#     # randomiser,                                             # Randomise GMSI questions
-#     # show_items,                                             # Show GMSI questions
-#     # instrument,                                             # Instrument input page
-#     # email,                                                  # Email
-#     # save_GMSI,                                              # Save GMSI data
-#     # elt_save_results_to_disk(complete = TRUE),              # Default save function
-#     # gmsi_feedback,                                          # GSMI last page with percentile feedback
-#     # end_module(),                                           # End GMSI module
-#     calibration,                                            # Sound calibration page,
-#     elt_jspsych
-#   ), default_lang="DA"),
-#   # randomise_at_run_time("TestOrder_MPT_RT",
-#   #                       list(c(begin_module("MPT"),mistuning,end_module()),
-#   #                            c(begin_module("RT"),elt_jspsych,end_module()))),
-#   new_timeline(join(
-#     elt_save_results_to_disk(complete = TRUE),              # Default save function
-#     final_page(div(p("Tak for hjælpen"),p("Du kan nu lukke vinduet.")))
-#   ), default_lang = "DA")
-# )
 
 #########################
 # RUN EXPERIMENT        #
 #########################
 
 make_test(experiment,opt=config)
+#make_test(c(elt_jsaudio, welcome, final_page(div(p("Tak for hjælpen"),p("Du kan nu lukke vinduet.")))), opt=config)
 
 #shiny::runApp(".")
 
