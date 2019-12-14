@@ -153,7 +153,8 @@ num_items <- nrow(items)
 
 # INTRO
 intro <- one_button_page(body = div(HTML("<img src='img/au_logo.png'></img> <img src='img/mib_logo.png'></img>"),
-                                    div(h4(strong("DENNE TEST ER STADIG UNDER OPBYGNING! VI FORVENTER AT TESTEN BLIVER TILGÆNGELIG I STARTEN AF DECEMBER")),
+                                    div(h4(strong("DENNE TEST ER STADIG UNDER OPBYGNING! DINE SVAR BLIVER IKKE GEMT.")),
+                                        HTML("<br>"),
                                         h4(strong("Forskning har vist...")),
                                           p("...at musikalsk træning, musikalitet og reaktionstid hænger sammen."),
                                           p("Men hvad kom først: hønen eller ægget? Kan man være musikalsk, selvom man aldrig har sat sine ben i et musiklokale? Og ved du hvor musikalsk du er, sammenlignet med resten af befolkningen?"),
@@ -165,10 +166,13 @@ intro <- one_button_page(body = div(HTML("<img src='img/au_logo.png'></img> <img
 # DEVICE PAGE
 device <-dropdown_page(
   label = "device",
-  prompt = div(h2(strong("Test af dit udstyr")),
-               p(strong("I testen skal du bruge en computer med tastatur og det er vigtigt, at du gennemfører lyttetesten i stille omgivelser og bruger hovedtelefoner.")),
+  prompt = div(HTML("<br>"),
+               p(strong("Du skal bruge en computer med tastatur og det er vigtigt, at du gennemfører lyttetesten i stille omgivelser og bruger hovedtelefoner.")),
+               p(strong("Du kan altså IKKE tage testen på f.eks. en smartphone med touchscreen.")),
+               HTML("<br>"),
+               h2(strong("Test af dit udstyr")),
                p("For at beskytte dine ører, vil vi bede dig skrue næsten helt ned for lyden på din computer nu."),
-               p("Hvilken type IT-udstyr sidder du med lige nu?")),
+               p("Hvilken type IT-udstyr bruger du til at tage testen?")),
   save_answer=TRUE,
   choices = c("Vælg","Bærbar computer med indbygget tastatur", "Bærbar computer med eksternt tastatur", "Stationær computer"),
   alternative_choice = TRUE,
@@ -394,7 +398,7 @@ demographics <- c(
     button_text = "Næste",
     validate = function(answer, ...) {
       if (answer==""|!check.numeric(answer,only.integer=T))
-        "Skriv venligst et helt tal for hvor mange timer du spiller action-spil om måneden - uden ord som 'timer', 'minutter', kommaer eller andre specialtegn."
+        "Skriv venligst et helt tal for hvor mange timer du spiller action-spil om måneden - uden ord som 'timer', 'minutter', kommaer eller andre specialtegn. Skriv '0' hvis du slet ikke spiller."
       else TRUE
     },
     on_complete = function(answer, state, ...) {
@@ -602,7 +606,7 @@ elt_jspsych <- page(
 # MISTUNING PERCEPTION TEST    #
 ################################
 
-mistuning <- mpt(num_items=1,
+mistuning <- mpt(num_items=15,
                  dict=mpt::mpt_dict,
                  feedback=psychTestRCAT::cat.feedback.graph("MPT",
                                                             text_finish = "Flot klaret!",
