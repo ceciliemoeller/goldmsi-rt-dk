@@ -232,7 +232,7 @@ demographics <- c(
   text_input_page(
     label = "zip_code",
     prompt = div(p("Først vil vi lige bede om lidt baggrundsinfo. Vi bruger denne information til at sikre, at vi modtager besvarelser fra et bredt udsnit af den danske befolkning."),
-                 p("Hvad er dit 4-cifrede postnummer? (Skriv 0000 hvis du ikke bor i Danmark)")),
+                 p("Hvad er dit 4-cifrede postnummer? (Skriv '0000' hvis du ikke bor i Danmark)")),
     save_answer = T,
     button_text = "Næste",
     validate = function(answer, ...) {
@@ -536,13 +536,14 @@ save_GMSI <- code_block(function(state, ...) {
 
 # GMSI FEEDBACK
 gmsi_feedback <-   reactive_page(function(state, count, ...) {              # Feedback page
-  one_button_page(div(p(paste0("På en skala fra 18 til 126 er din Gold-MSI score: ",get_global("GeneralMusicalSophistication",state=state))),
+  one_button_page(div(p("FLOT! Du har gennemført første del af testen."),
+                      p(paste0("På en skala fra 18 til 126 er din Gold-MSI score: ",get_global("GeneralMusicalSophistication",state=state))),
                       p(paste0("Det gør dig mere musikalsk sofistikeret end ",sum(get_global("GeneralMusicalSophistication",state=state)>=GeneralPercentiles),"% af befolkningen!")),
                       HTML("<br>"),
                       p("............."),
                       HTML("<br>"),
                       p("Nu er vi nået til de tests, hvor du skal bruge hovedtelefoner. Først skal du indstille lydniveauet på din computer."),
-                      p(strong("Skru helt ned for lyden"),"og tag hovedtelefonerne på, inden du trykker på knappen nedenfor.")),
+                      p("Hvis du ikke allerede har gjort det, så tag venligst hovedtelefoner på nu, inden du trykker på knappen nedenfor.")),
                   button_text="Afspil lydeksempel")
 })
 # THANKS, GOODBYE AND SHARE PAGE
@@ -576,8 +577,7 @@ calibration <- volume_calibration_page(url="https://media.gold-msi.org/test_mate
                                        btn_play_prompt = "Klik her for at afspille lyden",
                                        #on_complete=,
                                        #admin_ui=,
-                                       prompt= div(p("Hvis du ikke allerede har gjort det, så tag venligst hovedtelefoner på nu."), 
-                                       h4(strong("Indstil lyden på din computer, så lydniveauet er komfortabelt for dig.")),
+                                       prompt= div(h4(strong("Indstil lyden på din computer, så lydniveauet er komfortabelt for dig.")),
                                        p("............."),
                                        p("Hvis ikke du hører den lyd vi afspiller nu, så check dine indstillinger i browseren eller på computeren."),
                                        p("Du kan kun deltage i denne del af undersøgelsen, hvis din computer kan afspille lyden."),

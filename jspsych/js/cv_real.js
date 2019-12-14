@@ -93,7 +93,7 @@ var debrief_block = {
             "<p>Du kan finde din reaktionstid på skalaen her, og se om du var hurtigere eller langsommere end andre, der har taget denne online-test:</p>" +
             "<div class='center-img'><img src='img/vis_ch_feed.png'></img></div>" +
             "<div style='font-size:15px;'>Vær opmærksom på at din nøjagtige reaktionstid måles bedst i et kontrolleret laboratorieforsøg. En meget langsom reaktionstid i denne test kan skyldes, at hastigheden på dit IT-udstyr også har indflydelse på målingen af din reaktionstid.</div>" +
-            "<p class='gap-above'><strong><i>Tryk på mellemrumstasten for at afslutte den auditive reaktionstids-test.</strong></i></p>";
+            "<p class='gap-above'><strong><i>Tryk på mellemrumstasten for at afslutte denne reaktionstids-test.</strong></i></p>";
   },
     choices: ['space'],
     data: { cond: 'vis_ch', test_part: 'feedback_real' },
