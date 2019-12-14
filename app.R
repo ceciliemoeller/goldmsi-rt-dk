@@ -542,8 +542,8 @@ gmsi_feedback <-   reactive_page(function(state, count, ...) {              # Fe
                       HTML("<br>"),
                       p("............."),
                       HTML("<br>"),
-                      p("Nu er vi nået til de tests, hvor du skal bruge hovedtelefoner. Først skal du indstille lydniveauet på din computer."),
-                      p("Hvis du ikke allerede har gjort det, så tag venligst hovedtelefoner på nu, inden du trykker på knappen nedenfor.")),
+                      p("Nu er vi nået til de tests, hvor du skal bruge hovedtelefoner. Hvis du ikke allerede har gjort det, så tag dem venligst på nu."),
+                      p("Først skal du indstille lydniveauet på din computer. Tryk på knappen nedenfor.")),
                   button_text="Afspil lydeksempel")
 })
 # THANKS, GOODBYE AND SHARE PAGE
