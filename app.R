@@ -153,23 +153,26 @@ num_items <- nrow(items)
 
 # INTRO
 intro <- one_button_page(body = div(HTML("<img src='img/au_logo.png'></img> <img src='img/mib_logo.png'></img>"),
-                                    div(h4(strong("DENNE TEST ER STADIG UNDER OPBYGNING! DINE SVAR BLIVER IKKE GEMT.")),
-                                        HTML("<br>"),
-                                        h4(strong("Forskning har vist...")),
+                                    div(h4(strong("Forskning har vist...")),
                                           p("...at musikalsk træning, musikalitet og reaktionstid hænger sammen."),
                                           p("Men hvad kom først: hønen eller ægget? Kan man være musikalsk, selvom man aldrig har sat sine ben i et musiklokale? Og ved du hvor musikalsk du er, sammenlignet med resten af befolkningen?"),
                                           p(strong("Tag testen og del evt. dit resultat med dine venner.")),
                                           p("Klik på knappen nedenfor og få mulighed for at deltage i en større videnskabelig undersøgelse og en lodtrækning om 12 gavekort på kr 500,- til Ticketmaster."),
-                                          align="center")),
+                                          HTML("<br>"), 
+                                          p("__________________"),
+                                          HTML("<br>"), 
+                                          p(strong("OBS: Du skal bruge en computer med tastatur og det er vigtigt, at du gennemfører lyttetesten i stille omgivelser og bruger hovedtelefoner.")),
+                                          p(strong("Du kan altså IKKE tage testen på f.eks. en smartphone med touchscreen.")),  
+                                        align="center")),
                                     button_text="Næste")
 
 # DEVICE PAGE
 device <-dropdown_page(
   label = "device",
   prompt = div(HTML("<br>"),
-               p(strong("Du skal bruge en computer med tastatur og det er vigtigt, at du gennemfører lyttetesten i stille omgivelser og bruger hovedtelefoner.")),
-               p(strong("Du kan altså IKKE tage testen på f.eks. en smartphone med touchscreen.")),
-               HTML("<br>"),
+               # p(strong("OBS: Du skal bruge en computer med tastatur og det er vigtigt, at du gennemfører lyttetesten i stille omgivelser og bruger hovedtelefoner.")),
+               # p(strong("Du kan altså IKKE tage testen på f.eks. en smartphone med touchscreen.")),
+               
                h2(strong("Test af dit udstyr")),
                p("For at beskytte dine ører, vil vi bede dig skrue næsten helt ned for lyden på din computer nu."),
                p("Hvilken type IT-udstyr bruger du til at tage testen?")),
@@ -181,6 +184,8 @@ device <-dropdown_page(
   max_width_pixels = 350,
   validate = function(answer, ...) {
     if (answer=="Vælg")
+      "Angiv venligst hvilken type udstyr du benytter."
+    else if (answer=="") 
       "Angiv venligst hvilken type udstyr du benytter. Hvis du ikke anvender et tastatur, kan du kun gennemføre den ene del af testen og du kan derfor ikke deltage i lodtrækningen."
     else TRUE
   },
@@ -188,7 +193,6 @@ device <-dropdown_page(
     set_global(key = "device", value = answer, state = state)
   }     
 )
-
 
 
 #  AUDIO TESTS PAGE   
@@ -280,6 +284,8 @@ demographics <- c(
     max_width_pixels = 250,
     validate = function(answer, ...) {
       if (answer=="Vælg")
+        "Angiv venligst din nationalitet."
+      else if (answer=="") 
         "Skriv venligst din nationalitet."
       else TRUE
     },
@@ -301,7 +307,9 @@ demographics <- c(
     max_width_pixels = 250,
     validate = function(answer, ...) {
       if (answer=="Vælg")
-        "Skriv venligst, hvor du bor."
+        "Angiv venligst, hvor du bor."
+      else if (answer=="") 
+        "Skriv venligst, i hvilket land du bor."
       else TRUE
     },
     on_complete = function(answer, state, ...) {
@@ -323,6 +331,8 @@ demographics <- c(
     validate = function(answer, ...) {
       if (answer=="Vælg")
         "Besvar venligst spørgsmålet."
+      else if (answer=="") 
+        "Skriv venligst navnet på landet."
       else TRUE
     },
     on_complete = function(answer, state, ...) {
@@ -454,7 +464,7 @@ instrument <-dropdown_page(
   label = "instrument",
   prompt = "Det instrument (inklusive sangstemmen) som jeg er bedst til at spille på er:", 
   save_answer=TRUE,
-  choices = c("Vælg","Basguitar", "Basun", "Blokfløjte", "Bratch", "Cello", "Fagot", "Guitar (rytmisk, rock/pop/folk etc.)", "Guitar (klassisk)", "Horn", "Klarinet", "Klaver/Keyboard", "Kontrabas", "Obo", "Orgel", "Saxofon", "Sang", "Slagtøj", "Trommer", "Trompet", "Tuba", "Tværfløjte", "Violin", "Jeg kan hverken spille eller synge"),
+  choices = c("Vælg","Basguitar", "Basun", "Blokfløjte", "Bratsch", "Cello", "Fagot", "Guitar (rytmisk, rock/pop/folk etc.)", "Guitar (klassisk)", "Horn", "Klarinet", "Klaver/Keyboard", "Kontrabas", "Obo", "Orgel", "Saxofon", "Sang", "Slagtøj", "Trommer", "Trompet", "Tuba", "Tværfløjte", "Violin", "Jeg kan hverken spille eller synge"),
   alternative_choice = TRUE,
   alternative_text = "Andet (skriv venligst hvilket)",
   next_button_text = "Næste",
@@ -462,12 +472,14 @@ instrument <-dropdown_page(
   validate = function(answer, ...) {
     if (answer=="Vælg")
       "Besvar venligst spørgsmålet."
+    else if (answer=="") 
+      "Angiv venligst hvilket andet instrument, du er bedst til at spille på."
     else TRUE
   },
   on_complete = function(answer, state, ...) {
     set_global(key = "instrument", value = answer, state = state)
   
- 
+  
     # Compute response table
     responses <- data.frame(Qid=1:length(keys),RevCode=revCode,GeneralCode=GeneralCode,ResponseVal=integer(length(keys)),NormVal=integer(length(keys)),row.names=keys)
     for (l in 1:length(keys)) {
@@ -632,30 +644,32 @@ experiment <- join(
    device,                                                 # Device page (laptop/PC w.internal/external keyboard)
    elt_jsaudio,                                            # Audio test page (sound/no sound)
    welcome,                                                # Welcome page, incl. consent
-   begin_module("Demographics"),                           # Begin Demographics module
-   demographics,                                           # Demographics questions
-   end_module(),                                           # End Demographics module
-   elt_save_results_to_disk(complete = FALSE),             # Default save function
-   begin_module("GMSI"),                                   # Begin GMSI module
-   randomiser,                                             # Randomise GMSI questions
-   show_items,                                             # Show GMSI questions
-   instrument,                                             # Instrument input page
-   ollen,                                                  # Ollen's MSI (brief)
-   email,                                                  # Email
-   save_GMSI,                                              # Save GMSI data
-   elt_save_results_to_disk(complete = FALSE),             # Default save function
-   gmsi_feedback,                                          # GSMI last page with percentile feedback
-   end_module(),                                           # End GMSI module
+   elt_jspsych, #SLET DISSE TO LINIER
+   elt_save_results_to_disk(complete = TRUE),
+    # begin_module("Demographics"),                           # Begin Demographics module
+   # demographics,                                           # Demographics questions
+   # end_module(),                                           # End Demographics module
+   # elt_save_results_to_disk(complete = FALSE),             # Default save function
+   # begin_module("GMSI"),                                   # Begin GMSI module
+   # randomiser,                                             # Randomise GMSI questions
+   # show_items,                                             # Show GMSI questions
+   # instrument,                                             # Instrument input page
+    ollen,                                                  # Ollen's MSI (brief)
+    email,                                                  # Email
+   # save_GMSI,                                              # Save GMSI data
+   # elt_save_results_to_disk(complete = FALSE),             # Default save function
+   # gmsi_feedback,                                          # GSMI last page with percentile feedback
+   # end_module(),                                           # End GMSI module
     calibration                                            # Sound calibration page ,
    ), default_lang="DA"),
-   randomise_at_run_time("TestOrder_MPT_RT",
-                          list(c(begin_module("MPT"),mistuning,elt_save_results_to_disk(complete = TRUE),end_module()),
-                               c(begin_module("RT"),elt_jspsych,elt_save_results_to_disk(complete = TRUE),end_module()))),
+   # randomise_at_run_time("TestOrder_MPT_RT",
+   #                        list(c(begin_module("MPT"),mistuning,elt_save_results_to_disk(complete = TRUE),end_module()),
+   #                             c(begin_module("RT"),elt_jspsych,elt_save_results_to_disk(complete = TRUE),end_module()))),
     new_timeline(join(
     elt_save_results_to_disk(complete = TRUE),              # Default save function
    goodbye
-  #final_page(div(p("Tak for interessen. Vi forventer, at testen bliver tilgængelig til december."),p("Du kan nu lukke vinduet.")))
-   ), default_lang = "DA")
+    ), default_lang = "DA")
+   
 )
 
 

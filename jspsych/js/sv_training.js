@@ -101,7 +101,7 @@ var if_node_slow = {
 var training_procedure = {
   timeline: [training_fixation, if_node_wait, training_test, if_node_slow],
   timeline_variables: training_stimuli,
-  repetitions: 8
+  repetitions: 4
 };
 
 timeline_sv.push(training_procedure);
