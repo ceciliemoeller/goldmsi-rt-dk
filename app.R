@@ -72,7 +72,7 @@ ui <- tags$div(
 config <- test_options(title="Dansk Gold-MSI",
                        admin_password="", # write a secret password here
                        researcher_email="Ni3lsChrHansen@gmail.com",
-                       problems_info="Problemer? Kontakt venligst Niels Chr. Hansen på Ni3lsChrHansen@gmail.com.",
+                       problems_info="Problemer? Kontakt venligst Cecilie Møller på cecilie@clin.au.dk",
                        languages = "DA",
                        display = display_options(
                          full_screen = TRUE,
@@ -153,7 +153,8 @@ num_items <- nrow(items)
 
 # INTRO
 intro <- one_button_page(body = div(HTML("<img src='img/au_logo.png'></img> <img src='img/mib_logo.png'></img>"),
-                                    div(h4(strong("Forskning har vist...")),
+                                    div(h4(strong("TESTEN ER UNDER OPBYGNING. DINE RESULTATER BLIVER IKKE GEMT")),
+                                      h4(strong("Forskning har vist...")),
                                           p("...at musikalsk træning, musikalitet og reaktionstid hænger sammen."),
                                           p("Men hvad kom først: hønen eller ægget? Kan man være musikalsk, selvom man aldrig har sat sine ben i et musiklokale? Og ved du hvor musikalsk du er, sammenlignet med resten af befolkningen?"),
                                           p(strong("Tag testen og del evt. dit resultat med dine venner.")),
