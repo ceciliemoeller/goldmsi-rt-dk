@@ -24,6 +24,7 @@
 #install.packages('devtools')
 #devtools::install_github('pmcharrison/psychTestR')
 #devtools::install_github('pmcharrison/mpt')
+#devtools::install_github("gadenbuie/metathis")
 
 
 library(psychTestR)
@@ -34,6 +35,7 @@ library(tibble)
 library(stringr)
 library(varhandle)
 library(mpt)
+library(metathis)
 
 
 #setwd("C:/Users/nch/Desktop/pmcharrison-psychTestR-bcc0e86")    # Specify where to save output files when running locally
