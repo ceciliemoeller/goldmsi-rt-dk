@@ -55,11 +55,62 @@ var training = {
   }
 };
 
-var training_procedure = {
-  timeline: [training_fixation, training, training_resp],
-  timeline_variables: training_stimuli,
-  repetitions: 4
+
+var feedback_wait = {
+  type: 'html-keyboard-response',
+  stimulus: function () {
+    return "<p><div style='font-size:40px;'><strong>FOR TIDLIGT</strong></div></p>" +
+      "<p class='largegap-above'></p>" +
+      "<div style='font-size:80px;'>+</div>" +
+      "<p class='largegap-above'> <strong><i>Tryk på mellemrumstasten for at fortsætte træningsrunden...</strong></i></p>"
+  },
+  choices: ['space'],
 }
+
+var feedback_slow = {
+  type: 'html-keyboard-response',
+  stimulus: function () {
+    return "<p><div style='font-size:40px;'><strong>FOR LANGSOMT </strong></div></p>" +
+      "<p><div style='font-size:25 px;'><strong>Husk, det handler om fart! </strong></div></p>" +
+      "<p class='largegap-above'>" +
+      "<div style='font-size:80px;'>+</div>" +
+      "<p class='largegap-above'> <strong><i>Tryk på mellemrumstasten for at fortsætte træningsrunden...</strong></i></p>"
+  },
+  choices: ['space']
+}
+
+
+var if_node_wait = {
+  timeline: [feedback_wait, training_fixation],
+  conditional_function: function () {
+    // get the data from the previous trial,
+    // and shout if there was a false alarm (response to fixation)
+    var result = ((jsPsych).data.get().last(1).values()[0].correct === false) &&
+      ((jsPsych).data.get().last(1).values()[0].key_press != null);
+    return result;
+  }
+}
+
+var if_node_slow = {
+  timeline: [feedback_slow],
+  conditional_function: function () {
+    // get the data from the previous trial,
+    // and shout if there was no response
+    return jsPsych.data.get().last(1).values()[0].key_press === null;
+  }
+}
+// DENNE VIRKER
+// var training_procedure = {
+//   timeline: [training_fixation, training, training_resp],
+//   timeline_variables: training_stimuli,
+//   repetitions: 2
+// }
+
+var training_procedure = {
+  timeline: [training_fixation, if_node_wait, training, if_node_slow, training_resp],
+  timeline_variables: training_stimuli,
+  repetitions: 2
+};
 
 timeline_sa.push(training_procedure);
 

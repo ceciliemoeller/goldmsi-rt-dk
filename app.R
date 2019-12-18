@@ -65,7 +65,18 @@ head <- tags$head(
 ui <- tags$div(
   head,
   includeScript("jspsych/run_jspsych.js"),
-  tags$div(id = "js_psych", style = "min-height: 90vh")
+  includeScript("jspsych/run_fbshare.js"),
+  tags$div(id = "js_psych", style = "min-height: 90vh"),
+  meta() %>%
+    meta_social(
+      # .meta=meta(),
+      title = "Test din reaktionstid",
+      description = "En test af reaktionstid og musikalitet",
+      url = "https://cmb-onlinetest.au.dk/hvor_musikalsk_er_du",
+      image = "https://garrickadenbuie.com/apple-touch-icon-114x114.png",
+      image_alt = "Test"
+    )
+  # ... your UI ...
 )
 
 # Configure options
@@ -573,7 +584,9 @@ goodbye <- reactive_page(function(state, ...) {
                           p("Det vil også være en stor hjælp for os, at så mange som muligt får mulighed for at tage testen."),
                           p("Dit eget resultat bliver ikke vist, med mindre du selv skriver det i opslaget."),
                           HTML("<br>"),
-                          HTML('<iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fcmb-onlinetest.au.dk%2Fhvor_musikalsk_er_du&layout=button&size=large&width=77&height=28&appId" width="77" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>'),
+                          HTML('<div id="fb-root"></div>'),
+                          HTML('<div id="fb-root"></div><script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0"></script>'),
+                          HTML('<div class="fb-share-button" data-href="https://cmb-onlinetest.au.dk/hvor_musikalsk_er_du/" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcmb-onlinetest.au.dk%2Fhvor_musikalsk_er_du%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>'),
                           HTML('<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="Jeg har lige deltaget i dette online forskningsprojekt på Center for Music in the Brain. Hvor musikalsk er du?" data-url="https://cmb-onlinetest.au.dk/hvor_musikalsk_er_du" data-via="musicbrainAU" data-lang="da" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>'),
                           p("............."),
                           HTML("<br>"),
@@ -603,8 +616,26 @@ calibration <- volume_calibration_page(url="https://media.gold-msi.org/test_mate
 ui <- tags$div(
   head,
   includeScript("jspsych/run_jspsych.js"),
+  # includeScript("jspsych/run_fbshare.js"),
   tags$div(id = "js_psych", style = "min-height: 90vh")
+  # meta() %>%
+  #   meta_social(
+  #     # .meta=meta(),
+  #     title = "Test din reaktionstid",
+  #     description = "En test af reaktionstid og musikalitet",
+  #     url = "https://cmb-onlinetest.au.dk/hvor_musikalsk_er_du",
+  #     image = "https://garrickadenbuie.com/apple-touch-icon-114x114.png",
+  #     image_alt = "Test"
+  #   )
+  # # ... your UI ...
 )
+
+
+# ui <- tags$div(
+#   head,
+#   includeScript("jspsych/run_jspsych.js"),
+#   tags$div(id = "js_psych", style = "min-height: 90vh")
+# )
 
 elt_jspsych <- page(
   ui = ui,
@@ -642,9 +673,9 @@ mistuning <- mpt(num_items=15,
 experiment <- join(
    new_timeline(join(
    intro,                                                  # Intro page
-   device,                                                 # Device page (laptop/PC w.internal/external keyboard)
+   # device,                                                 # Device page (laptop/PC w.internal/external keyboard)
    elt_jsaudio,                                            # Audio test page (sound/no sound)
-   welcome,                                                # Welcome page, incl. consent
+   # welcome,                                                # Welcome page, incl. consent
    elt_jspsych, #SLET DISSE TO LINIER
    elt_save_results_to_disk(complete = TRUE),
     # begin_module("Demographics"),                           # Begin Demographics module
@@ -655,7 +686,7 @@ experiment <- join(
    # randomiser,                                             # Randomise GMSI questions
    # show_items,                                             # Show GMSI questions
    # instrument,                                             # Instrument input page
-    ollen,                                                  # Ollen's MSI (brief)
+   # ollen,                                                  # Ollen's MSI (brief)
     email,                                                  # Email
    # save_GMSI,                                              # Save GMSI data
    # elt_save_results_to_disk(complete = FALSE),             # Default save function

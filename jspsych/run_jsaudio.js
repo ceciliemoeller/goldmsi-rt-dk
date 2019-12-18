@@ -17,12 +17,12 @@ var check = {
   prompt: "<img src='img/au_logo.png'></img> <img src='img/mib_logo.png'></img>" +
   "<p><div style='font-size:22px;''><strong>Skru nu langsomt op for lyden.</strong></div></p>" +
   "<p class='gap-above'</p" +
-  "<p> Når du tydeligt hører denne lyd, er du klar til at tage testen.</p>" +
+  "<p> Når du tydeligt hører lyden vi afspiller nu, er du klar til at tage testen.</p>" +
   "<p> <strong>Tryk på mellemrumstasten for at starte.</strong> </p>" +
   "<p class='largegap-above'</p" +
   "<p>  Hvis du ikke kan høre lyden, selvom du har skruet op på din computer, kan det skyldes problemer med din browsers standard-indstillinger.</p>" +
   "<p> Vi anbefaler, at du lukker vinduet ned og åbner testen i en anden browser." +
-  "<p>Chrome, Firefox, Edge og nyere versioner af Internet Explorer fungerer.</p>"
+  "<p>Chrome, Firefox og Edge fungerer.</p>"
 };
 
 var check_procedure = {
