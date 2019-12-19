@@ -68,8 +68,9 @@ ui <- tags$div(
 
 # Configure options
 config <- test_options(title="Validering af dansk Gold-MSI",
-                       admin_password="", # write a secret password here
-                       researcher_email="Ni3lsChrHansen@gmail.com",
+                       # admin_password="", # write a secret password here
+                       enable_admin_panel=FALSE,
+                       researcher_email="cecilie@clin.au.dk",
                        problems_info="Problemer? Kontakt venligst Cecilie Møller på cecilie@clin.au.dk",
                        languages = "DA",
                        display = display_options(
