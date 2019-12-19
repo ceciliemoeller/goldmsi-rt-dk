@@ -1,5 +1,5 @@
-var sub_experiments = [timeline_sv, timeline_sa];
-// var sub_experiments = [timeline_sv, timeline_cv, timeline_sa];
+
+var sub_experiments = [timeline_sv, timeline_cv, timeline_sa];
 var shuffledArray = jsPsych.randomization.repeat(sub_experiments, 1);
 
 // timeline = timeline.concat(shuffledArray)

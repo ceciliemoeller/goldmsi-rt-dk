@@ -8,10 +8,10 @@
 #                                                     #
 # - Danish version of "the mistuning perception test" #
 #                                                     #
-# Authors: Niels Chr. Hansen, Cecilie Møller          #
+# Authors: Cecilie Møller, Niels Chr. Hansen,         #
 #          and Peter Harrison                         #
 #                                                     #
-# Date: 2019-11-13                                    #
+# Date: 2019-12-19                                    #
 #######################################################
 
 
@@ -19,12 +19,12 @@
 # INITIALIZE      #
 ###################
 
-#install.packages('Rcpp') # when reinstalling packages below, R complained that Rcpp was missing. This was an easy fix. 
+#install.packages('Rcpp') 
 
 #install.packages('devtools')
 #devtools::install_github('pmcharrison/psychTestR')
 #devtools::install_github('pmcharrison/mpt')
-#devtools::install_github("gadenbuie/metathis")
+
 
 
 library(psychTestR)
@@ -35,11 +35,7 @@ library(tibble)
 library(stringr)
 library(varhandle)
 library(mpt)
-library(metathis)
 
-
-#setwd("C:/Users/nch/Desktop/pmcharrison-psychTestR-bcc0e86")    # Specify where to save output files when running locally
-#setwd("C:/Users/au213911/Documents/jspsych")
 
 
 # For jsPsych
@@ -67,22 +63,11 @@ head <- tags$head(
 ui <- tags$div(
   head,
   includeScript("jspsych/run_jspsych.js"),
-  # includeScript("jspsych/run_fbshare.js"),
   tags$div(id = "js_psych", style = "min-height: 90vh")
-  # meta() %>%
-  #   meta_social(
-  #     # .meta=meta(),
-  #     title = "Test din reaktionstid",
-  #     description = "En test af reaktionstid og musikalitet",
-  #     url = "https://cmb-onlinetest.au.dk/hvor_musikalsk_er_du",
-  #     image = "https://garrickadenbuie.com/apple-touch-icon-114x114.png",
-  #     image_alt = "Test"
-  #   )
-  # # ... your UI ...
 )
 
 # Configure options
-config <- test_options(title="Dansk Gold-MSI",
+config <- test_options(title="Validering af dansk Gold-MSI",
                        admin_password="", # write a secret password here
                        researcher_email="Ni3lsChrHansen@gmail.com",
                        problems_info="Problemer? Kontakt venligst Cecilie Møller på cecilie@clin.au.dk",
@@ -166,16 +151,15 @@ num_items <- nrow(items)
 
 # INTRO
 intro <- one_button_page(body = div(HTML("<img src='img/au_logo.png'></img> <img src='img/mib_logo.png'></img>"),
-                                    div(h4(strong("TESTEN ER UNDER OPBYGNING. DINE RESULTATER BLIVER IKKE GEMT")),
-                                      h4(strong("Forskning har vist...")),
+                                      div(h4(strong("Forskning har vist...")),
                                           p("...at musikalsk træning, musikalitet og reaktionstid hænger sammen."),
-                                          p("Men hvad kom først: hønen eller ægget? Kan man være musikalsk, selvom man aldrig har sat sine ben i et musiklokale? Og ved du hvor musikalsk du er, sammenlignet med resten af befolkningen?"),
+                                          p("Men hvad kom først: hønen eller ægget? Kan man være musikalsk, selvom man aldrig har sat sine ben i et musiklokale? Og ved du, hvor musikalsk du er sammenlignet med resten af befolkningen?"),
                                           p(strong("Tag testen og del evt. dit resultat med dine venner.")),
                                           p("Klik på knappen nedenfor og få mulighed for at deltage i en større videnskabelig undersøgelse og en lodtrækning om 12 gavekort på kr 500,- til Ticketmaster."),
                                           HTML("<br>"), 
                                           p("__________________"),
                                           HTML("<br>"), 
-                                          p(strong("OBS: Du skal bruge en computer med tastatur og det er vigtigt, at du gennemfører lyttetesten i stille omgivelser og bruger hovedtelefoner.")),
+                                          p(strong("OBS: Du skal bruge en computer med tastatur, og det er vigtigt, at du gennemfører lyttetesten i stille omgivelser og bruger hovedtelefoner.")),
                                           p(strong("Du kan altså IKKE tage testen på f.eks. en smartphone med touchscreen.")),  
                                         align="center")),
                                     button_text="Næste")
@@ -183,10 +167,8 @@ intro <- one_button_page(body = div(HTML("<img src='img/au_logo.png'></img> <img
 # DEVICE PAGE
 device <-dropdown_page(
   label = "device",
-  prompt = div(HTML("<br>"),
-               # p(strong("OBS: Du skal bruge en computer med tastatur og det er vigtigt, at du gennemfører lyttetesten i stille omgivelser og bruger hovedtelefoner.")),
-               # p(strong("Du kan altså IKKE tage testen på f.eks. en smartphone med touchscreen.")),
-               
+  prompt = div(HTML("<img src='img/au_logo.png'></img> <img src='img/mib_logo.png'></img>"),
+               HTML("<br>"),
                h2(strong("Test af dit udstyr")),
                p("For at beskytte dine ører, vil vi bede dig skrue næsten helt ned for lyden på din computer nu."),
                p("Hvilken type IT-udstyr bruger du til at tage testen?")),
@@ -200,7 +182,7 @@ device <-dropdown_page(
     if (answer=="Vælg")
       "Angiv venligst hvilken type udstyr du benytter."
     else if (answer=="") 
-      "Angiv venligst hvilken type udstyr du benytter. Hvis du ikke anvender et tastatur, kan du kun gennemføre den ene del af testen og du kan derfor ikke deltage i lodtrækningen."
+      "Angiv venligst hvilken type udstyr du benytter. Hvis du ikke anvender et tastatur, kan du ikke deltage i testen nu. Du er meget velkommen tilbage senere."
     else TRUE
   },
   on_complete = function(answer, state, ...) {
@@ -522,13 +504,15 @@ ollen <- NAFC_page(
 # EMAIL
 email <- c(text_input_page(
   label = "email_future_res",
-  prompt = div("(Frivilligt:) Indtast din e-mail-adresse her, hvis vi må kontakte dig med henblik på evt.",
-  p(strong("DELTAGELSE I FREMTIDIG FORSKNING:"))),
+  prompt = div(HTML("<img src='img/au_logo.png'></img> <img src='img/mib_logo.png'></img>"),
+               HTML("<br>"),
+               p("(Frivilligt:) Indtast din e-mail-adresse her, hvis vi må kontakte dig med henblik på evt."),
+               p(strong("DELTAGELSE I FREMTIDIG FORSKNING:"))),
   save_answer = T,
   button_text = "Næste",
   validate = function(answer, ...) {
         if (answer!=""&!grepl(".*@.*\\.",answer))
-          "Skriv venligst en gyldig e-mail-adresse."
+          "Skriv venligst en gyldig e-mail-adresse, eller lad feltet stå tomt."
     else TRUE
   },
   on_complete = function(answer, state, ...) {
@@ -537,14 +521,16 @@ email <- c(text_input_page(
   
   text_input_page(
     label = "email_prize",
-    prompt = div("(Frivilligt:) Når du har gennemført hele denne undersøgelse, har du mulighed for at",
+    prompt = div(HTML("<img src='img/au_logo.png'></img> <img src='img/mib_logo.png'></img>"),
+                 HTML("<br>"),
+                 p("(Frivilligt:) Når du har gennemført hele denne undersøgelse, har du mulighed for at"),
     p(strong("DELTAGE I LODTRÆKNINGEN om et gavekort på kr. 500,- til Ticketmaster.")),
     p("Indtast din e-mail-adresse her, hvis du vil deltage i lodtrækningen:")),
     save_answer = T,
     button_text = "Næste",
     validate = function(answer, ...) {
       if (answer!=""&!grepl(".*@.*\\.",answer))
-        "Skriv venligst en gyldig e-mail-adresse."
+        "Skriv venligst en gyldig e-mail-adresse, eller lad feltet stå tomt."
       else TRUE
     },
     on_complete = function(answer, state, ...) {
@@ -587,10 +573,7 @@ goodbye <- reactive_page(function(state, ...) {
                           p("Dit eget resultat bliver ikke vist, med mindre du selv skriver det i opslaget."),
                           HTML("<br>"),
                           HTML('<iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fmusicinthebrain.au.dk%2Fcontact%2Fhvor-musikalsk-er-du%2F&layout=button&size=large&width=77&height=28&appId" width="77" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>'),
-                          # HTML('<div id="fb-root"></div>'),
-                          # HTML('<div id="fb-root"></div><script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0"></script>'),
-                          # HTML('<div class="fb-share-button" data-href="https://cmb-onlinetest.au.dk/hvor_musikalsk_er_du/" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcmb-onlinetest.au.dk%2Fhvor_musikalsk_er_du%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>'),
-                          HTML('<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="Jeg har lige deltaget i dette online forskningsprojekt på Center for Music in the Brain. Hvor musikalsk er du?" data-url="https://cmb-onlinetest.au.dk/hvor_musikalsk_er_du" data-via="musicbrainAU" data-lang="da" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>'),
+                          HTML('<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="Jeg har lige deltaget i dette online forskningsprojekt på Center for Music in the Brain. Hvor musikalsk er du? " data-url="https://musicinthebrain.au.dk/contact/hvor-musikalsk-er-du/" data-via="musicbrainAU" data-lang="da" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>'),
                           p("............."),
                           HTML("<br>"),
                           p("Du kan nu lukke browser-vinduet.")))
@@ -610,7 +593,8 @@ calibration <- volume_calibration_page(url="https://media.gold-msi.org/test_mate
                                        p("............."),
                                        p("Hvis ikke du hører den lyd vi afspiller nu, så check dine indstillinger i browseren eller på computeren."),
                                        p("Du kan kun deltage i denne del af undersøgelsen, hvis din computer kan afspille lyden."),
-                                       p("I modsat fald er du desværre nødt til at stoppe her og lukke ned for dit browser-vindue.")))
+                                       p("I modsat fald er du desværre nødt til at stoppe her og lukke ned for dit browser-vindue."),
+                                       p("Kontakt evt. projektleder Cecilie Møller på cecilie@clin.au.dk, hvis du ønsker at forsøge igen.")))
                                        
 
 #######################
@@ -619,26 +603,9 @@ calibration <- volume_calibration_page(url="https://media.gold-msi.org/test_mate
 ui <- tags$div(
   head,
   includeScript("jspsych/run_jspsych.js"),
-  # includeScript("jspsych/run_fbshare.js"),
   tags$div(id = "js_psych", style = "min-height: 90vh")
-  # meta() %>%
-  #   meta_social(
-  #     # .meta=meta(),
-  #     title = "Test din reaktionstid",
-  #     description = "En test af reaktionstid og musikalitet",
-  #     url = "https://cmb-onlinetest.au.dk/hvor_musikalsk_er_du",
-  #     image = "https://garrickadenbuie.com/apple-touch-icon-114x114.png",
-  #     image_alt = "Test"
-  #   )
-  # # ... your UI ...
 )
 
-
-# ui <- tags$div(
-#   head,
-#   includeScript("jspsych/run_jspsych.js"),
-#   tags$div(id = "js_psych", style = "min-height: 90vh")
-# )
 
 elt_jspsych <- page(
   ui = ui,
@@ -661,7 +628,7 @@ mistuning <- mpt(num_items=15,
                                                             text_score = "I denne 'Mistuning Perception'- test kan man score fra -3 til +3. Din endelige score er:",
                                                             text_rank = "Din placering (tallet før skråstregen) i forhold til tidligere deltagere (tallet efter skråstregen):",
                                                             x_axis = "'Mistuning perception'-score for alle tidligere deltagere (din score er markeret med en rød linje)",
-                                                                     # "Hvis du har lyst, kan du downloade figuren her ved at føre musen henover og klikke på kameraet i menulinien over figuren.",
+                                                                     # "Hvis du har lyst, kan du downloade figuren her ved at føre musen henover grafen og klikke på kameraet i menulinien over grafen.",
                                                             y_axis = "Antal deltagere",
                                                             explain_IRT = FALSE),
                take_training = T)
@@ -676,35 +643,32 @@ mistuning <- mpt(num_items=15,
 experiment <- join(
    new_timeline(join(
    intro,                                                  # Intro page
-   # device,                                                 # Device page (laptop/PC w.internal/external keyboard)
+   device,                                                 # Device page (laptop/PC w.internal/external keyboard)
    elt_jsaudio,                                            # Audio test page (sound/no sound)
-   # welcome,                                                # Welcome page, incl. consent
-   elt_jspsych, #SLET DISSE TO LINIER
-   elt_save_results_to_disk(complete = TRUE),
-    # begin_module("Demographics"),                           # Begin Demographics module
-   # demographics,                                           # Demographics questions
-   # end_module(),                                           # End Demographics module
-   # elt_save_results_to_disk(complete = FALSE),             # Default save function
-   # begin_module("GMSI"),                                   # Begin GMSI module
-   # randomiser,                                             # Randomise GMSI questions
-   # show_items,                                             # Show GMSI questions
-   # instrument,                                             # Instrument input page
-   # ollen,                                                  # Ollen's MSI (brief)
-    email,                                                  # Email
-   # save_GMSI,                                              # Save GMSI data
-   # elt_save_results_to_disk(complete = FALSE),             # Default save function
-   # gmsi_feedback,                                          # GSMI last page with percentile feedback
-   # end_module(),                                           # End GMSI module
-    calibration                                            # Sound calibration page ,
+   welcome,                                                # Welcome page, incl. consent
+   begin_module("Demographics"),                           # Begin Demographics module
+   demographics,                                           # Demographics questions
+   end_module(),                                           # End Demographics module
+   elt_save_results_to_disk(complete = FALSE),             # Default save function
+   begin_module("GMSI"),                                   # Begin GMSI module
+   randomiser,                                             # Randomise GMSI questions
+   show_items,                                             # Show GMSI questions
+   instrument,                                             # Instrument input page
+   ollen,                                                  # Ollen's MSI (brief)
+   email,                                                  # Email
+   save_GMSI,                                              # Save GMSI data
+   elt_save_results_to_disk(complete = FALSE),             # Default save function
+   gmsi_feedback,                                          # GSMI last page with percentile feedback
+   end_module(),                                           # End GMSI module
+   calibration                                            # Sound calibration page ,
    ), default_lang="DA"),
-   # randomise_at_run_time("TestOrder_MPT_RT",
-   #                        list(c(begin_module("MPT"),mistuning,elt_save_results_to_disk(complete = TRUE),end_module()),
-   #                             c(begin_module("RT"),elt_jspsych,elt_save_results_to_disk(complete = TRUE),end_module()))),
-    new_timeline(join(
-    elt_save_results_to_disk(complete = TRUE),              # Default save function
+   randomise_at_run_time("TestOrder_MPT_RT",
+                          list(c(begin_module("MPT"),mistuning,elt_save_results_to_disk(complete = TRUE),end_module()),
+                               c(begin_module("RT"),elt_jspsych,elt_save_results_to_disk(complete = TRUE),end_module()))),
+   new_timeline(join(
+   elt_save_results_to_disk(complete = TRUE),              # Default save function
    goodbye
     ), default_lang = "DA")
-   
 )
 
 
@@ -713,7 +677,6 @@ experiment <- join(
 #########################
 
 make_test(experiment,opt=config)
-#make_test(c(elt_jsaudio, welcome, final_page(div(p("Tak for hjælpen"),p("Du kan nu lukke vinduet.")))), opt=config)
 
 #shiny::runApp(".")
 

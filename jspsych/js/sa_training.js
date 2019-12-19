@@ -99,17 +99,12 @@ var if_node_slow = {
     return jsPsych.data.get().last(1).values()[0].key_press === null;
   }
 }
-// DENNE VIRKER
-// var training_procedure = {
-//   timeline: [training_fixation, training, training_resp],
-//   timeline_variables: training_stimuli,
-//   repetitions: 2
-// }
+
 
 var training_procedure = {
   timeline: [training_fixation, if_node_wait, training, if_node_slow, training_resp],
   timeline_variables: training_stimuli,
-  repetitions: 2
+  repetitions: 8
 };
 
 timeline_sa.push(training_procedure);
